@@ -1,0 +1,99 @@
+/*
+*	Typeface helpers
+*/
+
+.t-primary {
+
+	font-family: mk-typography( face, primary );
+
+	&--regular {
+
+		font-weight: mk-typography( weight, primary );
+
+	}
+
+	&--bold {
+
+		font-weight: mk-typography( weight, primary--bold );
+
+	}
+
+}
+
+
+
+
+
+.s-swatch {
+
+	
+
+}
+
+
+
+
+// .t-secondary {
+
+// 	@if ( mk-typography( face, secondary ) ) {
+
+// 		font-family: mk-typography( face, secondary );
+
+// 		&--regular {
+
+// 			font-weight: mk-typography( weight, secondary );
+
+// 		}
+
+// 		&--bold {
+
+// 			font-weight: mk-typography( weight, secondary--bold );
+
+// 		}
+
+// 	}
+
+// }
+
+
+
+
+
+/*
+*	Colour helpers
+*/
+.v-colour {
+
+	@each $colour, $palette in __mk_get_global_palette_map() {
+
+		&--#{ $colour } {
+
+			color: mk-color( #{ $colour } );
+
+		}
+
+	}
+
+
+
+	&-bg {
+
+		@each $colour, $palette in __mk_get_global_palette_map() {
+
+			&--#{ $colour } {
+
+				background-color: mk-color( "#{ $colour }" );
+
+				@if ( lightness( mk-color( "#{ $colour }" ) )  <  70 ) {
+
+					color: $mk-color--white;
+
+				}
+
+			}
+
+		}
+
+	}
+
+}

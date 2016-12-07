@@ -1,0 +1,22 @@
+# Domain names to use for Vagrant
+#
+# The first name will be used as the machine's name, subsequent names will be
+# aliased in your hosts file and in nginx
+hosts:
+    - <%= projectInfo.projectName %>.local
+
+
+
+# Paths
+#
+# If transplanting Chassis into an existing project, you can set these manually.
+# These can be set to absolute paths, or relative paths.
+paths:
+    # Base directory for reference. Relative to the Chassis directory.
+    base: .
+
+    # Where WordPress lives. Relative to the base directory.
+    wp: wp
+
+    # Content directory. Relative to the base directory.
+    content: wp-content

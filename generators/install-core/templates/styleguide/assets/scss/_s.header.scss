@@ -1,0 +1,15 @@
+.s-header {
+
+	background-color: mk-color( grey-ui, light );
+
+	@include mk-media-query( "#{ $mk-styleguide-major-bp }" ) {
+		
+		height: 100%;
+		left: 0;
+		position: fixed;
+		top: 0;
+		width: $mk-styleguide-tab-size;
+
+	}
+
+}

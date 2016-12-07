@@ -1,0 +1,51 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Searchform Mini - Vars
+//
+// 	Setup the Searchform Mini component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+// ------------------------------------------------
+//	Setup vars and mixins
+// ------------------------------------------------
+$mk-component-searchform-mini-name:          searchform-mini !default;
+$mk-component-searchform-mini-selector:      mk-get-selector( $mk-component-searchform-mini-name, true, $mk-components-prefix );
+$mk-component-searchform-mini-config: ();
+$mk-component-searchform-mini-features: ();
+
+
+
+// Setup config mixin
+@mixin mk-add-searchform-mini-config( $name, $key, $value ) {
+
+	$mk-component-searchform-mini-config: mk-add-data( $mk-component-searchform-mini-config, $name, $key, $value ) !global;
+
+}
+
+// Setup feature mixin
+@mixin mk-add-searchform-mini-feature( $name, $key, $value ) {
+
+	$mk-component-searchform-mini-features: mk-add-data( $mk-component-searchform-mini-features, $name, $key, $value ) !global;
+
+}
+
+
+
+
+// ------------------------------------------------
+//	Setup defaults
+// ------------------------------------------------
+
+// Base
+@include mk-add-searchform-mini-config( featurename, key, value );

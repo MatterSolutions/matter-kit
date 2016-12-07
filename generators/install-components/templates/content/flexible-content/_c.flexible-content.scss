@@ -1,0 +1,42 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Component - Flexible content
+//
+// 	Styles related to each flexible content item and the base listing itself
+//
+// ---------------------------------------------------------------------------- */
+
+
+// ------------------------------------------------
+//	Setup vars
+// ------------------------------------------------
+$mk-component-flexible-content-name:          flexible-content !default;
+$mk-component-flexible-content-selector:      mk-get-selector( $mk-component-flexible-content-name, true, $mk-components-prefix );
+$mk-component-flexible-content-config: ();
+$mk-component-flexible-content-features: ();
+
+
+
+
+
+// ------------------------------------------------
+//	Output the flexible content styles
+// ------------------------------------------------
+#{ $mk-component-flexible-content-selector } {
+
+	&__body {
+
+		overflow: hidden; // Fixes an issue in Chrome where negative margins on listings prevent click interactions (z-index etc)
+
+	}
+
+}

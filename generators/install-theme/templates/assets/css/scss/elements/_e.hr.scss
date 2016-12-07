@@ -1,0 +1,33 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Elements - HR
+//
+// 	A better looking default horizontal rule
+//
+// ---------------------------------------------------------------------------- */
+
+hr {
+
+	border: none;
+	border-bottom: 1px solid mk-color( grey-ui );
+	margin-bottom: calc-em( mk-base-spacing-unit( base, false ) );
+	margin-top: calc-em( mk-base-spacing-unit( base, false ) );
+	outline: none;
+
+	@include mk-media-query( desk ) {
+
+		margin-bottom: calc-em( mk-base-spacing-unit( 1.5, false ) );
+		margin-top: calc-em( mk-base-spacing-unit( 1.5, false ) );
+
+	}
+
+}

@@ -1,0 +1,118 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Config - Colours
+//
+// 	This file sets up the colours for use throughout the project
+//
+// ---------------------------------------------------------------------------- */
+
+
+	// Don't use these vars, use the function mk-color( name ) to retrieve colours
+	$mk-config-colour--primary:         <%= styleguideInfo.ColourPrimary %>;
+	$mk-config-colour--secondary:       <%= styleguideInfo.ColourSecondary %>;
+	$mk-config-colour--tertiary:        <%= styleguideInfo.ColourTertiary %>;
+
+
+
+	
+	// ----------------------------------------------------
+	//  Colours - Primary
+	// ----------------------------------------------------
+	@include mk-add-color( primary, base, $mk-config-colour--primary );
+	@include mk-add-color( primary, dark, darken( mk-color( 'primary' ), 5 ) );
+	@include mk-add-color( primary, light, lighten( mk-color( 'primary' ), 5 ) );
+
+
+		// Wires
+		@include mk-theme( wires ) {
+
+			@include mk-add-color( primary, base, desaturate( $mk-config-colour--primary, 100 ) );
+			@include mk-add-color( primary, dark, darken( mk-color( 'primary' ), 5 ) );
+			@include mk-add-color( primary, light, lighten( mk-color( 'primary' ), 5 ) );
+
+		}
+		
+
+
+
+
+	// ----------------------------------------------------
+	//  Colours - Secondary
+	// ----------------------------------------------------
+	@include mk-add-color( secondary, base, $mk-config-colour--secondary );
+	@include mk-add-color( secondary, dark, darken( mk-color( 'secondary' ), 5 ) );
+	@include mk-add-color( secondary, light, lighten( mk-color( 'secondary' ), 5 ) );
+
+
+		// Wires
+		@include mk-theme( wires ) {
+
+			@include mk-add-color( secondary, base, desaturate( $mk-config-colour--secondary, 100 ) );
+			@include mk-add-color( secondary, dark, darken( mk-color( 'secondary' ), 5 ) );
+			@include mk-add-color( secondary, light, lighten( mk-color( 'secondary' ), 5 ) );
+
+		}
+
+
+
+	// ----------------------------------------------------
+	//  Colours - Tertiary
+	// ----------------------------------------------------
+	@include mk-add-color( tertiary, base, $mk-config-colour--secondary );
+	@include mk-add-color( tertiary, dark, darken( mk-color( 'tertiary' ), 5 ) );
+	@include mk-add-color( tertiary, light, lighten( mk-color( 'tertiary' ), 5 ) );
+
+
+		// Wires
+		@include mk-theme( wires ) {
+
+			@include mk-add-color( tertiary, base, desaturate( $mk-config-colour--tertiary, 100 ) );
+			@include mk-add-color( tertiary, dark, darken( mk-color( 'tertiary' ), 5 ) );
+			@include mk-add-color( tertiary, light, lighten( mk-color( 'tertiary' ), 5 ) );
+
+		}
+
+
+
+
+	// ----------------------------------------------------
+	//  Colours - UI elements
+	// ----------------------------------------------------
+
+	// UI
+	@include mk-add-color( ui, base, mk-color( 'grey-ui', base ) );
+	@include mk-add-color( ui, attention, mk-color( 'primary' ) );
+	@include mk-add-color( ui, positive, #067302 );
+	@include mk-add-color( ui, negative, #EA1F54 );
+	@include mk-add-color( ui, highlight, #e5554e );
+
+	
+
+
+
+	// ----------------------------------------------------
+	//  Colours - Project Elements
+	// ----------------------------------------------------
+
+	// Page
+	@include mk-add-element-color( page, background, $mk-color--white );
+	@include mk-add-element-color( page, color, $mk-color--oil );
+
+
+	// Tint
+	@include mk-add-element-color( tint, color, $mk-color--black );
+
+
+	// Links
+	@include mk-add-element-color( link, color, mk-color( primary ) );
+	@include mk-add-element-color( link--hover, color, mk-color( primary, light ) );
+	@include mk-add-element-color( link--visited, color, mk-color( primary, dark ) );

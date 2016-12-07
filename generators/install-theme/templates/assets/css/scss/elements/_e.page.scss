@@ -1,0 +1,62 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Elements - Page
+//
+// 	Our core page setup, colours, typeface and size
+//	By default, the font size and line heights are reduced on smaller screens
+//
+// ---------------------------------------------------------------------------- */
+
+html {
+
+	$base-size: ( mk-typography( 'size', 'base' ) * .85 );
+	$base-line-height: ( mk-base-spacing-unit( 'base', false ) * .85 );
+
+	background-color: mk-element-color( page, background );
+	color: mk-element-color( page, color );
+	font-family: mk-typography( face, primary );
+	font-size: 100%;
+	font-size: calc-em( $base-size, 16px );
+	line-height: calc-em( $base-line-height, $base-size );
+
+
+	@include mk-media-query( desk ) {
+
+		$base-size: ( mk-typography( 'size', 'base' ) * .9 );
+		$base-line-height: ( mk-base-spacing-unit( 'base', false ) * .9 );
+
+		font-size: calc-em( $base-size, 16px );
+		line-height: calc-em( $base-line-height, $base-size );
+
+	}
+
+
+	@include mk-media-query( wide ) {
+
+		$base-size: ( mk-typography( 'size', 'base' ) );
+		$base-line-height: ( mk-base-spacing-unit( 'base', false ) );
+
+		font-size: calc-em( $base-size, 16px );
+		line-height: calc-em( $base-line-height, $base-size );
+
+	}
+
+}
+
+
+	body {
+
+		-webkit-overflow-scrolling: touch;
+		overflow-x: hidden;
+		transition: all mk-misc-config( transition ) ease;
+
+	}

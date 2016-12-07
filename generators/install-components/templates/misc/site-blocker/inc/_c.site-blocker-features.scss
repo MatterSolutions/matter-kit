@@ -1,0 +1,39 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Site Blocker
+//
+// 	Setup the Site Blocker component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+
+
+// ------------------------------------------------
+//	Output component
+// ------------------------------------------------
+#{ $mk-component-site-blocker-selector } {
+
+	@extend .u-display--invisible;
+	@extend .u-pos--fill;
+	background-color: rgba( mk-get-data( $mk-component-site-blocker-config, background, color ), mk-get-data( $mk-component-site-blocker-config, background, opacity ) );
+	position: fixed;
+	transition: opacity mk-misc-config( transition, base ) ease;
+	z-index: 110;
+
+	#{ $mk-component-site-blocker-selector }--is-active & {
+
+		@extend .u-display--visible;
+
+	}
+
+}

@@ -1,0 +1,72 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Module - Btn / Buttons
+//
+// 	Create the buttons for the theme
+//
+// ---------------------------------------------------------------------------- */
+
+// Import the btn component
+@import 'inc/c.btn-vars';
+
+
+// Override vars
+@include mk-add-btn-config( border, size, mk-misc-config( border, size ) );
+@include mk-add-btn-config( padding, y, calc-em( mk-base-spacing-unit( .5, false ), mk-get-data( $mk-component-btn-config, font-size, base ) ) );
+
+
+// Import tools
+@import 'inc/c.btn-tools';
+
+
+
+// Begin outputting the component
+#{ $mk-component-btn-selector } {
+
+	@include mk-create-btn( standard, primary );
+	vertical-align: middle;
+
+
+	// Primary ghosted
+	&--primary-ghost {
+
+		@include mk-create-btn( ghost, primary );
+
+	}
+
+
+	// Secondary Button style
+	&--secondary {
+
+		@include mk-create-btn( standard, secondary );
+
+	}
+
+
+	// Fill
+	&--fill {
+
+		width: 100%;
+
+		&\@palm {
+
+			@include mk-media-query( false, palm-h ) {
+
+				width: 100%;
+
+			}
+
+		}
+
+	}
+
+}

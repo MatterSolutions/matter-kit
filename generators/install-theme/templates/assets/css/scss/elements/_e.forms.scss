@@ -1,0 +1,341 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Elements - Form fields
+//
+// 	Base styling for standard form elements
+//
+// ---------------------------------------------------------------------------- */
+
+
+
+$mk-form-border-radius: 			mk-misc-config( border, radius ) !default;
+$mk-form-border-style: 				mk-misc-config( border, style ) !default;
+$mk-form-border-width: 				mk-misc-config( border, size ) !default;
+$mk-form-font-weight: 				mk-typography( weight, primary ) !default;
+
+
+// Colours
+$mk-color-form-label:               mk-element-color( page, color );
+
+$mk-color-form-background:          $mk-color--white;
+$mk-color-form-background--hover:   $mk-color--white;
+$mk-color-form-background--focus:   $mk-color--white;
+
+$mk-color-form-text:                mk-element-color( page, color );
+$mk-color-form-placeholder:         rgba( mk-element-color( page, color ), .5 );
+
+$mk-color-form-border:              darken( mk-color( grey-ui ), 10 );
+$mk-color-form-border--hover:       darken( $mk-color-form-border, 10 );
+$mk-color-form-border--focus:       darken( $mk-color-form-border, 20 );
+
+
+
+
+$mk-form-input-padding-x: 			( mk-base-spacing-unit( small, false ) + mk-base-spacing-unit( tiny, false ) );
+$mk-form-input-padding-y: 			( mk-base-spacing-unit( tiny, false ) + mk-base-spacing-unit( nano, false ) );
+
+
+$mk-form-label-text-size: 			( mk-typography( size, base ) * .9 ) !default; // 16px if 18px base
+$mk-form-label-text-transform:		none !default;
+$mk-form-label-weight:	 			mk-typography( weight, primary--bold ) !default;
+
+$mk-form-input-text-size: 			mk-typography( size, base ) !default;
+
+
+
+
+
+fieldset {
+
+	background: transparent;
+	border: none;
+	padding: 0;
+
+}
+
+
+#{$all-text-inputs},
+label,
+select,
+textarea,
+.select2 .select2-selection {
+
+	display: block;
+
+}
+
+
+label {
+
+	color: $mk-color-form-label;
+	font-size: calc-rem( $mk-form-label-text-size );
+	font-weight: $mk-form-label-weight;
+	margin-bottom: calc-em( mk-base-spacing-unit( nano ) );
+	text-transform: $mk-form-label-text-transform;
+
+	abbr {
+
+		display: none;
+
+	}
+
+}
+
+
+
+
+button,
+input[type="submit"] {
+
+	font-family: inherit; // Force the standard typeface initially
+	-webkit-appearance: value; // Make iOS buttons behave
+	-moz-appearance: value;
+
+}
+
+
+
+
+
+
+
+/*
+*	Make consistent heights across text inputs (except textarea), based on the height of padding/line-height etc
+*/
+#{$all-text-inputs},
+select {
+
+	height: calc-em( ( ceil( ( $mk-form-input-padding-y * 2 ) + ( ( mk-typography( base, line-height ) / mk-typography( size, base ) ) * mk-typography( size, base ) ) ) ) );
+
+}
+
+
+/*
+*	Style form elements consistently
+*/
+textarea,
+#{$all-text-inputs},
+select {
+
+	@include transition( border-color );
+	background-color: $mk-color-form-background;
+	border-radius: $mk-form-border-radius;
+	border: $mk-form-border-width $mk-form-border-style $mk-color-form-border;
+	color: $mk-color-form-text;
+	font-family: inherit;
+	font-size: calc-rem( $mk-form-input-text-size );
+	font-weight: $mk-form-font-weight;
+	padding-bottom: calc-em( ( $mk-form-input-padding-y - ( $mk-form-border-width * 2 ) ) );
+	padding-left: calc-em( ( $mk-form-input-padding-x - ( $mk-form-border-width * 2 ) ) );
+	padding-right: calc-em( ( $mk-form-input-padding-x - ( $mk-form-border-width * 2 ) ) );
+	padding-top: calc-em( ( $mk-form-input-padding-y - ( $mk-form-border-width * 2 ) ) );
+	width: 100%;
+
+
+	&:hover {
+
+		background-color: $mk-color-form-background--hover;
+		border-color: $mk-color-form-border--hover;
+
+	}
+
+
+	&:focus {
+
+		background-color: $mk-color-form-background--focus;
+		border-color: $mk-color-form-border--focus;
+		box-shadow: none !important;
+		outline: none;
+
+	}
+
+}
+
+
+
+textarea {
+
+	height: calc-em( 165px );
+	resize: vertical;
+
+}
+
+
+
+input[type="search"] {
+
+	@include appearance( none );
+
+}
+
+
+
+input[type="file"] {
+
+	padding-bottom: calc-em( ( halve( mk-base-spacing-unit( base ) ) ) );
+	width: 100%;
+
+}
+
+
+
+
+/*
+*	Placeholders
+*/
+::-webkit-input-placeholder {
+
+	color: $mk-color-form-placeholder;
+	font-weight: $mk-form-font-weight;
+	opacity: 1;
+
+}
+
+::-moz-placeholder {
+
+	color: $mk-color-form-placeholder;
+	font-weight: $mk-form-font-weight;
+	opacity: 1;
+
+}
+
+:-ms-input-placeholder {
+
+	color: $mk-color-form-placeholder !important;
+	font-weight: $mk-form-font-weight;
+	opacity: 1;
+
+}
+
+
+
+
+
+
+
+/*
+*	Checkbox & Radio Buttons
+*/
+
+input[type="checkbox"],
+input[type="radio"] {
+
+	vertical-align: middle;
+	width: auto;
+
+	+ label {
+
+		display: inline;
+		vertical-align: middle;
+
+	}
+
+}
+
+
+
+
+
+/*
+*	Datepicker
+*/
+.ui-datepicker {
+
+	background-color: $mk-color--white;
+	border: $mk-form-border-width $mk-form-border-style $mk-color-form-border;
+
+	@include mk-media-query( lap ) {
+
+		width: 400px;
+
+	}
+
+
+	a {
+
+		text-decoration: none;
+
+	}
+
+
+	th {
+
+		text-align: left;
+
+	}
+
+
+	table {
+
+		width: 100%;
+
+	}
+
+
+	&-calendar {
+
+		padding: 0 mk-base-spacing-unit( base );
+
+	}
+
+
+	&-header {
+
+		position: relative;
+
+	}
+
+
+	&-next,
+	&-prev {
+
+		cursor: pointer;
+		margin-top: -( mk-base-spacing-unit( small ) );
+		position: absolute;
+		top: 50%;
+		z-index: 10;
+
+	}
+
+
+	&-next {
+
+		right: mk-base-spacing-unit( base );
+
+	}
+
+
+	&-prev {
+
+		left: mk-base-spacing-unit( base );
+
+	}
+
+
+	&-month,
+	&-year {
+
+		width: 40%;
+		display: inline-block;
+		margin: 0 5%;
+
+	}
+
+
+	&-title {
+
+		position: relative;
+		padding: 1em 4em;
+
+	}
+
+}

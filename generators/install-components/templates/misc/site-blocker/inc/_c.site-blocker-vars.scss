@@ -1,0 +1,39 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Site Blocker - Vars
+//
+// 	Setup the Site Blocker component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+// ------------------------------------------------
+//	Setup vars and mixins
+// ------------------------------------------------
+$mk-component-site-blocker-name:          site-blocker !default;
+$mk-component-site-blocker-selector:      mk-get-selector( $mk-component-site-blocker-name, true, $mk-components-prefix );
+$mk-component-site-blocker-config: ();
+$mk-component-site-blocker-features: ();
+
+
+
+// Setup config mixin
+@mixin mk-add-site-blocker-config( $name, $key, $value ) {
+
+	$mk-component-site-blocker-config: mk-add-data( $mk-component-site-blocker-config, $name, $key, $value ) !global;
+
+}
+
+
+// Alignment
+@include mk-add-site-blocker-config( background, color, mk-element-color( tint, color ) );
+@include mk-add-site-blocker-config( background, opacity, .9 );

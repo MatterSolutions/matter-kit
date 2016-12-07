@@ -1,0 +1,286 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \ 
+*                SOLUTIONS
+*
+*	=Gravity Forms
+*	Base styling for gravity forms output
+*
+ ---------------------------------------------------------- */
+
+.gform_button {
+
+	@extend button;
+	@extend .c-btn;
+
+}
+
+
+.gform_fields {
+
+	display: block;
+	margin-bottom: -( mk-base-spacing-unit( base ) ) !important;
+	margin-left: -( mk-base-spacing-unit( base ) );
+
+}
+
+
+.gform_footer {
+
+	margin-top: calc-rem( mk-grid-config( base, gutter ) );
+
+}
+
+
+.gfield {
+	
+	display: inline-block;
+	margin-bottom: mk-base-spacing-unit( base );
+	margin-right: -4px;
+	padding-left: mk-base-spacing-unit( base );
+	position: relative;
+	vertical-align: top;
+	width: 100%;
+
+}
+
+
+.gform_validation_container {
+
+	display: none;
+
+}
+
+
+.gfield_checkbox,
+.gfield_radio {
+
+	@extend .o-list--bare;
+	margin-bottom: 0;
+	margin-left: 0;
+
+}
+
+
+
+
+.validation_error,
+.validation_message {
+
+	color: mk-color( ui, negative );
+
+}
+
+
+.ginput_container + .validation_message {
+
+	margin-bottom: calc-em( mk-base-spacing-unit( small, false ) );
+	margin-top: calc-em( mk-base-spacing-unit( tiny, false ) );
+
+}
+
+
+.validation_error {
+
+	margin-bottom: calc-em( mk-base-spacing-unit( base, false ) );
+
+}
+
+
+// Remove invalid styles from IE and Firefox
+input:invalid {
+
+	box-shadow: none;
+	outline: none;
+
+}
+
+
+
+
+
+
+/*
+*	Create custom checkboxes and radio buttons
+*/
+
+.gfield_radio,
+.gfield_checkbox {
+
+	> li {
+
+		@extend %mk-checkbox-parent !optional;
+
+	}
+
+}
+
+
+
+.gfield_radio {
+
+	> li > input {
+
+		@extend %mk-radio-button !optional;
+
+	}
+
+}
+
+
+
+.gfield_checkbox {
+
+	> li > input {
+
+		@extend %mk-checkbox !optional;
+
+	}
+
+}
+
+
+.ginput_container_time {
+
+	@extend .g-one-third;
+	margin-right: -4px;
+	position: relative;
+
+	i {
+
+		font-style: normal;
+		position: absolute;
+		top: mk-base-spacing-unit( small );
+		left: 100%;
+		margin-left: ( mk-grid-config( base, gutter ) / 2 - mk-base-spacing-unit( nano, false ) );
+
+	}
+
+}
+
+
+/*
+*	Inline forms
+*/
+.form--inline {
+
+	form {
+
+		display: block;
+		margin-bottom: 0;
+		margin-left: -( mk-base-spacing-unit( base ) );
+		vertical-align: middle;
+
+	}
+
+
+	.gform_heading,
+	.gform_body,
+	.gform_footer,
+	.validation_error {
+
+		display: inline-block;
+		margin-right: -4px;
+		padding-left: mk-base-spacing-unit( base ) !important;
+		vertical-align: middle;
+
+	}
+
+
+
+	.validation_error,
+	.validation_message {
+
+		color: mk-palette( secondary );
+
+	}
+
+
+
+	.gform_heading {
+
+		margin-bottom: calc-rem( mk-base-spacing-unit( small, false ) );
+		width: 100%;
+
+		@include mk-media-query( desk ) {
+
+			width: col( 3 );
+
+		}
+
+	}
+
+
+
+	.gform_title {
+
+		margin-bottom: 0;
+
+	}
+
+
+
+	.gform_body {
+
+		width: 100%;
+
+		@include mk-media-query( lap ) {
+
+			width: col( 9 );
+
+		}
+
+		@include mk-media-query( desk ) {
+
+			width: col( 7 );
+
+		}
+
+	}
+
+
+	.gform_footer {
+
+		@include mk-media-query( lap ) {
+
+			width: col( 3 );
+			margin-top: 0;
+
+			.button {
+
+				// height: calc-rem( ( ceil( ( $mk-form-input-padding-y * 2 ) + ( ( $mk-base-line-height / $mk-base-font-size ) * $mk-base-font-size ) ) ) );
+				margin-bottom: 0;
+				padding-left: calc-rem( mk-base-spacing-unit( tiny, false ) );
+				padding-right: calc-rem( mk-base-spacing-unit( tiny, false ) );
+				width: 100%;
+
+			}
+
+		}
+
+		@include mk-media-query( desk ) {
+
+			width: col( 2 );
+
+		}
+
+	}
+
+}
+
+
+
+
+.u-hide-labels {
+
+	label {
+
+		@extend .u-sr;
+
+	}
+
+}

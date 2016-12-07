@@ -1,0 +1,26 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Config - Effects
+//
+// 	This file sets up the effect classes for use throughout the project
+//
+// ---------------------------------------------------------------------------- */
+
+
+	// Base
+	@include mk-add-effect( effect, base, true );
+
+
+	// Scale
+	@include mk-add-effect( scale, base, true );
+	@include mk-add-effect( scale, tiny, true );
+

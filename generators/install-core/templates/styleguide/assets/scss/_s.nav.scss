@@ -1,0 +1,32 @@
+.s-nav {
+
+	display: flex;
+	flex-wrap: nowrap;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+
+	@include mk-media-query( "#{ $mk-styleguide-major-bp }" ) {
+
+		flex-direction: column;
+
+	}
+
+
+	&__item {
+
+		flex-grow: 1;
+    	flex-basis: 0;
+
+	}
+
+
+	&__link {
+
+		display: block;
+		padding: mk-base-spacing-unit( small );
+
+	}
+
+}

@@ -1,0 +1,60 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Btn / Buttons - Vars
+//
+// 	Setup the button component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+// ------------------------------------------------
+//	Setup vars
+// ------------------------------------------------
+$mk-component-btn-name:          btn !default;
+$mk-component-btn-selector:      mk-get-selector( $mk-component-btn-name, true, $mk-components-prefix );
+
+
+// Setup defaults
+$mk-component-btn-config: ();
+
+
+// Setup config mixin
+@mixin mk-add-btn-config( $name, $key, $value ) {
+
+	$mk-component-btn-config: mk-add-data( $mk-component-btn-config, $name, $key, $value ) !global;
+
+}
+
+
+
+
+// ------------------------------------------------
+//	Setup defaults
+// ------------------------------------------------
+
+// Base
+@include mk-add-btn-config( font-size, base, mk-typography( size, small ) );
+
+
+// Padding
+@include mk-add-btn-config( padding, x, calc-em( mk-base-spacing-unit( base, false ), mk-get-data( $mk-component-btn-config, font-size, base ) ) );
+@include mk-add-btn-config( padding, y, calc-em( mk-base-spacing-unit( tiny, false ), mk-get-data( $mk-component-btn-config, font-size, base ) ) );
+
+
+// Border
+@include mk-add-btn-config( border, size, mk-misc-config( border, size ) );
+@include mk-add-btn-config( border, style, mk-misc-config( border, style ) );
+@include mk-add-btn-config( border, radius, mk-misc-config( border, radius ) );
+
+
+// Alignment
+@include mk-add-btn-config( text, align, center );

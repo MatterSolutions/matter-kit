@@ -1,0 +1,47 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS 
+// 
+//	=Main
+//
+// 	Main import file for the styleguide
+//	This pulls through the theme dependencies to ensure branding consistency
+//
+// ---------------------------------------------------------------------------- *
+
+$mk-global-theme: default !default;
+
+// Setup theme dependencies
+@import 'setup/setup.dependencies';
+@import 'setup/setup.objects';
+@import 'setup/setup.component-objects';
+@import 'setup/setup.elements';
+@import 'setup/setup.effects';
+
+
+// Project objects
+@import 'objects/obj.layout';
+
+
+// Import our components
+@import 'setup/gen.component-list';
+
+
+// Import vendor stuffs
+@import 'vendor/vendor.gravity-forms';
+@import 'vendor/vendor.magnific';
+@import 'vendor/vendor.wordpress';
+
+
+// Utilities
+@import 'setup/setup.utilities';
+
+
+// Output grid classes
+@include mk-generate-grid-widths();

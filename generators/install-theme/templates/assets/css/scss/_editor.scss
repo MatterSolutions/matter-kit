@@ -1,0 +1,29 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+//	=Editor
+//
+//	Displays styles for the WYSIWYG editor inside WordPress
+//
+// ---------------------------------------------------------------------------- *
+
+// Declare a theme, use mk-theme( editor ) to generate theme-specific styles
+$mk-global-theme: editor;
+
+
+// Setup theme dependencies
+@import 'setup/setup.dependencies';
+@import 'setup/setup.objects';
+@import 'setup/setup.elements';
+@import 'setup/setup.effects';
+
+
+// Vendor
+@import 'vendor/vendor.wordpress';

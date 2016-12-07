@@ -1,0 +1,67 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Component - Hero Morph
+//
+// 	A really versatile hero unit, with many modifiers
+//
+// ---------------------------------------------------------------------------- */
+
+
+// Import the component vars
+@import 'inc/c.hero-vars';
+
+
+// ------------------------------------------------
+//	Enable config and features
+// ------------------------------------------------
+
+// Config
+// @include mk-add-hero-config( bp, base, lap );
+
+
+// Features
+@include mk-add-hero-feature( wide, base, true );
+@include mk-add-hero-feature( tint, base, true );
+
+
+@include mk-add-hero-feature( tall, base, true );
+@include mk-add-hero-feature( auto, base, true );
+
+
+@include mk-add-hero-feature( bottom, base, true );
+@include mk-add-hero-feature( pull-up, base, true );
+@include mk-add-hero-feature( left, base, true );
+
+
+// Output the component 'features' we've enabled
+@import 'inc/c.hero-features';
+
+
+
+// Project specific styles
+#{ $mk-component-hero-selector } {
+
+	// Styles here
+	a {
+
+		color: inherit;
+
+		&:hover,
+		&:visited {
+
+			color: inherit;
+
+		}
+
+	}
+
+}

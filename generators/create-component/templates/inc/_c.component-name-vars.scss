@@ -1,0 +1,51 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - <%= componentInfo.componentName %> - Vars
+//
+// 	Setup the <%= componentInfo.componentName %> component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+// ------------------------------------------------
+//	Setup vars and mixins
+// ------------------------------------------------
+$mk-component-<%= componentInfo.componentSlug %>-name:          <%= componentInfo.componentSlug %> !default;
+$mk-component-<%= componentInfo.componentSlug %>-selector:      mk-get-selector( $mk-component-<%= componentInfo.componentSlug %>-name, true, $mk-components-prefix );
+$mk-component-<%= componentInfo.componentSlug %>-config: ();
+$mk-component-<%= componentInfo.componentSlug %>-features: ();
+
+
+
+// Setup config mixin
+@mixin mk-add-<%= componentInfo.componentSlug %>-config( $name, $key, $value ) {
+
+	$mk-component-<%= componentInfo.componentSlug %>-config: mk-add-data( $mk-component-<%= componentInfo.componentSlug %>-config, $name, $key, $value ) !global;
+
+}
+
+// Setup feature mixin
+@mixin mk-add-<%= componentInfo.componentSlug %>-feature( $name, $key, $value ) {
+
+	$mk-component-<%= componentInfo.componentSlug %>-features: mk-add-data( $mk-component-<%= componentInfo.componentSlug %>-features, $name, $key, $value ) !global;
+
+}
+
+
+
+
+// ------------------------------------------------
+//	Setup defaults
+// ------------------------------------------------
+
+// Base
+@include mk-add-<%= componentInfo.componentSlug %>-config( featurename, key, value );

@@ -1,0 +1,79 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Hero Morph - Vars
+//
+// 	Setup the Hero Morph component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+// ------------------------------------------------
+//	Setup vars and mixins
+// ------------------------------------------------
+$mk-component-hero-name:          hero !default;
+$mk-component-hero-selector:      mk-get-selector( $mk-component-hero-name, true, $mk-components-prefix );
+$mk-component-hero-config: ();
+$mk-component-hero-features: ();
+
+
+
+// Setup config mixin
+@mixin mk-add-hero-config( $name, $key, $value ) {
+
+	$mk-component-hero-config: mk-add-data( $mk-component-hero-config, $name, $key, $value ) !global;
+
+}
+
+// Setup feature mixin
+@mixin mk-add-hero-feature( $name, $key, $value ) {
+
+	$mk-component-hero-features: mk-add-data( $mk-component-hero-features, $name, $key, $value ) !global;
+
+}
+
+
+
+
+// ------------------------------------------------
+//	Setup defaults
+// ------------------------------------------------
+
+// Base
+@include mk-add-hero-config( bp, base, lap );
+@include mk-add-hero-config( bp, large, wide );
+
+
+@include mk-add-hero-config( padding, percentage, 7.5% );
+@include mk-add-hero-config( text, color, mk-element-color( tint, text ) );
+
+
+@include mk-add-hero-config( tint, color, mk-element-color( tint, color ) );
+@include mk-add-hero-config( tint, opacity, .1 );
+
+
+@include mk-add-hero-config( shadow, height, mk-base-spacing-unit( tiny ) );
+@include mk-add-hero-config( shadow, color, mk-element-color( tint, color ) );
+@include mk-add-hero-config( shadow, opacity, .1 );
+
+
+@include mk-add-hero-config( gradient, color-start, mk-color( primary ) );
+@include mk-add-hero-config( gradient, color-end, mk-color( secondary ) );
+@include mk-add-hero-config( gradient, opacity, .75 );
+
+
+@include mk-add-hero-config( fullscreen, offset, 120px );
+@include mk-add-hero-config( tall, height, mk-base-spacing-unit( 16 ) );
+@include mk-add-hero-config( base, height, mk-base-spacing-unit( 12 ) );
+
+
+@include mk-add-hero-config( petite, width, ( ( mk-grid-config( base, wrap-width ) / 3 ) * 2 ) );
+@include mk-add-hero-config( narrow, width, ( mk-grid-config( base, wrap-width ) / 2 ) );

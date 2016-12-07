@@ -1,0 +1,139 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Objects - Layout
+//
+// 	Extend the core layout object for our 'standard_content' flexible content
+//
+// ---------------------------------------------------------------------------- */
+
+
+
+$mk-layout-obj-selector--extended: mk-get-selector( $mk-obj-layout-name, true, $mk-obj-prefix );
+
+
+
+#{ $mk-layout-obj-selector--extended } {
+
+	// Halves
+	&--halves {
+
+		@extend .o-lyt--large !optional;
+
+		> li {
+
+			@include mk-media-query( desk ) {
+
+				width: 50%;
+
+			}
+
+		}
+
+	}
+
+
+	// Thirds
+	&--thirds {
+
+		> li {
+
+			@include mk-media-query( desk ) {
+
+				width: 33.333%;
+
+			}
+
+		}
+
+	}
+
+
+
+	// Sidebar Content
+	&--sidebar-content {
+
+		> li:first-of-type {
+
+			@include mk-media-query( lap ) {
+
+				width: 33.333%;
+
+			}
+
+			@include mk-media-query( desk ) {
+
+				width: 25%;
+
+			}
+
+		}
+
+		> li:last-of-type {
+
+			@include mk-media-query( lap ) {
+
+				width: 66.666%;
+
+			}
+
+			@include mk-media-query( lap ) {
+
+				width: 75%;
+				padding-right: col( 1 );
+
+			}
+
+		}
+
+	}
+
+
+
+	// Content Sidebar
+	&--content-sidebar {
+
+		> li:first-of-type {
+
+			@include mk-media-query( lap ) {
+
+				width: 66.666%;
+
+			}
+
+			@include mk-media-query( lap ) {
+
+				width: 75%;
+				padding-right: col( 1 );
+
+			}
+
+		}
+
+		> li:last-of-type {
+
+			@include mk-media-query( lap ) {
+
+				width: 33.333%;
+
+			}
+
+			@include mk-media-query( desk ) {
+
+				width: 25%;
+
+			}
+
+		}
+
+	}
+
+}

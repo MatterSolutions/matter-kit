@@ -1,0 +1,35 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Styleguide
+//
+// 	Main import file for the styleguide
+//
+// ---------------------------------------------------------------------------- *
+
+// Declare theme
+$mk-global-theme: styleguide;
+
+// Import our main site configuration
+@import 'setup/setup.dependencies';
+@import 'setup/setup.objects';
+@import 'setup/setup.elements';
+
+
+
+// Styleguide Vars
+$mk-styleguide-major-bp: desk !default;
+$mk-styleguide-tab-size: mk-base-spacing-unit( 'large' ) !default;
+
+
+
+// Import our styleguide setup styles
+@import '../../../_core/styleguide/assets/styleguide-setup';

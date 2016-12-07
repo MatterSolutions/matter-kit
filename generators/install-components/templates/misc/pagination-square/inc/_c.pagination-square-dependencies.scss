@@ -1,0 +1,21 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	=Components - Pagination Square - Dependencies
+*	Enable the css objects used within the Pagination Square
+*
+ ---------------------------------------------------------- */
+
+// Objects - Dependencies
+@include mk-add-object( 'list', 'bare' );
+@include mk-add-object( 'list', 'inline' );
+
+
+// Utility
+@include mk-add-utility( 'flush', 'bottom' );

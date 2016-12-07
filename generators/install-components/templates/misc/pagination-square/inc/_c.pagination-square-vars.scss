@@ -1,0 +1,65 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Pagination Square - Vars
+//
+// 	Setup the Pagination Square component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+// ------------------------------------------------
+//	Setup vars and mixins
+// ------------------------------------------------
+$mk-component-pagination-square-name:          pagination-square !default;
+$mk-component-pagination-square-selector:      mk-get-selector( $mk-component-pagination-square-name, true, $mk-components-prefix );
+$mk-component-pagination-square-config: ();
+$mk-component-pagination-square-features: ();
+
+
+
+// Setup config mixin
+@mixin mk-add-pagination-square-config( $name, $key, $value ) {
+
+	$mk-component-pagination-square-config: mk-add-data( $mk-component-pagination-square-config, $name, $key, $value ) !global;
+
+}
+
+// Setup feature mixin
+@mixin mk-add-pagination-square-feature( $name, $key, $value ) {
+
+	$mk-component-pagination-square-features: mk-add-data( $mk-component-pagination-square-features, $name, $key, $value ) !global;
+
+}
+
+
+
+
+// ------------------------------------------------
+//	Setup defaults
+// ------------------------------------------------
+
+// Base
+@include mk-add-pagination-square-config( border, width, mk-misc-config( 'border', 'width' ) );
+@include mk-add-pagination-square-config( border, color, mk-misc-config( 'border', 'color' ) );
+
+// Typography
+@include mk-add-pagination-square-config( font, size, mk-typography( size, large ) );
+
+// Link colours
+@include mk-add-pagination-square-config( color, link, mk-color( primary ) );
+@include mk-add-pagination-square-config( color, current, mk-color( secondary ) );
+
+// Sizes
+@include mk-add-pagination-square-config( size, height, ( mk-base-spacing-unit( base ) + mk-base-spacing-unit( small ) + mk-base-spacing-unit( tiny ) ) );
+@include mk-add-pagination-square-config( size, padding-x, mk-base-spacing-unit( small ) );
+@include mk-add-pagination-square-config( size, padding-y, mk-base-spacing-unit( small ) );
+@include mk-add-pagination-square-config( size, line-height, ( mk-base-spacing-unit( base ) + mk-base-spacing-unit( tiny ) ) );

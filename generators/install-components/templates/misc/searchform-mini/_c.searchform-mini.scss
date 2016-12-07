@@ -1,0 +1,87 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Component - Searchform Mini
+//
+// 	A compact search form
+//
+// ---------------------------------------------------------------------------- */
+
+
+// Import the component vars
+@import 'inc/c.searchform-mini-vars';
+
+
+// ------------------------------------------------
+//	Enable config and features
+// ------------------------------------------------
+// Config
+// @include mk-add-searchform-mini-config( configname, key, value );
+
+// Features
+// @include mk-add-searchform-mini-feature( featurename, key, value );
+
+
+
+// Output the component 'features' we've enabled
+// @import 'inc/c.searchform-mini-features';
+
+
+
+// Project specific styles
+#{ $mk-component-searchform-mini-selector } {
+
+	position: relative;
+	width: 100%;
+
+
+	&__input {
+
+		border: none;
+		height: mk-base-spacing-unit( 1.5 );
+		padding-left: mk-base-spacing-unit( small );
+		padding-right: mk-base-spacing-unit( large );
+
+		.error404 &,
+		.no-results & {
+
+			border: 1px solid mk-color( grey-ui, base );
+
+		}
+
+	}
+
+
+
+	&__submit {
+
+		height: 100%;
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY( -50% );
+
+	}
+
+
+
+	.c-btn {
+
+		background-color: transparent !important;
+		border-color: transparent !important;
+		color: mk-color( secondary ) !important;
+		height: inherit;
+		padding: 0;
+		width: mk-base-spacing-unit( 1.5 );
+
+	}
+
+}

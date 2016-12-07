@@ -1,0 +1,27 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Config - Misc
+//
+// 	This file sets up the misc config for use throughout the project
+//
+// ---------------------------------------------------------------------------- */
+
+	
+	// Borders
+	@include mk-add-misc-config( border, size, 1px );
+	@include mk-add-misc-config( border, color, mk-color( grey-ui, base ) );
+
+	// Transition
+	@include mk-add-misc-config( transition, base, .2s );
+
+	// column padding
+	@include mk-add-misc-config( padding, single-column, col( 1, 9 ) );

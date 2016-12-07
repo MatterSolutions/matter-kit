@@ -1,0 +1,33 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Pagination Square
+//
+// 	Setup the Pagination Square component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+
+// ------------------------------------------------
+//	Output component
+// ------------------------------------------------
+#{ $mk-component-pagination-square-selector } {
+	
+	ul.page-numbers {
+
+		@extend .o-list--bare;
+		@extend .o-list--inline;
+		@extend .u-flush--bottom;
+
+	}
+
+}

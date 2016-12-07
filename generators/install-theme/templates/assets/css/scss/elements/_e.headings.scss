@@ -1,0 +1,92 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Elements - Headings
+//
+// 	Standard heading sizes - h1 to h6
+//
+// ---------------------------------------------------------------------------- */
+
+
+$mk-heading-breakpoint: desk;
+
+
+%mk-heading {
+
+	color: inherit;
+	font-family: mk-typography( face, primary );
+	font-weight: mk-typography( weight, primary--bold );
+	line-height: 1;
+	margin-bottom: mk-base-spacing-unit( small );
+
+}
+
+
+
+// Begin outputting component
+h1 {
+
+	@extend %mk-heading;
+	font-size: calc-rem( calc-type-scale( 7 ) );
+
+	@include mk-media-query( "#{ $mk-heading-breakpoint }" ) {
+
+		font-size: calc-rem( calc-type-scale( 9 ) );
+
+	}
+
+}
+
+
+h2 {
+
+	@extend %mk-heading;
+	font-size: calc-rem( calc-type-scale( 6 ) );
+
+	@include mk-media-query( "#{ $mk-heading-breakpoint }" ) {
+
+		font-size: calc-rem( calc-type-scale( 7 ) );
+
+	}
+
+}
+
+
+h3 {
+
+	@extend %mk-heading;
+	font-size: calc-rem( calc-type-scale( 5 ) );
+
+}
+
+
+h4 {
+
+	@extend %mk-heading;
+	font-size: calc-rem( calc-type-scale( 3 ) );
+
+}
+
+
+h5 {
+
+	@extend %mk-heading;
+	font-size: calc-rem( calc-type-scale( 2 ) );
+
+}
+
+
+h6 {
+
+	@extend %mk-heading;
+	font-size: calc-rem( calc-type-scale( 1 ) );
+
+}

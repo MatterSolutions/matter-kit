@@ -1,0 +1,41 @@
+.s-colour-swatch {
+
+	&:after {
+
+		@extend .s-v-meta;
+		bottom: 0;
+		content: attr( data-hex-attr );
+		display: inline-block;
+		left: 0;
+		line-height: 1em;
+		padding: mk-base-spacing-unit( small );
+		position: absolute;
+		width: 100%;
+
+	}
+
+}
+
+
+
+.s-styletile {
+
+	&__colours {
+
+		@include mk-media-query( desk ) {
+
+			padding-right: col( 2 );
+
+		}
+
+	}
+
+
+
+	&__typeface-test {
+
+		letter-spacing: .4em;
+
+	}
+
+}

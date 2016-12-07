@@ -1,0 +1,67 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Masthead Vanilla - Vars
+//
+// 	Setup the Masthead Vanilla component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+// ------------------------------------------------
+//	Setup vars and mixins
+// ------------------------------------------------
+$mk-component-masthead-vanilla-name:          masthead !default;
+$mk-component-masthead-vanilla-selector:      mk-get-selector( $mk-component-masthead-vanilla-name, true, $mk-components-prefix );
+$mk-component-masthead-vanilla-config: ();
+$mk-component-masthead-vanilla-features: ();
+
+
+
+// Setup config mixin
+@mixin mk-add-masthead-vanilla-config( $name, $key, $value ) {
+
+	$mk-component-masthead-vanilla-config: mk-add-data( $mk-component-masthead-vanilla-config, $name, $key, $value ) !global;
+
+}
+
+
+
+
+// ------------------------------------------------
+//	Setup defaults
+// ------------------------------------------------
+
+// Base
+@include mk-add-masthead-vanilla-config( breakpoint, base, desk );
+
+
+// Primary Secondary
+@include mk-add-masthead-vanilla-config( primary, width, 20% );
+@include mk-add-masthead-vanilla-config( secondary, width, 80% );
+@include mk-add-masthead-vanilla-config( submenu, width, $mk-obj-nav-submenu-width );
+
+
+// Font size
+@include mk-add-masthead-vanilla-config( font, size, mk-typography( size, small ) );
+
+
+// Brand
+@include mk-add-masthead-vanilla-config( brand, base, true );
+@include mk-add-masthead-vanilla-config( brand, width, 120px );
+@include mk-add-masthead-vanilla-config( brand, height, 50px );
+
+@include mk-add-masthead-vanilla-config( brand, width--bp, 200px );
+@include mk-add-masthead-vanilla-config( brand, height--bp, 60px );
+
+
+// Btn menu items
+@include mk-add-masthead-vanilla-config( btn, base, false );

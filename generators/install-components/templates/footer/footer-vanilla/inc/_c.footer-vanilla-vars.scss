@@ -1,0 +1,51 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Footer Vanilla - Vars
+//
+// 	Setup the Footer Vanilla component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+// ------------------------------------------------
+//	Setup vars and mixins
+// ------------------------------------------------
+$mk-component-footer-vanilla-name:          footer-vanilla !default;
+$mk-component-footer-vanilla-selector:      mk-get-selector( $mk-component-footer-vanilla-name, true, $mk-components-prefix );
+$mk-component-footer-vanilla-config: ();
+$mk-component-footer-vanilla-features: ();
+
+
+
+// Setup config mixin
+@mixin mk-add-footer-vanilla-config( $name, $key, $value ) {
+
+	$mk-component-footer-vanilla-config: mk-add-data( $mk-component-footer-vanilla-config, $name, $key, $value ) !global;
+
+}
+
+// Setup feature mixin
+@mixin mk-add-footer-vanilla-feature( $name, $key, $value ) {
+
+	$mk-component-footer-vanilla-features: mk-add-data( $mk-component-footer-vanilla-features, $name, $key, $value ) !global;
+
+}
+
+
+
+
+// ------------------------------------------------
+//	Setup defaults
+// ------------------------------------------------
+
+// Base
+@include mk-add-footer-vanilla-config( featurename, key, value );

@@ -1,0 +1,101 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Config - Objects
+//
+// 	Define the objects for use throughout the project
+//
+// ---------------------------------------------------------------------------- */
+
+
+	// Band
+	@include mk-add-object( 'band', 'extend' );
+
+
+	// Tint
+	@include mk-add-object( 'tint', 'base' );
+
+	
+	// Layout Object
+	@include mk-add-object( 'lyt', 'base' );
+	@include mk-add-object( 'lyt', 'large' );
+	@include mk-add-object( 'lyt', 'flush' );
+	@include mk-add-object( 'lyt', 'small' );
+	@include mk-add-object( 'lyt', 'auto' );
+	@include mk-add-object( 'lyt', 'alternate' );
+	@include mk-add-object( 'lyt', 'reverse' );
+	@include mk-add-object( 'lyt', 'media' );
+	@include mk-add-object( 'lyt', 'middle' );
+
+
+
+
+	// Listing Object
+	@include mk-add-object( 'ltg', 'base' );
+	@include mk-add-object( 'ltg', 'large' );
+	@include mk-add-object( 'ltg', 'flush' );
+	@include mk-add-object( 'ltg', 'small' );
+
+
+
+
+	// Wrap Object
+	@include mk-add-object( 'wrap', 'base' );
+	@include mk-add-object( 'wrap', 'wide' );
+
+
+
+
+	// Band Object
+	@include mk-add-object( 'band', 'base' );
+	@include mk-add-object( 'band', 'large' );
+	@include mk-add-object( 'band', 'grey-ui' );
+	@include mk-add-object( 'band', 'primary' );
+	@include mk-add-object( 'band', 'secondary' );
+
+
+
+
+	// Ratio Object
+	@include mk-add-object( 'ratio', 'base' );
+	@include mk-add-object( 'ratio', 'square' );
+
+	@include mk-theme( styleguide ) {
+
+		@include mk-add-object( 'ratio', 'square' );
+
+	}
+
+
+	// Navigation Object
+	@include mk-add-object( 'nav', 'base' );
+	@include mk-add-object( 'nav', 'dropdown' );
+	@include mk-add-object( 'nav', 'horizontal' );
+	@include mk-add-object( 'nav', 'sliding-mobile' );
+	
+
+
+
+	// Icon Object
+	@include mk-add-object( 'icon', 'base' );
+	@include mk-add-object( 'icon', 'small' );
+	@include mk-add-object( 'icon', 'large' );
+	@include mk-add-object( 'icon', 'middle' );
+	@include mk-add-object( 'icon', 'before' );
+
+
+
+
+	// List Object
+	@include mk-add-object( 'list', 'base' );
+	@include mk-add-object( 'list', 'bare' );
+	@include mk-add-object( 'list', 'inline' );
+	@include mk-add-object( 'list', 'delimited' );

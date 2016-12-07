@@ -1,0 +1,23 @@
+%styleguide-typeface {
+
+	font-family: mk-typography( face, primary );
+	opacity: .5;
+
+}
+
+
+.s-v-meta {
+
+	@extend %styleguide-typeface;
+	font-size: calc-rem( mk-typography( size, small ) );
+	font-weight: mk-typography( weight, primary--bold );
+
+}
+
+
+.s-v-caption {
+
+	@extend %styleguide-typeface;
+	font-size: calc-rem( mk-typography( size, small ) );
+
+}

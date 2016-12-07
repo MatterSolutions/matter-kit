@@ -1,0 +1,79 @@
+/*
+*	WordPress menu items
+*/
+
+.menu-item {
+
+	@extend .o-nav__item !optional;
+	margin-right: -4px; // Offset whitespace gap
+
+	a {
+
+		@extend .o-nav__link !optional;
+
+	}
+
+}
+
+
+	.sub-menu {
+
+		@extend .o-nav__sub-menu !optional;
+
+	}
+
+
+
+/*
+*	Display navigation in the sidebar
+*/
+.o-nav--sidebar {
+
+	.menu-item a {
+
+		display: none;
+
+	}
+
+	// Display top level or ancestors, depending on our current location
+	.current-menu-ancestor .current-menu-ancestor a,
+	> .current-menu-item > a,
+	> .current-menu-item > ul > .menu-item > a,
+	> .current-menu-ancestor > ul > .current-menu-item a {
+
+		display: block; 
+
+	}
+
+}
+
+
+
+
+/*
+*	Display navigation in columns
+*/
+.o-nav--columned {
+
+	> .menu-item {
+
+		display: inline-block;
+		margin-right: -4px;
+		vertical-align: top;
+		width: 100%;
+
+		@include mk-media-query( palm-h ) {
+
+			width: 50%;
+
+		}
+
+		@include mk-media-query( desk ) {
+
+			width: 33.333%;
+
+		}
+
+	}
+
+}

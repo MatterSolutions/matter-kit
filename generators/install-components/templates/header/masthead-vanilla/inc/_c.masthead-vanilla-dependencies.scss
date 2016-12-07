@@ -1,0 +1,29 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Masthead Vanilla - Dependencies
+//
+// 	Setup the masthead vanilla component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+// Objects - Layout
+@include mk-add-object( 'layout', 'base' );
+@include mk-add-object( 'layout', 'flush' );
+@include mk-add-object( 'layout', 'middle' );
+
+// Objects - Wrap
+@include mk-add-object( 'wrap', 'base' );
+
+
+// Utilities
+@include mk-add-utility( 'center' );
+@include mk-add-utility( 'display', 'hide--desk' );

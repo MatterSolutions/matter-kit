@@ -1,0 +1,454 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Hero Morph
+//
+// 	Setup the Hero Morph component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+
+// ------------------------------------------------
+//	Output component
+// ------------------------------------------------
+#{ $mk-component-hero-selector } {
+
+	align-items: center;
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: ( mk-grid-config( base, wrap-width ) - ( mk-grid-config( base, page-gutter ) * 2 ) );
+	min-height: mk-get-data( $mk-component-hero-config, base, height );
+	position: relative;
+
+
+	&__body {
+
+		padding-bottom: mk-base-spacing-unit( large );
+		padding-top: mk-base-spacing-unit( large );
+		position: relative;
+		width: 100%;
+		z-index: 5;
+
+		@include mk-media-query( "#{ mk-get-data( $mk-component-hero-config, bp, large ) }" ) {
+
+			padding-bottom: mk-get-data( $mk-component-hero-config, padding, percentage );
+			padding-top: mk-get-data( $mk-component-hero-config, padding, percentage );
+
+		}
+
+	}
+
+
+	&__media {
+
+		@extend .u-pos--fill !optional;
+		@extend .u-bg--cover !optional;
+		@extend .u-bg--center !optional;
+		padding-bottom: 0;
+		content: "";
+		z-index: 1;
+
+		@include mk-theme( wires ) {
+
+			filter: grayscale( 1 );
+
+		}
+
+	}
+
+
+
+	// ------------------------------------------------
+	//	Component modifiers
+	// ------------------------------------------------
+
+	// Modifier
+	@if ( map-has-key( $mk-component-hero-features, pull-palm ) ) {
+
+		&--pull@palm {
+
+			
+
+		}
+
+	}
+
+
+
+
+	// Modifier
+	@if ( map-has-key( $mk-component-hero-features, wide ) ) {
+
+		&--wide {
+
+			max-width: none;
+
+		}
+
+	}
+
+
+
+
+	// Modifier
+	@if ( map-has-key( $mk-component-hero-features, extend ) ) {
+
+		&--extend {
+
+			max-width: ( mk-grid-config( base, wrap-width ) + ( ( mk-grid-config( base, wrap-width ) / mk-grid-config( base, columns ) ) * 2 ) );
+
+		}
+
+	}
+
+
+
+
+	// Top Shadow Modifier
+	@if ( map-has-key( $mk-component-hero-features, top-shadow ) ) {
+
+		&--top-shadow {
+
+			#{ $mk-component-hero-selector }__media {
+
+				&:before {
+
+					background-color: mk-get-data( $mk-component-hero-config, shadow, color );
+					content: "";
+					display: block;
+					height: mk-get-data( $mk-component-hero-config, shadow, height );
+					left: 0;
+					opacity: mk-get-data( $mk-component-hero-config, shadow, opacity );
+					position: absolute;
+					top: 0;
+					width: 100%;
+
+				}
+
+			}
+
+		}
+
+	}
+
+
+
+	// Bottom Shadow Modifier
+	@if ( map-has-key( $mk-component-hero-features, btm-shadow ) ) {
+
+		&--top-shadow {
+
+			#{ $mk-component-hero-selector }__media {
+
+				&:after {
+
+					background-color: mk-get-data( $mk-component-hero-config, shadow, color );
+					bottom: 0;
+					content: "";
+					display: block;
+					height: mk-get-data( $mk-component-hero-config, shadow, height );
+					left: 0;
+					opacity: mk-get-data( $mk-component-hero-config, shadow, opacity );
+					position: absolute;
+					width: 100%;
+
+				}
+
+			}
+
+		}
+
+	}
+
+
+
+
+	// Text Shadow Modifier
+	@if ( map-has-key( $mk-component-hero-features, text-shadow ) ) {
+
+		&--text-shadow {
+
+			text-shadow: 0  0  mk-base-spacing-unit( base )  rgba( mk-get-data( $mk-component-hero-config, shadow, color ), mk-get-data( $mk-component-hero-config, shadow, opacity ) );
+
+		}
+
+	}
+
+
+
+	// Petite Modifier
+	@if ( map-has-key( $mk-component-hero-features, petite ) ) {
+
+		&--petite {
+
+			#{ $mk-component-hero-selector }__content {
+
+				max-width: mk-get-data( $mk-component-hero-config, petite, width );
+
+			}
+
+		}
+
+	}
+
+
+
+
+	// Small Modifier
+	@if ( map-has-key( $mk-component-hero-features, small ) ) {
+
+		&--small {
+
+			#{ $mk-component-hero-selector }__content {
+
+				max-width: mk-get-data( $mk-component-hero-config, small, width );
+
+			}
+
+		}
+
+	}
+
+
+
+	// Left Align Modifier
+	@if ( map-has-key( $mk-component-hero-features, left ) ) {
+
+		&--left {
+
+			#{ $mk-component-hero-selector }__content {
+
+				margin-right: auto;
+
+			}
+
+		}
+
+	}
+
+
+
+
+	// Right Align Modifier
+	@if ( map-has-key( $mk-component-hero-features, right ) ) {
+
+		&--right {
+
+			#{ $mk-component-hero-selector }__content {
+
+				margin-left: auto;
+
+			}
+
+		}
+
+	}
+
+
+
+
+	// Center Align Modifier
+	@if ( map-has-key( $mk-component-hero-features, center ) ) {
+
+		&--center {
+
+			#{ $mk-component-hero-selector }__content {
+
+				margin-left: auto;
+				margin-right: auto;
+
+			}
+
+		}
+
+	}
+
+
+
+
+	// Middle Align Modifier
+	@if ( map-has-key( $mk-component-hero-features, center ) ) {
+
+		&--center {
+
+			#{ $mk-component-hero-selector }__content {
+
+				margin-left: auto;
+				margin-right: auto;
+
+			}
+
+		}
+
+	}
+
+
+
+
+	// Tint Modifier
+	@if ( map-has-key( $mk-component-hero-features, tint ) ) {
+
+		&--tint {
+
+			&:after {
+
+				@extend .u-pos--fill !optional;
+				background-color: mk-get-data( $mk-component-hero-config, tint, color );
+				content: "";
+				display: block;
+				opacity: mk-get-data( $mk-component-hero-config, tint, opacity );
+				z-index: 2;
+
+			}
+
+		}
+
+	}
+
+
+
+	// Pull UP Modifier
+	@if ( map-has-key( $mk-component-hero-features, pull-up ) ) {
+
+		&--pull-up {
+
+			margin-bottom: -( mk-base-spacing-unit() );
+
+			@include mk-media-query( "#{ mk-get-data( $mk-component-hero-config, bp, large ) }" ) {
+
+				margin-bottom: -( mk-get-data( $mk-component-hero-config, padding, percentage ) / 2 );
+
+			}
+
+		}
+
+	}
+
+
+
+
+	// Auto Height Modifier
+	@if ( map-has-key( $mk-component-hero-features, auto ) ) {
+
+		&--auto {
+
+			min-height: initial;
+
+		}
+
+	}
+
+
+
+
+	// Tall Modifier
+	@if ( map-has-key( $mk-component-hero-features, tall ) ) {
+
+		&--tall {
+
+			min-height: mk-get-data( $mk-component-hero-config, tall, height );
+
+		}
+
+	}
+
+
+
+
+	// Fullscreen Modifier
+	@if ( map-has-key( $mk-component-hero-features, fullscreen ) ) {
+
+		&--fullscreen {
+
+			min-height: calc( 100vh - #{ mk-get-data( $mk-component-hero-config, fullscreen, offset ) } );
+
+		}
+
+	}
+
+
+
+
+	// Middle Modifier
+	@if ( map-has-key( $mk-component-hero-features, middle ) ) {
+
+		&--middle {		
+
+			#{ $mk-component-hero-selector }__body {
+
+				display: flex;
+				align-items: center;
+
+			}
+
+		}
+
+	}
+
+
+
+
+	// Bottom Modifier
+	@if ( map-has-key( $mk-component-hero-features, bottom ) ) {
+
+		&--bottom {
+
+			#{ $mk-component-hero-selector }__body {
+
+				align-self: flex-end;
+
+			}
+
+		}
+
+	}
+
+
+
+
+	// Top Modifier
+	@if ( map-has-key( $mk-component-hero-features, top ) ) {
+
+		&--top {
+
+			#{ $mk-component-hero-selector }__body {
+
+				align-self: flex-start;
+
+			}
+
+		}
+
+	}
+
+
+	
+
+	// Gradient Modifier
+	@if ( map-has-key( $mk-component-hero-features, gradient ) ) {
+
+		&--gradient {
+
+			&:after {
+
+				background: mk-get-data( $mk-component-hero-config, gradient, color-start );
+				background: linear-gradient( 135deg, mk-get-data( $mk-component-hero-config, gradient, color-start ) 0%, mk-get-data( $mk-component-hero-config, gradient, color-end ) 100%); 
+				opacity: mk-get-data( $mk-component-hero-config, gradient, opacity );
+
+			}
+
+		}
+
+	}
+
+}

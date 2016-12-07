@@ -1,0 +1,125 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Menu Icon
+//
+// 	A fancy hamburger
+//
+// ---------------------------------------------------------------------------- */
+
+
+/*
+*	Placeholder for the menu icon bars to inherit from
+*/
+%mk-component-menu-icon--bar {
+
+	background-color: mk-get-data( $mk-component-menu-icon-config, color, base );
+	border-radius: mk-get-data( $mk-component-menu-icon-config, border, radius );
+	display: block;
+	height: mk-get-data( $mk-component-menu-icon-config, border, size );
+	width: mk-get-data( $mk-component-menu-icon-config, size, width );
+
+}
+
+
+
+
+
+// ------------------------------------------------
+//	Create a placeholder selector for the base menu-icon component styles
+// ------------------------------------------------
+
+#{ $mk-component-menu-icon-selector } {
+
+	@if ( map-has-key( $mk-component-menu-icon-features, standard ) ) {
+
+		&--standard {
+
+			#{ $mk-component-menu-icon-selector }__bars {
+
+				// Main center bar
+				@extend %mk-component-menu-icon--bar;
+				position: relative;
+				transition: background-color mk-get-data( $mk-component-menu-icon-config, transition, time ) ease mk-get-data( $mk-component-menu-icon-config, transition, delay );
+				
+
+				// Top and bottom bars
+				&:after,
+				&:before {
+
+					@extend %mk-component-menu-icon--bar;
+					content: "";
+					position: absolute;
+					transform-origin: center  center;
+					transform: rotate( 0 );
+	  				transition: top mk-get-data( $mk-component-menu-icon-config, transition, time ) ease mk-get-data( $mk-component-menu-icon-config, transition, delay ), transform mk-get-data( $mk-component-menu-icon-config, transition, time ) ease 0s; 
+
+				}
+
+
+				// Top bar
+				&:before {
+
+					top: -( mk-get-data( $mk-component-menu-icon-config, size, spacing ) );
+
+				}
+
+
+				// Bottom bar
+				&:after {
+
+					top: ( mk-get-data( $mk-component-menu-icon-config, size, spacing ) );
+
+				}
+
+
+
+				/*
+				*	Transitioned state
+				*/
+				.c-menu-icon--is-active & {
+
+					// Main center bar
+					background-color: transparent;
+
+					&:before,
+					&:after {
+
+						top: 0;
+						transition-delay: 0s, mk-get-data( $mk-component-menu-icon-config, transition, delay );
+
+					}
+
+
+					// Top bar
+					&:before {
+
+						transform: rotate( 45deg );
+
+					}
+
+
+					// Bottom bar
+					&:after {
+
+						transform: rotate( -45deg );
+
+					}
+
+				}
+
+			}
+
+		}// end bars
+
+	} // end if
+
+}

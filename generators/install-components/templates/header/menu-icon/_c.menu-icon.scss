@@ -1,0 +1,43 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Menu Icon
+//
+// 	A fancy hamburger
+//
+// ---------------------------------------------------------------------------- *
+
+
+// Import the menu icon component
+@import 'inc/c.menu-icon-vars';
+
+
+// ------------------------------------------------
+//	Enable features
+// ------------------------------------------------
+@include mk-add-menu-icon-feature( standard, base, true );
+@include mk-add-menu-icon-config( border, size, 2px );
+@include mk-add-menu-icon-config( size, spacing, ( 2px + mk-get-data( $mk-component-menu-icon-config, border, size ) ) );
+@include mk-add-menu-icon-config( color, base, mk-color( primary ) );
+
+
+
+// Output the component 'features' we've enabled
+@import 'inc/c.menu-icon-features';
+
+
+
+// Add project specific menu icon changes here
+#{ $mk-component-menu-icon-selector } {
+
+	// menu icon
+
+}

@@ -1,0 +1,43 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Config - Typography
+//
+// 	This file sets up the typography for use throughout the project
+//
+// ---------------------------------------------------------------------------- */
+
+
+	$mk-base-typeface: "<%= styleguideInfo.TypefacePrimaryStack %>";
+
+
+	// Project base
+	@include mk-add-typography( base, line-height, <%= styleguideInfo.TypefaceBaseLineHeight %> );
+	@include mk-add-typography( base, typeface, $mk-base-typeface );
+
+
+	// Type Scale
+	@include mk-add-typography( base, type-scale, <%= styleguideInfo.TypefaceBaseTypeScale %> );
+
+
+	// Project typography sizes
+	@include mk-add-typography( size, base, <%= styleguideInfo.TypefaceBaseFontSize %> );
+	@include mk-add-typography( size, small, calc-type-scale( -1 ) );
+	@include mk-add-typography( size, large, calc-type-scale( 1 ) );
+
+
+	// Project typography typefaces
+	@include mk-add-typography( face, primary, $mk-base-typeface );
+
+
+	// Project typography weights
+	@include mk-add-typography( weight, primary, 400 );
+	@include mk-add-typography( weight, primary--bold, 700 );

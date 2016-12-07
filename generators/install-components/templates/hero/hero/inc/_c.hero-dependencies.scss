@@ -1,0 +1,32 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	=Components - Hero Morph - Dependencies
+*	Enable the css objects used within the Hero Morph
+*
+ ---------------------------------------------------------- */
+
+// Objects - Dependencies
+@include mk-add-object( 'wrap', 'base' );
+
+
+// Utility
+@include mk-add-utility( 'pos' );
+@include mk-add-utility( 'pos', 'fill' );
+
+
+@include mk-add-utility( 'bg' );
+@include mk-add-utility( 'bg', 'cover' );
+@include mk-add-utility( 'bg', 'center' );
+@include mk-add-utility( 'bg', 'secondary-base' );
+
+
+@include mk-add-utility( 'text' );
+@include mk-add-utility( 'text', 'center' );
+@include mk-add-utility( 'text', 'grey-ui-white-ui' );

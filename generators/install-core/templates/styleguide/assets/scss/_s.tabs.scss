@@ -1,0 +1,25 @@
+.s-tab {
+
+	transition: all mk-get-misc-config( 'transition', 'base' ) ease;
+	display: none;
+
+	@include mk-media-query( "#{ $mk-styleguide-major-bp }" ) {
+
+		display: none;
+		padding-left: $mk-styleguide-tab-size;
+		width: 100%;
+
+	}
+
+
+	&--is-active,
+	&#s-tab--home:target,
+	&#s-tab--colours:target,
+	&#s-tab--typography:target
+	&#s-tab--components:target {
+
+		display: block !important;
+
+	}
+
+}

@@ -1,0 +1,30 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Setup - Dependencies
+//
+// 	Import the main framework files and setup our project config
+//
+// ---------------------------------------------------------------------------- */
+
+// Import the main kit files
+@import '../../../../bower_components/matter-kit-css/matter-kit';
+
+
+// Config files
+@import '../config/config.colors';
+@import '../config/config.typography';
+@import '../config/config.grid';
+@import '../config/config.misc';
+
+
+// Reset
+@import '../../../../bower_components/matter-kit-css/matter-kit-css-reset';

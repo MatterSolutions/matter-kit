@@ -1,0 +1,78 @@
+.s-dock {
+
+	position: relative;
+
+
+	&__item {
+
+		@include mk-media-query( "#{ $mk-styleguide-major-bp }" ) {
+
+			position: absolute;
+
+		}
+
+	}
+
+
+
+	&--top {
+
+		.s-dock__item {
+
+			top: 0;
+			margin-top: -( mk-base-spacing-unit( base ) );
+
+		}
+
+	}
+
+
+
+	&--top-100 {
+
+		.s-dock__item {
+
+			top: 100%;
+			margin-top: -( mk-base-spacing-unit( base ) );
+
+		}
+
+	}
+
+
+
+	&--bottom {
+
+		.s-dock__item {
+
+			bottom: 0;
+
+		}
+
+	}
+
+
+
+	&--right {
+
+		.s-dock__item {
+
+			right: 0;
+
+		}
+
+	}
+
+
+
+	&--offset-right {
+
+		@include mk-media-query( desk ) {
+
+			padding-right: ( $styletile-circle-size - mk-base-spacing-unit( base ) );
+
+		}
+
+	}
+
+}

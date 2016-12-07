@@ -1,0 +1,176 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Masthead Vanilla - Dependencies
+//
+// 	Setup the masthead vanilla component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+
+// ------------------------------------------------
+//	Create a selector for the base masthead component styles
+// ------------------------------------------------
+
+#{ $mk-component-masthead-vanilla-selector } {
+
+
+	&__body {
+
+		position: relative;
+
+	}
+
+	
+
+	// "Mobile"
+	@include mk-media-query( false, "#{ mk-get-data( $mk-component-masthead-vanilla-config, breakpoint, base ) }" ) {
+
+
+		&__primary {
+
+			vertical-align: top;
+
+			> ul {
+
+				text-align: center;
+
+			}
+
+		}
+
+
+
+		&__secondary {
+
+			height: 100%;
+			overflow: auto;
+			overflow-x: hidden;
+			position: absolute;
+			right: 100%;
+			top: 0;
+			width: mk-get-data( $mk-component-masthead-vanilla-config, submenu, width );
+
+		}
+
+
+		// Brand
+		@if ( mk-get-data( $mk-component-masthead-vanilla-config, brand, base ) ) {
+
+			&__brand {
+
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				padding-left: 0;
+
+				.brand {
+
+					display: block;
+					margin: inherit;
+					max-width: calc-rem( mk-get-data( $mk-component-masthead-vanilla-config, brand, width ) );
+
+				}
+
+				img {
+
+					height: calc-rem( mk-get-data( $mk-component-masthead-vanilla-config, brand, height ) );
+					width: auto;
+
+				}
+
+			}
+
+		}
+
+
+			&__toggle {
+
+				position: absolute;
+				top: 0;
+
+			}
+
+
+		&--is-open {
+
+			position: fixed;
+			top: 0;
+			height: 100%;
+			width: 100%;
+
+		}
+
+
+	}
+
+
+	// "Desktop"
+	@include mk-media-query( "#{ mk-get-data( $mk-component-masthead-vanilla-config, breakpoint, base ) }" ) {
+
+
+		&__primary,
+		&__secondary {
+
+			> li {
+
+				display: inline-block;
+
+			} 
+
+		}
+
+
+		&__primary {
+
+			width: mk-get-data( $mk-component-masthead-vanilla-config, primary, width );
+
+		}
+
+
+		&__secondary {
+
+			text-align: right;
+			width: mk-get-data( $mk-component-masthead-vanilla-config, secondary, width );
+
+		}
+
+
+		&__toggles {
+
+			display: none;
+
+		}
+
+
+
+		// Brand
+		@if ( mk-get-data( $mk-component-masthead-vanilla-config, brand, base ) ) {
+
+			&__brand {
+
+				img {
+
+					height: auto;
+					max-height: mk-get-data( $mk-component-masthead-vanilla-config, brand, height--bp );
+					max-width: mk-get-data( $mk-component-masthead-vanilla-config, brand, width--bp );
+					width: 100%;
+
+				}
+
+			}
+
+		}
+
+	}
+
+}

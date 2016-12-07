@@ -1,0 +1,79 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Elements - Table
+//
+// 	Basic table styling
+//
+// ---------------------------------------------------------------------------- */
+
+table {
+
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+
+}
+
+
+
+th {
+
+	background-color: mk-color( secondary );
+
+}
+
+
+
+
+thead {
+
+	color: $mk-color--white;
+
+}
+
+
+
+
+td,
+th {
+
+	padding: mk-base-spacing-unit( tiny )  mk-base-spacing-unit( small );
+
+}
+
+
+
+
+tbody tr {
+
+	&:hover {
+
+		background-color: mk-color( grey-ui );
+
+	}
+
+}
+
+
+
+
+td {
+
+	border-bottom: 1px solid mk-color( grey-ui );
+
+	@include mk-theme( id ) {
+
+		border-bottom: 1px dotted mk-color( grey-ui );
+
+	}
+
+}

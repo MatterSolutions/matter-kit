@@ -1,0 +1,70 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Menu Icon
+//
+// 	A fancy hamburger
+//
+// ---------------------------------------------------------------------------- */
+
+
+// ------------------------------------------------
+//	Setup vars
+// ------------------------------------------------
+$mk-component-menu-icon-name:          menu-icon !default;
+$mk-component-menu-icon-selector:      mk-get-selector( $mk-component-menu-icon-name, true, $mk-components-prefix );
+
+
+// Setup defaults
+$mk-component-menu-icon-config: ();
+$mk-component-menu-icon-features: ();
+
+
+// Setup config mixin
+@mixin mk-add-menu-icon-config( $name, $key, $value ) {
+
+	$mk-component-menu-icon-config: mk-add-data( $mk-component-menu-icon-config, $name, $key, $value ) !global;
+
+}
+
+
+// Setup features mixin
+@mixin mk-add-menu-icon-feature( $name, $key, $value ) {
+
+	$mk-component-menu-icon-features: mk-add-data( $mk-component-menu-icon-features, $name, $key, $value ) !global;
+
+}
+
+
+
+
+// ------------------------------------------------
+//	Setup defaults
+// ------------------------------------------------
+
+// Base
+@include mk-add-menu-icon-config( font-size, base, mk-typography( size, small ) );
+
+// Border
+@include mk-add-menu-icon-config( border, size, mk-misc-config( border, size ) );
+@include mk-add-menu-icon-config( border, style, mk-misc-config( border, style ) );
+@include mk-add-menu-icon-config( border, radius, mk-misc-config( border, radius ) );
+
+// Size
+@include mk-add-menu-icon-config( size, width, 16px );
+@include mk-add-menu-icon-config( size, spacing, ( 2px + mk-get-data( $mk-component-menu-icon-config, border, size ) ) );
+
+// Colour
+@include mk-add-menu-icon-config( color, base, mk-element-color( link, color ) );
+
+// Transition
+@include mk-add-menu-icon-config( transition, delay, mk-misc-config( transition, base ) );
+@include mk-add-menu-icon-config( transition, time, mk-misc-config( transition, base ) );

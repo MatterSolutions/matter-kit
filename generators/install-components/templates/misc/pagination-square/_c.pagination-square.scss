@@ -1,0 +1,74 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Component - Pagination Square
+//
+// 	Square pagination
+//
+// ---------------------------------------------------------------------------- */
+
+
+// Import the component vars
+@import 'inc/c.pagination-square-vars';
+
+
+// ------------------------------------------------
+//	Enable config and features
+// ------------------------------------------------
+
+
+
+// Project specific styles
+#{ $mk-component-pagination-square-selector } {
+
+	padding-bottom: mk-base-spacing-unit( base );
+	text-align: center;
+
+
+	li > .page-numbers {
+
+		border: mk-get-data( $mk-component-pagination-square-config, border, width ) solid transparent;
+		display: inline-block;
+		font-size: mk-get-data( $mk-component-pagination-square-config, font, size );
+		height: mk-get-data( $mk-component-pagination-square-config, size, height );
+		line-height: mk-get-data( $mk-component-pagination-square-config, size, line-height );
+		padding: mk-get-data( $mk-component-pagination-square-config, size, padding-y )  mk-get-data( $mk-component-pagination-square-config, size, padding-x );
+		text-align: center;
+
+	}
+
+
+	a {
+
+		color: mk-get-data( $mk-component-pagination-square-config, color, link ) !important;
+		text-decoration: none;
+
+	}
+
+
+	.current {
+
+		border-color: mk-get-data( $mk-component-pagination-square-config, color, current ) !important;
+		color: mk-get-data( $mk-component-pagination-square-config, color, current );
+		padding: mk-base-spacing-unit( tiny )  0 !important;
+		width: mk-get-data( $mk-component-pagination-square-config, size, height );
+
+	}
+
+
+	.next,
+	.prev {
+
+		display: none !important;
+
+	}
+
+}

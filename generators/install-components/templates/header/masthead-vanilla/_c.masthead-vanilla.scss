@@ -1,0 +1,604 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Component - Masthead Vanilla
+//
+// 	A very basic masthead
+//
+// ---------------------------------------------------------------------------- */
+
+
+// Import the btn component
+$mk-obj-nav-submenu-width: 270px;
+@import 'inc/c.masthead-vanilla-vars';
+
+
+
+// ------------------------------------------------
+//	Setup our config
+// ------------------------------------------------
+@include mk-add-masthead-vanilla-config( brand, height, 50px );
+@include mk-add-masthead-vanilla-config( brand, width, 147px );
+
+@include mk-add-masthead-vanilla-config( brand, height--bp, 87px );
+@include mk-add-masthead-vanilla-config( brand, width--bp, 200px );
+
+@include mk-add-masthead-vanilla-config( primary, width, 20% );
+@include mk-add-masthead-vanilla-config( secondary, width, 80% );
+
+
+
+
+// Output the component 'features' we've enabled
+@import 'inc/c.masthead-vanilla-features';
+
+
+
+
+// Local styling vars
+$mk-c-masthead-vanilla-link--padding-y-mobile: 			 mk-base-spacing-unit( .375, false );
+$mk-c-masthead-vanilla-link--padding-y: 			     ( mk-base-spacing-unit( tiny, false ) ) + ( mk-get-data( $mk-component-masthead-vanilla-config, brand, height ) / 2 ); // Relative height of the brand, plus additional padding
+$mk-c-masthead-vanilla-link--padding-x: 			     mk-base-spacing-unit( .65, false );
+
+
+// Height
+$mk-c-masthead-vanilla-header-padding-y:                 mk-base-spacing-unit( small, false );
+$mk-c-masthead-vanilla-header-padding-y--mobile:         mk-base-spacing-unit( nano, false );
+$mk-c-masthead-vanilla-header-height--mobile:            ( ( $mk-c-masthead-vanilla-header-padding-y--mobile * 2 ) + mk-get-data( $mk-component-masthead-vanilla-config, brand, height ) );
+
+
+// BG
+$mk-c-masthead-vanilla-secondary-bg-color--mobile:       mk-color( grey-ui, light );
+
+
+
+// ------------------------------------------------
+//	Visual styles for this local project
+// ------------------------------------------------
+
+// Styling for ALL masthead menu links
+%mk-masthead-vanilla-menu-link {
+
+	color: inherit;
+	display: block;
+	padding: mk-base-spacing-unit( tiny )  calc-rem( $mk-c-masthead-vanilla-link--padding-x );
+
+	// Mobile
+	@include mk-media-query( false, "#{ mk-get-data( $mk-component-masthead-vanilla-config, breakpoint, base ) }" ) {
+
+		background-color: mk-element-color( page, background );
+		margin-bottom: mk-misc-config( border, size );
+		padding: calc-rem( $mk-c-masthead-vanilla-link--padding-y-mobile )  calc-rem( $mk-c-masthead-vanilla-link--padding-x );
+
+	}
+
+}
+
+
+	// Hover colour - top level and subnavs
+	%mk-masthead-vanilla-top-level-link--hover,
+	%mk-masthead-vanilla-submenu--hover {
+
+		// background-color: mk-color( grey-ui, light );
+		color: mk-element-color( link, color );
+
+	}
+
+
+
+	// Active menu items, default and TOP level
+	%mk-masthead-vanilla-menu-link--active,
+	%mk-masthead-vanilla-top-level-link--active {
+	
+		background-color: mk-element-color( page, background );
+		color: mk-element-color( link--hover, color );
+
+	}
+
+
+
+// Add extra visual styles here
+%mk-masthead-vanilla-top-level-link {
+
+	display: block;
+	font-weight: mk-typography( weight, primary--bold );
+	padding: calc-rem( $mk-c-masthead-vanilla-link--padding-y-mobile )  calc-rem( $mk-c-masthead-vanilla-link--padding-x );
+	text-transform: uppercase;
+
+	// Desktop styles
+	@include mk-media-query( "#{ mk-get-data( $mk-component-masthead-vanilla-config, breakpoint, base ) }" ) {
+
+		display: inline-block;
+		padding: calc-rem( $mk-c-masthead-vanilla-link--padding-y + $mk-c-masthead-vanilla-header-padding-y )   calc-rem( $mk-c-masthead-vanilla-link--padding-x );
+
+		@include mk-theme( id ) {
+
+			padding: calc-rem( $mk-c-masthead-vanilla-link--padding-y * .8 )   calc-rem( $mk-c-masthead-vanilla-link--padding-x );
+
+		}
+
+	}
+
+	// // Wide styles
+	// @include mk-media-query( wide ) {
+
+	// 	padding-left: calc-rem( $mk-c-masthead-vanilla-link--padding-x * 1.15 );
+	// 	padding-right: calc-rem( $mk-c-masthead-vanilla-link--padding-x * 1.15 );
+
+	// }
+
+}
+
+
+
+%mk-masthead-vanilla-btn-link {
+
+	// Desktop styles
+	@include mk-media-query( "#{ mk-get-data( $mk-component-masthead-vanilla-config, breakpoint, base ) }" ) {
+
+		padding: 0 !important;
+
+	}
+
+}
+
+
+
+
+
+// ------------------------------------------------
+//	Output the masthead styles
+//  These are configured to work with the WordPress
+//  menu markup structure
+// ------------------------------------------------
+#{ $mk-component-masthead-vanilla-selector } {
+
+	background-color: $mk-color--white;
+	
+	@include mk-theme( default ) {
+
+		border-bottom: 1px solid mk-color( grey-ui );
+
+	}
+	
+
+	&__primary {
+
+		padding-bottom: calc-rem( $mk-c-masthead-vanilla-header-padding-y );
+		padding-top: calc-rem( $mk-c-masthead-vanilla-header-padding-y );
+
+		// Mobile
+		@include mk-media-query( false, "#{ mk-get-data( $mk-component-masthead-vanilla-config, breakpoint, base ) }" ) {
+
+			height: calc-rem( $mk-c-masthead-vanilla-header-height--mobile );
+			padding-bottom: calc-rem( $mk-c-masthead-vanilla-header-padding-y--mobile );
+			padding-top: calc-rem( $mk-c-masthead-vanilla-header-padding-y--mobile );
+
+		}
+
+	}
+
+
+		&__toggle {
+
+			background-color: mk-color( primary ) !important;
+			border-color: mk-color( primary ) !important;
+			color: $mk-color--white !important;
+			height: calc-rem( $mk-c-masthead-vanilla-header-height--mobile );
+			padding: 0;
+			width: calc-rem( $mk-c-masthead-vanilla-header-height--mobile );
+
+		}
+
+
+	
+	&__secondary {
+
+		// Mobile
+		@include mk-media-query( false, "#{ mk-get-data( $mk-component-masthead-vanilla-config, breakpoint, base ) }" ) {
+
+			background-color: $mk-c-masthead-vanilla-secondary-bg-color--mobile;
+			padding-left: 0; // Offset gutter because abs pos
+
+		}
+
+		// Desk
+		@include mk-media-query( "#{ mk-get-data( $mk-component-masthead-vanilla-config, breakpoint, base ) }" ) {
+
+			// background-color: mk-element-color( page, background );
+
+		}
+
+	}
+
+
+		&__secondary_menu {
+
+			@extend .u-display--hide\@#{ mk-get-data( $mk-component-masthead-vanilla-config, breakpoint, base ) };
+
+			a {
+
+				background-color: transparent !important;
+
+			}
+
+		}
+
+
+
+	&__toggle--primary {
+
+		left: 0;
+
+	}
+
+
+	&__toggle--secondary {
+
+		right: 0;
+
+	}
+
+
+
+
+	&__search {
+
+		// Mobile styles
+		@include mk-media-query( false, "#{ mk-get-data( $mk-component-masthead-vanilla-config, breakpoint, base ) }" ) {
+
+			width: 100% !important;
+			margin-bottom: mk-misc-config( border, size );
+
+			.searchform__input {
+
+				border: none;
+
+			}
+
+		}
+
+		// Desktop styles
+		@include mk-media-query( "#{ mk-get-data( $mk-component-masthead-vanilla-config, breakpoint, base ) }" ) {
+
+			display: none;
+
+		}
+
+	}
+
+
+
+
+	// All nav link styles 
+	.o-nav a {
+
+		@extend %mk-masthead-vanilla-menu-link;
+
+	}
+
+
+	// Sub menu
+	.o-nav .sub-menu a {
+
+		background-color: $mk-color--white;
+
+	}
+
+
+
+	// Top level link styling
+	.o-nav > li > a {
+
+		@extend %mk-masthead-vanilla-top-level-link;
+
+	}
+
+
+	// Hover states, top level and submenu
+	.o-nav > li:hover {
+
+		> a {
+
+			@extend %mk-masthead-vanilla-top-level-link--hover;
+
+		}
+
+
+		.sub-menu > li:hover > a {
+
+			@extend %mk-masthead-vanilla-submenu--hover;
+
+		}
+
+	}
+
+
+
+	.o-nav .js-hover + span + .sub-menu {
+
+		@extend .u-display--visible;
+		display: block !important;
+
+	}
+
+
+
+	// Active styles - TOP LEVEL
+	.o-nav .current-menu-ancestor > a {
+
+		@extend %mk-masthead-vanilla-top-level-link--active;
+
+	}
+
+
+
+	// Active styles - any level, must be CURRENT item
+	.o-nav .current-menu-item > a {
+
+		@extend %mk-masthead-vanilla-top-level-link--active;
+
+	}
+
+
+
+	.o-nav > li {
+
+		> .sub-menu {
+
+			@include mk-media-query( "#{ mk-get-data( $mk-component-masthead-vanilla-config, breakpoint, base ) }" ) {
+
+				&:before {
+
+					background-color: $mk-color--white;
+					border-right: mk-misc-config( border, size ) mk-misc-config( border, style ) mk-color( grey-ui, light );
+					border-top: mk-misc-config( border, size ) mk-misc-config( border, style ) mk-color( grey-ui, light );
+					content: "";
+					display: block;
+					height: mk-base-spacing-unit( small );
+					left: mk-base-spacing-unit( mk-base-spacing-unit( .75 ) );
+					margin-top: -( mk-base-spacing-unit( small ) / 2 );
+					position: absolute;
+					top: 0;
+					transform: rotate( -45deg );
+					width: mk-base-spacing-unit( small );
+					z-index: 5;
+
+				}
+
+			}
+
+		}
+
+	}
+
+
+	
+	.o-nav__btn > a {
+
+		@extend %mk-masthead-vanilla-btn-link;
+
+		// Mobile styles
+		@include mk-media-query( false, "#{ mk-get-data( $mk-component-masthead-vanilla-config, breakpoint, base ) }" ) {
+		
+			// Remove button styles on mobile
+			span {
+
+				width: 100%;
+
+			}
+
+		}
+
+		// Desktop styles
+		@include mk-media-query( "#{ mk-get-data( $mk-component-masthead-vanilla-config, breakpoint, base ) }" ) {
+		
+			margin-left: calc-rem( $mk-c-masthead-vanilla-link--padding-x );
+
+		}
+
+	}
+
+
+
+
+
+	// ------------------------------------------------
+	//	Submenu styling, based on our initial styles
+	// ------------------------------------------------
+	.sub-menu {
+
+		// Desktop styles
+		@include mk-media-query( "#{ mk-get-data( $mk-component-masthead-vanilla-config, breakpoint, base ) }" ) {
+
+			a {
+
+				font-weight: mk-typography( weight, primary--bold );
+				padding: mk-base-spacing-unit( small )  ( mk-base-spacing-unit( .75 ) );
+
+			}
+
+
+			.sub-menu {
+
+				margin-top: -( mk-misc-config( border, size ) );
+
+			}
+
+			border: mk-misc-config( border, size ) mk-misc-config( border, style ) mk-color( grey-ui, light );
+			border-top: none;
+
+			li + li {
+
+				border-top: mk-misc-config( border, size ) mk-misc-config( border, style ) mk-color( grey-ui, light );
+
+			}
+
+		}
+
+	}
+
+
+
+
+	// ------------------------------------------------
+	//	Move the body over to display the menu
+	// ------------------------------------------------
+	&--is-open {
+
+		transform: translateX( ( mk-get-data( $mk-component-masthead-vanilla-config, submenu, width ) ) );
+
+	}
+
+}
+
+
+
+
+
+/*
+*	Only display the trigger for menu items that HAVE children
+*/
+$mk-menu-item-trigger-size: ( $mk-c-masthead-vanilla-link--padding-y-mobile * 2 ) + mk-misc-config( border, size ) + mk-base-spacing-unit( base, false );
+$mk-menu-item-trigger-arrow-size: mk-base-spacing-unit( tiny, false );
+
+.menu-item-has-children > .menu-item-trigger {
+
+	// Mobile styles
+	@include mk-media-query( false, "#{ mk-get-data( $mk-component-masthead-vanilla-config, breakpoint, base ) }" ) {
+
+		cursor: pointer;
+		display: inline-block;
+		height: calc-rem( $mk-menu-item-trigger-size );
+		margin-top: calc-rem( -( $mk-menu-item-trigger-size + mk-misc-config( border, size ) ) );
+		position: absolute;
+		right: 0;
+		vertical-align: middle;
+		width: calc-rem( $mk-menu-item-trigger-size );
+
+		&:before {
+
+			content: "";
+			border-bottom: mk-misc-config( border, size )  mk-misc-config( border, style )  mk-element-color( page, color );
+			border-right: mk-misc-config( border, size )  mk-misc-config( border, style )  mk-element-color( page, color );
+			display: inline-block;
+			height: $mk-menu-item-trigger-arrow-size;
+			margin-left: calc-rem( ( $mk-menu-item-trigger-size / 2 ) - ( mk-misc-config( border, size ) ) - ( $mk-menu-item-trigger-arrow-size / 2 ) );
+			margin-top: calc-rem( ( $mk-menu-item-trigger-size / 2 ) - ( mk-misc-config( border, size ) / 2 ) - ( $mk-menu-item-trigger-arrow-size / 2 ) );
+			transform-origin: center center;
+			transform: rotate( -45deg );
+			width: $mk-menu-item-trigger-arrow-size;
+
+		}
+
+	}
+
+}
+
+
+.js-toggle--sub-menu-up {
+
+	// Display on mobile
+	@include mk-media-query( false, "#{ mk-get-data( $mk-component-masthead-vanilla-config, breakpoint, base ) }" ) {
+
+		display: block;
+
+		a {
+
+			background-color: $mk-c-masthead-vanilla-secondary-bg-color--mobile !important;
+
+			&:before {
+
+				border-bottom: mk-misc-config( border, size )  mk-misc-config( border, style )  mk-element-color( page, color );
+				border-left: mk-misc-config( border, size )  mk-misc-config( border, style )  mk-element-color( page, color );
+				content: "";
+				display: inline-block;
+				height: $mk-menu-item-trigger-arrow-size;
+				margin-right: .3em;
+				position: relative;
+				top: -.1em;
+				transform-origin: center center;
+				transform: rotate( 45deg );
+				width: $mk-menu-item-trigger-arrow-size;
+
+			}
+
+			&:hover:before {
+
+				border-color: mk-element-color( link--hover, color );
+
+			}
+
+		}
+
+	}
+
+
+	// Desktop
+	@include mk-media-query( "#{ mk-get-data( $mk-component-masthead-vanilla-config, breakpoint, base ) }" ) {
+
+		display: none !important; // Really don't want this to display
+
+	}
+
+}
+
+
+
+
+.#{ $mk-components-prefix }searchform--mini {
+
+	position: relative;
+	width: 100%;
+
+	.#{ $mk-components-prefix }searchform__input {
+
+		height: calc-rem( $mk-c-masthead-vanilla-header-height--mobile );
+		border: none;
+
+		// Mobile styles
+		@include mk-media-query( false, "#{ mk-get-data( $mk-component-masthead-vanilla-config, breakpoint, base ) }" ) {
+
+			padding-left: calc-rem( $mk-c-masthead-vanilla-link--padding-x );
+			padding-right: calc-rem( $mk-c-masthead-vanilla-header-height--mobile + $mk-c-masthead-vanilla-link--padding-x );
+
+		}
+
+		.error404 &,
+		.no-results & {
+
+			border: 1px solid mk-color( grey-ui, base );
+
+		}
+
+	}
+
+
+	.#{ $mk-components-prefix }searchform__submit {
+
+		height: 100%;
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY( -50% );
+
+	}
+
+
+	.#{ $mk-components-prefix }btn {
+
+		height: inherit;
+		padding: 0;
+		width: calc-rem( $mk-c-masthead-vanilla-header-height--mobile );
+
+	}
+
+}

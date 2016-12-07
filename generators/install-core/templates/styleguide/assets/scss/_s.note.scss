@@ -1,0 +1,63 @@
+$styletile-circle-size: ( mk-base-spacing-unit( huge ) + mk-base-spacing-unit( base ) + mk-base-spacing-unit( small ) ) !default;
+
+.s-note { 
+
+	display: none;
+	position: relative;
+	z-index: 10;
+
+	@include mk-media-query( desk ) {
+
+		display: inline-block;
+
+	}
+
+	
+
+	&__body {
+
+		background-color: $mk-color--white; 
+		border-radius: 50%; 
+		border: 1px dashed mk-color( primary ); 
+		height: $styletile-circle-size; 
+		// margin-bottom: mk-base-spacing-unit( base ); 
+		// margin-top: mk-base-spacing-unit( base ); 
+		position: relative; 
+		text-align: center; 
+		width: $styletile-circle-size; 
+		z-index: 10; 
+
+	}
+
+
+		&__heading,
+		&__content {
+
+			color: mk-color( primary );
+
+		}
+
+
+		&__heading {
+
+			font-size: calc-rem( calc-type-scale( 1 ) );
+			line-height: 1.3;
+			margin-bottom: 0;
+
+		}
+
+
+		&__content {
+
+			font-size: calc-rem( calc-type-scale( -1 ) );
+			left: 50%; 
+			line-height: 1.3;
+			padding: ( mk-base-spacing-unit( small ) + mk-base-spacing-unit( nano ) ); 
+			position: absolute; 
+			top: 50%; 
+			transform: translate(-50%, -50%);
+			width: 100%;
+
+		}
+
+}

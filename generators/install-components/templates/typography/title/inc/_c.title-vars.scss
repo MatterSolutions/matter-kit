@@ -1,0 +1,25 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Title - Vars
+//
+// 	Setup the Title component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+// ------------------------------------------------
+//	Setup vars and mixins
+// ------------------------------------------------
+$mk-component-title-name:          title !default;
+$mk-component-title-selector:      mk-get-selector( $mk-component-title-name, true, $mk-components-prefix );
+$mk-component-title-config: ();
+$mk-component-title-features: ();

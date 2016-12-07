@@ -1,0 +1,139 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Btn / Buttons - Tools
+//
+// 	Setup the button component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+
+// ------------------------------------------------
+//	Mixin to create a button
+//
+//	Choose a mixin based on the 'type' supplied
+// ------------------------------------------------
+
+@mixin mk-create-btn( $type, $color, $text-color: $mk-color--white ) {
+
+	@extend #{ mk-get-selector( $mk-component-btn-name, false, $mk-components-prefix ) };
+
+	@if ( $type == ghost ) {
+
+		@include mk-create-btn--ghost( $color, $text-color );
+
+	}
+
+	@else {
+
+		@include mk-create-btn--standard( $color, $text-color );
+
+	}
+
+}
+
+
+
+
+
+// ------------------------------------------------
+//	Create a 'ghosted' button
+// ------------------------------------------------
+
+@mixin mk-create-btn--ghost( $color, $text-color: $mk-color--white ) {
+
+	$background-color: mk-color( $color );
+	$background-color--hover: mk-color( $color, mk-get-contrast-tone( $background-color ) );
+
+	background-color: transparent;
+	border-color: $background-color;
+	color: $background-color;
+
+	&:visited {
+
+		background-color: transparent;
+		border-color: $background-color;
+		color: $background-color;
+
+	}
+
+
+	&:hover,
+	&:active {
+
+		background-color: $background-color--hover;
+		border-color: $background-color--hover;
+		color: $text-color;
+
+	}
+
+}
+
+
+
+
+
+// ------------------------------------------------
+//	Create a 'standard' button
+// ------------------------------------------------
+
+@mixin mk-create-btn--standard( $color, $text-color: $mk-color--white ) {
+
+	$background-color: mk-color( $color );
+	$background-color--hover: mk-color( $color, mk-get-contrast-tone( $background-color ) );
+
+	background-color: $background-color;
+	border-color: $background-color;
+	color: $text-color;
+
+	&:visited {
+
+		color: $text-color;
+
+	}
+
+	&:hover,
+	&:active {
+
+		background-color: $background-color--hover;
+		border-color: $background-color--hover;
+		color: $text-color;
+
+	}
+
+}
+
+
+
+
+
+// ------------------------------------------------
+//	Create a placeholder selector for the base btn component styles
+// ------------------------------------------------
+
+#{ mk-get-selector( $mk-component-btn-name, false, $mk-components-prefix ) } {
+
+	border: mk-get-data( $mk-component-btn-config, border, size )  mk-get-data( $mk-component-btn-config, border, style )  transparent;
+	border-radius: mk-get-data( $mk-component-btn-config, border, radius );
+	cursor: pointer;
+	display: inline-block;
+	font-size: calc-rem( mk-get-data( $mk-component-btn-config, font-size, base ) );
+	outline: none;
+	padding: mk-get-data( $mk-component-btn-config, padding, y )  mk-get-data( $mk-component-btn-config, padding, x );
+	text-align: mk-get-data( $mk-component-btn-config, text, align );
+	text-decoration: none;
+	width: auto;
+
+	// Set this to force iPads to use standard btn styles
+	-webkit-appearance: none;
+
+}

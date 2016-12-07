@@ -1,0 +1,61 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Config - Grid
+//
+// 	This file sets up the main outer grid for use throughout the project
+//
+// ---------------------------------------------------------------------------- */
+
+	
+	// Project Base Grid
+	@include mk-add-grid-config( base, columns, 12 );
+	@include mk-add-grid-config( base, gutter, 32px );
+
+
+
+
+	// Project Major Breakpoints
+	@include mk-add-grid-config( breakpoints, palm, 320px );
+	@include mk-add-grid-config( breakpoints, palm-h, 540px );
+	@include mk-add-grid-config( breakpoints, lap, 768px );
+	@include mk-add-grid-config( breakpoints, desk, 990px );
+	@include mk-add-grid-config( breakpoints, wide, 1280px );
+
+
+
+
+	// Project Grid Widths
+	@include mk-add-grid-width( base, one-whole, 100% );
+	@include mk-add-grid-width( base, one-half, 50% );
+	@include mk-add-grid-width( base, one-third, 33.333% );
+	@include mk-add-grid-width( base, one-quarter, 25% );
+	@include mk-add-grid-width( base, one-fifth, 20% );
+	@include mk-add-grid-width( base, one-sixth, 16.666% );
+
+	@include mk-add-grid-width( palm-h, one-whole, 100% );
+	@include mk-add-grid-width( palm-h, one-half, 50% );
+
+	@include mk-add-grid-width( lap, one-whole, 100% );
+	@include mk-add-grid-width( lap, one-half, 50% );
+	@include mk-add-grid-width( lap, one-third, 33.333% );
+	@include mk-add-grid-width( lap, two-thirds, 66.666% );
+	@include mk-add-grid-width( lap, one-quarter, 25% );
+	@include mk-add-grid-width( lap, three-quarters, 75% );
+	@include mk-add-grid-width( lap, one-sixth, 16.666% );
+
+	@include mk-add-grid-width( desk, one-whole, 100% );
+	@include mk-add-grid-width( desk, one-half, 50% );
+	@include mk-add-grid-width( desk, one-third, 33.333% );
+	@include mk-add-grid-width( desk, two-thirds, 66.666% );
+	@include mk-add-grid-width( desk, one-quarter, 25% );
+	@include mk-add-grid-width( desk, three-quarters, 75% );
+	@include mk-add-grid-width( desk, one-fifth, 20% );

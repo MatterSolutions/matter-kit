@@ -1,0 +1,44 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Component - Site Blocker
+//
+// 	Block out the site/content with a transparent overlay
+//
+// ---------------------------------------------------------------------------- */
+
+
+// Import the component vars
+@import 'inc/c.site-blocker-vars';
+
+
+// ------------------------------------------------
+//	Enable config and features
+// ------------------------------------------------
+// Config
+// @include mk-add-site-blocker-config( configname, key, value );
+
+// Features
+// @include mk-add-site-blocker-feature( featurename, key, value );
+
+
+
+// Output the component 'features' we've enabled
+@import 'inc/c.site-blocker-features';
+
+
+
+// Project specific styles
+#{ $mk-component-site-blocker-selector } {
+
+	// Styles here
+
+}

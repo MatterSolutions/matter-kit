@@ -1,0 +1,42 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - <%= componentInfo.componentName %>
+//
+// 	Setup the <%= componentInfo.componentName %> component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+
+// ------------------------------------------------
+//	Output component
+// ------------------------------------------------
+#{ $mk-component-<%= componentInfo.componentSlug %>-selector } {
+
+	&__body {
+
+	}
+
+
+
+	// ------------------------------------------------
+	//	Component modifiers
+	// ------------------------------------------------
+
+	// Modifier
+	@if ( map-has-key( $mk-component-<%= componentInfo.componentSlug %>-features, modifier-name-here ) ) {
+
+
+
+	}
+
+}

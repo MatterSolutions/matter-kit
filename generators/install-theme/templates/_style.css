@@ -1,0 +1,9 @@
+/*
+Theme Name: <%= projectInfo.projectName %> 
+Author: <%= projectInfo.projectAuthor %>
+Author URI: <%= projectInfo.projectAuthorURL %>
+Description: A custom theme for <%= projectInfo.projectName %>
+Version: 1.0.0
+Text Domain: <%= projectInfo.projectTextDomain %>
+Tags:
+*/

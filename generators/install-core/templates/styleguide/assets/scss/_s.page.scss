@@ -1,0 +1,52 @@
+.s-page {
+
+	background-color: mk-element-color( page, background );
+	color: mk-element-color( page, color );
+
+	&__section,
+	&__header {
+
+		padding: mk-base-spacing-unit( base )  mk-grid-config( base, page-gutter );
+
+		@include mk-media-query( "#{ $mk-styleguide-major-bp }" ) {
+
+			padding: mk-base-spacing-unit( large );
+
+		}
+
+	}
+
+
+		&__header {
+
+			padding-bottom: 0;
+
+		}
+
+
+		&__sidebar {
+
+			@include mk-media-query( "#{ $mk-styleguide-major-bp }" ) {
+
+				display: inline-block;
+				padding-right: 5%;
+				vertical-align: top;
+				width: 25%;
+
+			}
+
+		}
+
+		&__content {
+
+			@include mk-media-query( "#{ $mk-styleguide-major-bp }" ) {
+
+				display: inline-block;
+				vertical-align: top;
+				width: 75%;
+
+			}
+
+		}
+
+}

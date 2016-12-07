@@ -1,0 +1,55 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Config - Utility
+//
+// 	This file sets up the utility classes for use throughout the project
+//
+// ---------------------------------------------------------------------------- */
+
+
+	// Display
+	@include mk-add-utility( 'display' );
+	@include mk-add-utility( 'display', 'hide' );
+	@include mk-add-utility( 'display', 'hide--desk' );
+	@include mk-add-utility( 'display', 'show' );
+	@include mk-add-utility( 'display', 'invisible' );
+	@include mk-add-utility( 'display', 'visible' );
+	@include mk-add-utility( 'display', 'center' );
+
+
+	// Position
+	@include mk-add-utility( 'pos' );
+	@include mk-add-utility( 'pos', 'fill' );
+
+
+
+	// Line length
+	@include mk-add-utility( 'line-length' );
+
+
+
+	// Flush
+	@include mk-add-utility( 'flush' );
+	@include mk-add-utility( 'flush', 'bottom' );
+
+
+
+	// Text Alignment
+	@include mk-add-utility( 'text' );
+	@include mk-add-utility( 'text', 'center' );
+	@include mk-add-utility( 'text', 'undecorated' );
+
+
+
+	// Keyline
+	@include mk-add-utility( 'keyline', 'base' );
+	@include mk-add-utility( 'keyline', thin );

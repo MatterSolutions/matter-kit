@@ -1,0 +1,129 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Component - Footer Vanilla
+//
+// 	A really simple footer, with a space for the logo and menu.
+//
+// ---------------------------------------------------------------------------- */
+
+
+// Import the component vars
+@import 'inc/c.footer-vanilla-vars';
+
+
+// ------------------------------------------------
+//	Enable config and features
+// ------------------------------------------------
+// Config
+@include mk-add-footer-vanilla-config( breakpoint, base, lap );
+
+
+
+// Output the component 'features' we've enabled
+@import 'inc/c.footer-vanilla-features';
+
+
+
+// ------------------------------------------------
+//	Output the footer styles
+// ------------------------------------------------
+#{ $mk-component-footer-vanilla-selector } {
+
+	font-size: calc-rem( mk-typography( size, small ) );
+	overflow: hidden;
+
+	a {
+
+		&:hover {
+
+			text-decoration: underline;
+
+		}
+
+	}
+
+
+	.sub-menu {
+
+		padding-right: mk-base-spacing-unit( small );
+		width: auto !important;
+
+	}
+
+
+	&__primary {
+
+		img {
+
+			max-width: calc-rem( 180px );
+
+		}
+
+		@include mk-media-query( false, "#{ mk-get-data( $mk-component-footer-vanilla-config, breakpoint, base ) }" ) {
+
+			text-align: center;
+
+		}
+
+		@include mk-media-query( "#{ mk-get-data( $mk-component-footer-vanilla-config, breakpoint, base ) }" ) {
+
+			width: col( 3 );
+
+		}
+
+	}
+
+
+	&__secondary {
+
+		@include mk-media-query( false, palm-h ) {
+
+			.o-navigation--columned > .menu-item {
+
+				width: 50%;
+
+			}
+
+		}
+
+		@include mk-media-query( palm-h ) {
+
+			.o-navigation--columned > .menu-item {
+
+				width: 33.333%;
+
+			}
+
+		}
+
+		@include mk-media-query( "#{ mk-get-data( $mk-component-footer-vanilla-config, breakpoint, base ) }" ) {
+
+			width: col( 9 );
+
+		}
+
+
+		.sub-menu {
+
+			margin-bottom: mk-base-spacing-unit( small );
+
+		}
+
+		.o-nav > li > a {
+
+			font-weight: mk-typography( weight, primary--bold );
+
+		}
+
+	}
+
+}
