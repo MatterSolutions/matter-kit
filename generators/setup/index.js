@@ -24,8 +24,8 @@ module.exports = yeoman.Base.extend({
 
         // Basic project scaffolding
         {
-          name: 'projectName',
-          message: 'Project slug? (Use only alphanumeric and dashes)',
+          name: 'projectCode',
+          message: 'Project code? (4 character identifier)',
         },
         {
           name: 'projectTablePrefix',
@@ -41,7 +41,7 @@ module.exports = yeoman.Base.extend({
         this.props = props;
 
         // Basic Project Scaffold
-        this.projectName = props.projectName;
+        this.projectCode = props.projectCode;
         this.projectTablePrefix = props.projectTablePrefix;
 
       }.bind(this));
@@ -52,7 +52,7 @@ module.exports = yeoman.Base.extend({
 
       // Basic project
       var projectInfo = { 
-          projectName: this.props.projectName,
+          projectCode: this.props.projectCode,
           projectTablePrefix: this.props.projectTablePrefix,
       };
 

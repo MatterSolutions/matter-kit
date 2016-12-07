@@ -32,12 +32,12 @@ module.exports = yeoman.Base.extend({
           message: 'Project Slug? (dashes and alphanumeric)',
         },
         {
-          name: 'projectDescription',
-          message: 'Project Description?',
+          name: 'projectTextDomain',
+          message: 'Project Code? (4 character identifier)',
         },
         {
-          name: 'projectTextDomain',
-          message: 'Project Text Domain? (Lowercase letters only, keep it short)',
+          name: 'projectDescription',
+          message: 'Project Description?',
         },
         {
           name: 'projectVersion',

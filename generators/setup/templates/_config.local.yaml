@@ -3,7 +3,7 @@
 # The first name will be used as the machine's name, subsequent names will be
 # aliased in your hosts file and in nginx
 hosts:
-    - <%= projectInfo.projectName %>.local
+    - client-wp-<%= projectInfo.projectCode %>.local
 
 
 

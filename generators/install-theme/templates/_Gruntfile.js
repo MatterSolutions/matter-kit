@@ -178,7 +178,7 @@ module.exports = function( grunt ) {
 
 		        },
 		        options: {
-		            proxy: "<%= pkg.client_code %>.local",
+		            proxy: "client-wp-<%= pkg.client_code %>.local",
 		            watchTask: true,
 		        }
 		    }
