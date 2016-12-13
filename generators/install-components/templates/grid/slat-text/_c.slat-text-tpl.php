@@ -49,7 +49,7 @@ echo '<div id="' . esc_attr( $id ) . '" class="' . esc_html( $name ) . esc_html(
 
 			if ( $heading ) {
 
-				echo '<h3><a href="' . esc_url( $link ) . '">' . esc_html( $heading ) . '</a></h3>';
+				echo '<h3><a class="u-text--undecorated" href="' . esc_url( $link ) . '">' . esc_html( $heading ) . '</a></h3>';
 
 			}
 

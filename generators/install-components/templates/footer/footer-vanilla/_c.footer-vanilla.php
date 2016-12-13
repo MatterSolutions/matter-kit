@@ -129,7 +129,7 @@ class Mttr_Component_Footer_Vanilla {
 				),
 
 			),
-			'modifiers' => 'o-band--large'
+			'modifiers' => 'o-band--large  o-band--grey-ui'
 
 		);
 

@@ -71,11 +71,13 @@ class Mttr_Component_Content_None {
 
 		$data = array();
 
+		$data['heading'] = mttr_get_contextual_title();
+
 		if ( is_home() && current_user_can( 'publish_posts' ) ) {
 
 			$data['content'] = 'Ready to publish your first post? <a href="' . esc_url( admin_url( 'post-new.php' ) ) . '">Get started here</a>';
 
-		} else if ( is_search() ) {
+		} elseif ( is_search() ) {
 
 			$data['content'] = 'Sorry, but nothing matched your search terms. Please try again with some different keywords.';
 			$data['search'] = true;
@@ -87,7 +89,7 @@ class Mttr_Component_Content_None {
 
 		}
 
-		$data['modifiers'] = 'u-text--center';
+		$data['modifiers'] = 'u-text--center  o-band  o-band--huge';
 
 		return apply_filters( 'mttr_get_component_data_content_none_data', $data );
 

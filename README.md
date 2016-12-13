@@ -57,7 +57,7 @@ Fill out the prompts for the styleguide, choosing colours, the primary typeface 
 ```bash
 vagrant up --provision
 vagrant ssh
-wp site empty
+wp site empty --yes
 ```
 Empty the WP installation of it's dummy data.
 ```bash
@@ -79,6 +79,12 @@ wp option update admin_email helpdesk@mattersolutions.com.au
 wp option update blogname "My Project"
 wp option update blogdescription ""
 wp option update timezone_string "Australia/Brisbane"
+wp option update thumbnail_size_w "768"
+wp option update thumbnail_size_h "768"
+wp option update medium_size_w "960"
+wp option update medium_size_h "960"
+wp option update large_size_w "1280"
+wp option update large_size_h "1280"
 wp core language install en_AU
 wp option update WPLANG "en_AU"
 wp plugin install akismet --activate

@@ -16,10 +16,6 @@
 // ---------------------------------------------------------------------------- */
 
 
-	// Band
-	@include mk-add-object( 'band', 'extend' );
-
-
 	// Tint
 	@include mk-add-object( 'tint', 'base' );
 
@@ -50,13 +46,18 @@
 	// Wrap Object
 	@include mk-add-object( 'wrap', 'base' );
 	@include mk-add-object( 'wrap', 'wide' );
+	@include mk-add-object( 'wrap', 'flush' );
 
 
 
 
 	// Band Object
 	@include mk-add-object( 'band', 'base' );
+	@include mk-add-object( 'band', 'extend' );
 	@include mk-add-object( 'band', 'large' );
+	@include mk-add-object( 'band', 'huge' );
+	@include mk-add-object( 'band', 'small' );
+	@include mk-add-object( 'band', 'flush' );
 	@include mk-add-object( 'band', 'grey-ui' );
 	@include mk-add-object( 'band', 'primary' );
 	@include mk-add-object( 'band', 'secondary' );

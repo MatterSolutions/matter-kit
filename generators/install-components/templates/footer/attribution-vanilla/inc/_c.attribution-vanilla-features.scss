@@ -1,0 +1,42 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Attribution Vanilla
+//
+// 	Setup the Attribution Vanilla component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+
+// ------------------------------------------------
+//	Output component
+// ------------------------------------------------
+#{ $mk-component-attribution-vanilla-selector } {
+
+	&__body {
+
+	}
+
+
+
+	// ------------------------------------------------
+	//	Component modifiers
+	// ------------------------------------------------
+
+	// Modifier
+	@if ( map-has-key( $mk-component-attribution-vanilla-features, modifier-name-here ) ) {
+
+
+
+	}
+
+}

@@ -11,9 +11,9 @@
 //               SOLUTIONS
 // 
 // 
-//	=Components - Meta data
+//	=Components - Meta
 //
-// 	Main template file for including meta data
+// 	Main template file for including the Meta
 //
 // ---------------------------------------------------------------------------- *
 
@@ -26,7 +26,7 @@ $namespace = mttr_get_template_var( 'namespace' );
 
 if ( empty( $namespace ) ) {
 
-	$namespace = 'c-meta-data';
+	$namespace = 'c-meta';
 
 }
 

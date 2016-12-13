@@ -1,0 +1,51 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Colophon Vanilla - Vars
+//
+// 	Setup the Colophon Vanilla component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+// ------------------------------------------------
+//	Setup vars and mixins
+// ------------------------------------------------
+$mk-component-colophon-vanilla-name:          colophon-vanilla !default;
+$mk-component-colophon-vanilla-selector:      mk-get-selector( $mk-component-colophon-vanilla-name, true, $mk-components-prefix );
+$mk-component-colophon-vanilla-config: ();
+$mk-component-colophon-vanilla-features: ();
+
+
+
+// Setup config mixin
+@mixin mk-add-colophon-vanilla-config( $name, $key, $value ) {
+
+	$mk-component-colophon-vanilla-config: mk-add-data( $mk-component-colophon-vanilla-config, $name, $key, $value ) !global;
+
+}
+
+// Setup feature mixin
+@mixin mk-add-colophon-vanilla-feature( $name, $key, $value ) {
+
+	$mk-component-colophon-vanilla-features: mk-add-data( $mk-component-colophon-vanilla-features, $name, $key, $value ) !global;
+
+}
+
+
+
+
+// ------------------------------------------------
+//	Setup defaults
+// ------------------------------------------------
+
+// Base
+@include mk-add-colophon-vanilla-config( featurename, key, value );

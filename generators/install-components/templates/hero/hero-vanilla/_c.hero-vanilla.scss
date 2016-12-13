@@ -1,0 +1,61 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Component - Hero Vanilla
+//
+// 	A very basic hero, with overlaying text
+//
+// ---------------------------------------------------------------------------- */
+
+
+// Import the component vars
+@import 'inc/c.hero-vanilla-vars';
+
+
+// ------------------------------------------------
+//	Enable config and features
+// ------------------------------------------------
+// Config
+@include mk-add-hero-vanilla-config( padding, top, 30% );
+@include mk-add-hero-vanilla-config( padding, bottom, 10% );
+
+@include mk-add-hero-vanilla-config( padding--bp, top, 15% );
+@include mk-add-hero-vanilla-config( padding--bp, bottom, 5% );
+
+
+// Features
+@include mk-add-hero-vanilla-feature( left, base, true );
+
+
+
+// Output the component 'features' we've enabled
+@import 'inc/c.hero-vanilla-features';
+
+
+
+// Project specific styles
+#{ $mk-component-hero-vanilla-selector } {
+
+	a {
+
+		color: inherit;
+
+		&:visited,
+		&:hover,
+		&:active {
+
+			color: inherit;
+
+		}
+
+	}
+
+}

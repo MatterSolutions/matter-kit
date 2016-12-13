@@ -39,13 +39,6 @@ class Mttr_Component_Slat_Text {
 		// Set the data
 		$this->data = $data;
 
-		// Output the styles in the head
-		add_action( 'wp_enqueue_scripts', function() {
-
-			$this->render_styles( $this->styles );
-
-		}, $priority );
-
 		// Hook the content where it needs to go!
 		add_action( $hook, function() {
 
@@ -78,7 +71,7 @@ class Mttr_Component_Slat_Text {
 
 		$data = array(
 
-			'modifiers' => '',
+			'modifiers' => 'o-ltg--flush',
 			'sizes' => '',
 			'wrap' => '',
 
@@ -100,54 +93,14 @@ class Mttr_Component_Slat_Text {
 
 			'template' => $this->get_component_template_location(),
 			'data' => mttr_get_grid_feature_data_standard( $item ),
-			'modifiers' => 'o-band  o-band--large  u-keyline',
 
 		);
 
 		$data['data']['name'] = $this->component_name;
+		$data['data']['wrap'] = 'o-wrap--flush';
+		$data['data']['modifiers'] = 'o-band  o-band--large  u-keyline';
 
 		return $data;
-
-	}
-
-
-
-
-	// ------------------------------------------------
-	//	Begin rendering the component styles
-	// ------------------------------------------------
-	function render_styles() {
-
-		wp_add_inline_style( mttr_theme_main_css_slug(), $this->styles );
-
-	}
-
-
-
-
-
-	// ------------------------------------------------
-	//	Return the component styles
-	// ------------------------------------------------
-	function get_styles( $data = null ) {
-
-		if ( empty( $data ) ) {
-
-			$data = $this->data; 
-
-		}
-
-		$custom_css = '';
-
-		if ( isset( $data['id'] ) ) {
-
-			// $custom_css = "#" . $data['id'] . " {
-				
-			// }";
-
-		}
-			
-		return $custom_css;
 
 	}
 

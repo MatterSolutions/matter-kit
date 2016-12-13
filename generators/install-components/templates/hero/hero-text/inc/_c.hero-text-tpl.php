@@ -66,7 +66,7 @@ echo '<div class="' . esc_html( $namespace ) . esc_html( $modifiers ) . '">';
 
 		if ( $heading ) {
 
-			echo '<h1 class="' . esc_html( $namespace ) . '__heading">';
+			echo '<h1 class="' . esc_html( $namespace ) . '__heading  c-title">';
 
 				echo esc_html( $heading );
 

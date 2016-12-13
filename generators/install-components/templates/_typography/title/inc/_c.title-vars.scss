@@ -1,0 +1,51 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Title - Vars
+//
+// 	Setup the Title component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+// ------------------------------------------------
+//	Setup vars and mixins
+// ------------------------------------------------
+$mk-component-title-name:          title !default;
+$mk-component-title-selector:      mk-get-selector( $mk-component-title-name, true, $mk-components-prefix );
+$mk-component-title-config: ();
+$mk-component-title-features: ();
+
+
+
+// Setup config mixin
+@mixin mk-add-title-config( $name, $key, $value ) {
+
+	$mk-component-title-config: mk-add-data( $mk-component-title-config, $name, $key, $value ) !global;
+
+}
+
+// Setup feature mixin
+@mixin mk-add-title-feature( $name, $key, $value ) {
+
+	$mk-component-title-features: mk-add-data( $mk-component-title-features, $name, $key, $value ) !global;
+
+}
+
+
+
+
+// ------------------------------------------------
+//	Setup defaults
+// ------------------------------------------------
+
+// Base
+@include mk-add-title-config( featurename, key, value );

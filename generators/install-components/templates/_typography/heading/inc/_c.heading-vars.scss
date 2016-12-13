@@ -1,0 +1,51 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Heading - Vars
+//
+// 	Setup the Heading component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+// ------------------------------------------------
+//	Setup vars and mixins
+// ------------------------------------------------
+$mk-component-heading-name:          heading !default;
+$mk-component-heading-selector:      mk-get-selector( $mk-component-heading-name, true, $mk-components-prefix );
+$mk-component-heading-config: ();
+$mk-component-heading-features: ();
+
+
+
+// Setup config mixin
+@mixin mk-add-heading-config( $name, $key, $value ) {
+
+	$mk-component-heading-config: mk-add-data( $mk-component-heading-config, $name, $key, $value ) !global;
+
+}
+
+// Setup feature mixin
+@mixin mk-add-heading-feature( $name, $key, $value ) {
+
+	$mk-component-heading-features: mk-add-data( $mk-component-heading-features, $name, $key, $value ) !global;
+
+}
+
+
+
+
+// ------------------------------------------------
+//	Setup defaults
+// ------------------------------------------------
+
+// Base
+// @include mk-add-heading-config( featurename, key, value );

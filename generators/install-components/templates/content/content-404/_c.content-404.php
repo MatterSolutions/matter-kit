@@ -71,10 +71,11 @@ class Mttr_Component_404 {
 
 		$data = array(
 
-			'heading' => 'Page not found',
+			'heading' => '404',
+			'subheading' => 'Page not found',
 			'content' => 'Sorry, this page doesn\'t seem to exist!',
 			'search' => true,
-			'modifiers' => 'u-text--center'
+			'modifiers' => 'u-text--center  o-band  o-band--huge'
 
 		);
 

@@ -9,17 +9,24 @@
 //               SOLUTIONS
 // 
 // 
-//	=Components - Title - Vars
+//	=Component - Hero Text
 //
-// 	Setup the Title component for use within a project
+// 	A text based hero
 //
 // ---------------------------------------------------------------------------- */
 
+@import 'inc/c.hero-text-vars';
+
 
 // ------------------------------------------------
-//	Setup vars and mixins
+//	Output the text hero styles
 // ------------------------------------------------
-$mk-component-title-name:          title !default;
-$mk-component-title-selector:      mk-get-selector( $mk-component-title-name, true, $mk-components-prefix );
-$mk-component-title-config: ();
-$mk-component-title-features: ();
+#{ $mk-component-hero-text-selector } {
+
+	&--overhang {
+
+		margin-bottom: -( mk-base-spacing-unit( large ) * .75 );
+
+	}	
+
+}

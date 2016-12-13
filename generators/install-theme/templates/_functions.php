@@ -32,13 +32,13 @@ require get_template_directory() . '/_core/mttr-core.php';
 *	Load project components
  --------------------------------------------------------- */
 
+mttr_load_components( '_typography' );
 mttr_load_components( 'header' );
 mttr_load_components( 'footer' );
 mttr_load_components( 'hero' );
 mttr_load_components( 'content' );
 mttr_load_components( 'grid' );
 mttr_load_components( 'misc' );
-mttr_load_components( 'typography' );
 
 
 

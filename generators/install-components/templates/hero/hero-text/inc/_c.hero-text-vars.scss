@@ -1,0 +1,44 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Hero text - Vars
+//
+// 	Setup the Hero Text component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+// ------------------------------------------------
+//	Setup vars and mixins
+// ------------------------------------------------
+$mk-component-hero-text-name:          hero-text !default;
+$mk-component-hero-text-selector:      mk-get-selector( $mk-component-hero-text-name, true, $mk-components-prefix );
+$mk-component-hero-text-config: ();
+$mk-component-hero-text-features: ();
+
+
+
+// Setup config mixin
+@mixin mk-add-hero-text-config( $name, $key, $value ) {
+
+	$mk-component-hero-text-config: mk-add-data( $mk-component-hero-text-config, $name, $key, $value ) !global;
+
+}
+
+
+
+
+// ------------------------------------------------
+//	Setup defaults
+// ------------------------------------------------
+
+// Base
+@include mk-add-hero-text-config( breakpoint, base, desk );

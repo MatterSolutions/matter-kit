@@ -125,6 +125,20 @@ module.exports = yeoman.Base.extend({
               value: 'includeFooterFooterVanilla',
               checked: true
 
+            },
+            {
+
+              name: 'Colophon Vanilla',
+              value: 'includeFooterColophonVanilla',
+              checked: true
+
+            },
+            {
+
+              name: 'Attribution Vanilla',
+              value: 'includeFooterAttributionVanilla',
+              checked: true
+
             }]
         },
         {
@@ -135,6 +149,13 @@ module.exports = yeoman.Base.extend({
 
               name: 'Hero - Text',
               value: 'includeHeroText',
+              checked: true
+
+            },
+            {
+
+              name: 'Hero - Vanilla',
+              value: 'includeHeroVanilla',
               checked: true
 
             }]
@@ -199,8 +220,29 @@ module.exports = yeoman.Base.extend({
           message: 'Choose your tyopgraphy components',
             choices: [{
 
-              name: 'Title (title)',
+              name: 'Title',
               value: 'includeTypographyTitle',
+              checked: true
+
+            },
+            {
+
+              name: 'Heading',
+              value: 'includeTypographyHeading',
+              checked: true
+
+            },
+            {
+
+              name: 'Subheading',
+              value: 'includeTypographySubheading',
+              checked: true
+
+            },
+            {
+
+              name: 'Lede',
+              value: 'includeTypographyLede',
               checked: true
 
             }]
@@ -274,10 +316,13 @@ module.exports = yeoman.Base.extend({
 
         // Footer
         this.includeFooterFooterVanilla = hasFooterComponent( 'includeFooterFooterVanilla' );
+        this.includeFooterColophonVanilla = hasFooterComponent( 'includeFooterColophonVanilla' );
+        this.includeFooterAttributionVanilla = hasFooterComponent( 'includeFooterAttributionVanilla' );
 
 
         // Hero
         this.includeHeroText = hasHeroComponent( 'includeHeroText' );
+        this.includeHeroVanilla = hasHeroComponent( 'includeHeroVanilla' );
 
 
         // Content
@@ -293,6 +338,9 @@ module.exports = yeoman.Base.extend({
 
         // Typography
         this.includeTypographyTitle = hasTypographyComponent( 'includeTypographyTitle' );
+        this.includeTypographyHeading = hasTypographyComponent( 'includeTypographyHeading' );
+        this.includeTypographySubheading = hasTypographyComponent( 'includeTypographySubheading' );
+        this.includeTypographyLede = hasTypographyComponent( 'includeTypographyLede' );
 
 
       }.bind(this));
@@ -375,6 +423,52 @@ module.exports = yeoman.Base.extend({
         this.fs.copy(
           this.templatePath( 'misc/searchform-mini/inc/_c.searchform-mini-tpl.php' ), 
           this.destinationPath( 'components/misc/searchform-mini/inc/_c.searchform-mini-tpl.php' )
+        );
+
+      }
+
+
+
+      // ----------------------------------------------------
+      //  Meta files
+      // ----------------------------------------------------
+
+      if ( this.includeMiscMetaData == true ) {
+
+        // Main PHP file
+        this.fs.copy(
+          this.templatePath( 'misc/meta/_c.meta.php' ), 
+          this.destinationPath( 'components/misc/meta/_c.meta.php' )
+        );
+
+        // Main SCSS file
+        this.fs.copy(
+          this.templatePath( 'misc/meta/_c.meta.scss' ), 
+          this.destinationPath( 'components/misc/meta/_c.meta.scss' )
+        );
+
+        // Vars file
+        this.fs.copy(
+          this.templatePath( 'misc/meta/inc/_c.meta-vars.scss' ), 
+          this.destinationPath( 'components/misc/meta/inc/_c.meta-vars.scss' )
+        );
+
+        // Features file
+        this.fs.copy(
+          this.templatePath( 'misc/meta/inc/_c.meta-features.scss' ), 
+          this.destinationPath( 'components/misc/meta/inc/_c.meta-features.scss' )
+        );
+
+        // Dependencies file
+        this.fs.copy(
+          this.templatePath( 'misc/meta/inc/_c.meta-dependencies.scss' ), 
+          this.destinationPath( 'components/misc/meta/inc/_c.meta-dependencies.scss' )
+        );
+
+        // Template file
+        this.fs.copy(
+          this.templatePath( 'misc/meta/inc/_c.meta-tpl.php' ), 
+          this.destinationPath( 'components/misc/meta/inc/_c.meta-tpl.php' )
         );
 
       }
@@ -620,6 +714,98 @@ module.exports = yeoman.Base.extend({
 
 
 
+      // ----------------------------------------------------
+      //  Colophon Vanilla
+      // ----------------------------------------------------
+
+      if ( this.includeFooterColophonVanilla == true ) {
+
+        // Main PHP file
+        this.fs.copy(
+          this.templatePath( 'footer/colophon-vanilla/_c.colophon-vanilla.php' ), 
+          this.destinationPath( 'components/footer/colophon-vanilla/_c.colophon-vanilla.php' )
+        );
+
+        // Dependencies file
+        this.fs.copy(
+          this.templatePath( 'footer/colophon-vanilla/inc/_c.colophon-vanilla-dependencies.scss' ), 
+          this.destinationPath( 'components/footer/colophon-vanilla/inc/_c.colophon-vanilla-dependencies.scss' )
+        );
+
+        // Features file
+        this.fs.copy(
+          this.templatePath( 'footer/colophon-vanilla/inc/_c.colophon-vanilla-features.scss' ), 
+          this.destinationPath( 'components/footer/colophon-vanilla/inc/_c.colophon-vanilla-features.scss' )
+        );
+
+        // Vars file
+        this.fs.copy(
+          this.templatePath( 'footer/colophon-vanilla/inc/_c.colophon-vanilla-vars.scss' ), 
+          this.destinationPath( 'components/footer/colophon-vanilla/inc/_c.colophon-vanilla-vars.scss' )
+        );
+
+        // SCSS file
+        this.fs.copy(
+          this.templatePath( 'footer/colophon-vanilla/_c.colophon-vanilla.scss' ), 
+          this.destinationPath( 'components/footer/colophon-vanilla/_c.colophon-vanilla.scss' )
+        );
+
+        // Template file
+        this.fs.copy(
+          this.templatePath( 'footer/colophon-vanilla/inc/_c.colophon-vanilla-tpl.php' ), 
+          this.destinationPath( 'components/footer/colophon-vanilla/inc/_c.colophon-vanilla-tpl.php' )
+        );
+
+      }
+
+
+
+      // ----------------------------------------------------
+      //  Attribution Vanilla
+      // ----------------------------------------------------
+
+      if ( this.includeFooterAttributionVanilla == true ) {
+
+        // Main PHP file
+        this.fs.copy(
+          this.templatePath( 'footer/attribution-vanilla/_c.attribution-vanilla.php' ), 
+          this.destinationPath( 'components/footer/attribution-vanilla/_c.attribution-vanilla.php' )
+        );
+
+        // Dependencies file
+        this.fs.copy(
+          this.templatePath( 'footer/attribution-vanilla/inc/_c.attribution-vanilla-dependencies.scss' ), 
+          this.destinationPath( 'components/footer/attribution-vanilla/inc/_c.attribution-vanilla-dependencies.scss' )
+        );
+
+        // Features file
+        this.fs.copy(
+          this.templatePath( 'footer/attribution-vanilla/inc/_c.attribution-vanilla-features.scss' ), 
+          this.destinationPath( 'components/footer/attribution-vanilla/inc/_c.attribution-vanilla-features.scss' )
+        );
+
+        // Vars file
+        this.fs.copy(
+          this.templatePath( 'footer/attribution-vanilla/inc/_c.attribution-vanilla-vars.scss' ), 
+          this.destinationPath( 'components/footer/attribution-vanilla/inc/_c.attribution-vanilla-vars.scss' )
+        );
+
+        // SCSS file
+        this.fs.copy(
+          this.templatePath( 'footer/attribution-vanilla/_c.attribution-vanilla.scss' ), 
+          this.destinationPath( 'components/footer/attribution-vanilla/_c.attribution-vanilla.scss' )
+        );
+
+        // Template file
+        this.fs.copy(
+          this.templatePath( 'footer/attribution-vanilla/inc/_c.attribution-vanilla-tpl.php' ), 
+          this.destinationPath( 'components/footer/attribution-vanilla/inc/_c.attribution-vanilla-tpl.php' )
+        );
+
+      }
+
+
+
 
       // ----------------------------------------------------
       //  Map component files
@@ -677,6 +863,18 @@ module.exports = yeoman.Base.extend({
         this.fs.copy(
           this.templatePath( 'content/content-404/_c.content-404.php' ), 
           this.destinationPath( 'components/content/content-404/_c.content-404.php' )
+        );
+
+        // Flexible Content
+        this.fs.copy(
+          this.templatePath( 'content/content-404/_c.content-404.scss' ), 
+          this.destinationPath( 'components/content/content-404/_c.content-404.scss' )
+        );
+
+        // Flexible Content Template
+        this.fs.copy(
+          this.templatePath( 'content/content-404/inc/_c.content-404-vars.scss' ), 
+          this.destinationPath( 'components/content/content-404/inc/_c.content-404-vars.scss' )
         );
 
         // Flexible Content Template
@@ -853,29 +1051,190 @@ module.exports = yeoman.Base.extend({
 
         // Typography Title
         this.fs.copy(
-          this.templatePath( 'typography/title/_c.title.php' ), 
-          this.destinationPath( 'components/typography/title/_c.title.php' )
+          this.templatePath( '_typography/title/_c.title.php' ), 
+          this.destinationPath( 'components/_typography/title/_c.title.php' )
         );
 
 
         // Typography Title
         this.fs.copy(
-          this.templatePath( 'typography/title/_c.title.scss' ), 
-          this.destinationPath( 'components/typography/title/_c.title.scss' )
+          this.templatePath( '_typography/title/_c.title.scss' ), 
+          this.destinationPath( 'components/_typography/title/_c.title.scss' )
         );
 
 
         // Typography Title
         this.fs.copy(
-          this.templatePath( 'typography/title/inc/_c.title-tpl.php' ), 
-          this.destinationPath( 'components/typography/title/inc/_c.title-tpl.php' )
+          this.templatePath( '_typography/title/inc/_c.title-tpl.php' ), 
+          this.destinationPath( 'components/_typography/title/inc/_c.title-tpl.php' )
         );
 
 
         // Typography Title
         this.fs.copy(
-          this.templatePath( 'typography/title/inc/_c.title-vars.scss' ), 
-          this.destinationPath( 'components/typography/title/inc/_c.title-vars.scss' )
+          this.templatePath( '_typography/title/inc/_c.title-vars.scss' ), 
+          this.destinationPath( 'components/_typography/title/inc/_c.title-vars.scss' )
+        );
+
+
+        // Typography Title
+        this.fs.copy(
+          this.templatePath( '_typography/title/inc/_c.title-dependencies.scss' ), 
+          this.destinationPath( 'components/_typography/title/inc/_c.title-dependencies.scss' )
+        );
+
+
+        // Typography Title
+        this.fs.copy(
+          this.templatePath( '_typography/title/inc/_c.title-features.scss' ), 
+          this.destinationPath( 'components/_typography/title/inc/_c.title-features.scss' )
+        );
+
+      }
+
+
+      // ----------------------------------------------------
+      //  Typography component files
+      // ----------------------------------------------------
+      if ( this.includeTypographyHeading == true ) {
+
+        // Typography Heading
+        this.fs.copy(
+          this.templatePath( '_typography/heading/_c.heading.php' ), 
+          this.destinationPath( 'components/_typography/heading/_c.heading.php' )
+        );
+
+
+        // Typography Heading
+        this.fs.copy(
+          this.templatePath( '_typography/heading/_c.heading.scss' ), 
+          this.destinationPath( 'components/_typography/heading/_c.heading.scss' )
+        );
+
+
+        // Typography Heading
+        this.fs.copy(
+          this.templatePath( '_typography/heading/inc/_c.heading-tpl.php' ), 
+          this.destinationPath( 'components/_typography/heading/inc/_c.heading-tpl.php' )
+        );
+
+
+        // Typography Heading
+        this.fs.copy(
+          this.templatePath( '_typography/heading/inc/_c.heading-vars.scss' ), 
+          this.destinationPath( 'components/_typography/heading/inc/_c.heading-vars.scss' )
+        );
+
+
+        // Typography Title
+        this.fs.copy(
+          this.templatePath( '_typography/heading/inc/_c.heading-dependencies.scss' ), 
+          this.destinationPath( 'components/_typography/heading/inc/_c.heading-dependencies.scss' )
+        );
+
+
+        // Typography Title
+        this.fs.copy(
+          this.templatePath( '_typography/heading/inc/_c.heading-features.scss' ), 
+          this.destinationPath( 'components/_typography/heading/inc/_c.heading-features.scss' )
+        );
+
+      }
+
+
+      // ----------------------------------------------------
+      //  Typography component files
+      // ----------------------------------------------------
+      if ( this.includeTypographySubheading == true ) {
+
+        // Typography Heading
+        this.fs.copy(
+          this.templatePath( '_typography/subheading/_c.subheading.php' ), 
+          this.destinationPath( 'components/_typography/subheading/_c.subheading.php' )
+        );
+
+
+        // Typography Heading
+        this.fs.copy(
+          this.templatePath( '_typography/subheading/_c.subheading.scss' ), 
+          this.destinationPath( 'components/_typography/subheading/_c.subheading.scss' )
+        );
+
+
+        // Typography Heading
+        this.fs.copy(
+          this.templatePath( '_typography/subheading/inc/_c.subheading-tpl.php' ), 
+          this.destinationPath( 'components/_typography/subheading/inc/_c.subheading-tpl.php' )
+        );
+
+
+        // Typography Heading
+        this.fs.copy(
+          this.templatePath( '_typography/subheading/inc/_c.subheading-vars.scss' ), 
+          this.destinationPath( 'components/_typography/subheading/inc/_c.subheading-vars.scss' )
+        );
+
+
+        // Typography Title
+        this.fs.copy(
+          this.templatePath( '_typography/subheading/inc/_c.subheading-dependencies.scss' ), 
+          this.destinationPath( 'components/_typography/subheading/inc/_c.subheading-dependencies.scss' )
+        );
+
+
+        // Typography Title
+        this.fs.copy(
+          this.templatePath( '_typography/subheading/inc/_c.subheading-features.scss' ), 
+          this.destinationPath( 'components/_typography/subheading/inc/_c.subheading-features.scss' )
+        );
+
+      }
+
+
+      // ----------------------------------------------------
+      //  Typography component files
+      // ----------------------------------------------------
+      if ( this.includeTypographyLede == true ) {
+
+        // Typography Heading
+        this.fs.copy(
+          this.templatePath( '_typography/lede/_c.lede.php' ), 
+          this.destinationPath( 'components/_typography/lede/_c.lede.php' )
+        );
+
+
+        // Typography Heading
+        this.fs.copy(
+          this.templatePath( '_typography/lede/_c.lede.scss' ), 
+          this.destinationPath( 'components/_typography/lede/_c.lede.scss' )
+        );
+
+
+        // Typography Heading
+        this.fs.copy(
+          this.templatePath( '_typography/lede/inc/_c.lede-tpl.php' ), 
+          this.destinationPath( 'components/_typography/lede/inc/_c.lede-tpl.php' )
+        );
+
+
+        // Typography Heading
+        this.fs.copy(
+          this.templatePath( '_typography/lede/inc/_c.lede-vars.scss' ), 
+          this.destinationPath( 'components/_typography/lede/inc/_c.lede-vars.scss' )
+        );
+
+
+        // Typography Title
+        this.fs.copy(
+          this.templatePath( '_typography/lede/inc/_c.lede-dependencies.scss' ), 
+          this.destinationPath( 'components/_typography/lede/inc/_c.lede-dependencies.scss' )
+        );
+
+
+        // Typography Title
+        this.fs.copy(
+          this.templatePath( '_typography/lede/inc/_c.lede-features.scss' ), 
+          this.destinationPath( 'components/_typography/lede/inc/_c.lede-features.scss' )
         );
 
       }
@@ -893,10 +1252,67 @@ module.exports = yeoman.Base.extend({
           this.destinationPath( 'components/hero/hero-text/_c.hero-text.php' )
         );
 
+        // Flexible Content
+        this.fs.copy(
+          this.templatePath( 'hero/hero-text/_c.hero-text.scss' ), 
+          this.destinationPath( 'components/hero/hero-text/_c.hero-text.scss' )
+        );
+
         // Flexible Content Template
         this.fs.copy(
           this.templatePath( 'hero/hero-text/inc/_c.hero-text-tpl.php' ), 
           this.destinationPath( 'components/hero/hero-text/inc/_c.hero-text-tpl.php' )
+        );
+
+        // Flexible Content Template
+        this.fs.copy(
+          this.templatePath( 'hero/hero-text/inc/_c.hero-text-vars.scss' ), 
+          this.destinationPath( 'components/hero/hero-text/inc/_c.hero-text-vars.scss' )
+        );
+
+      }
+
+
+
+      // ----------------------------------------------------
+      //  Hero vanilla component files
+      // ----------------------------------------------------
+      if ( this.includeHeroVanilla == true ) {
+
+        // Flexible Content
+        this.fs.copy(
+          this.templatePath( 'hero/hero-vanilla/_c.hero-vanilla.php' ), 
+          this.destinationPath( 'components/hero/hero-vanilla/_c.hero-vanilla.php' )
+        );
+
+        // Flexible Content
+        this.fs.copy(
+          this.templatePath( 'hero/hero-vanilla/_c.hero-vanilla.scss' ), 
+          this.destinationPath( 'components/hero/hero-vanilla/_c.hero-vanilla.scss' )
+        );
+
+        // Flexible Content Template
+        this.fs.copy(
+          this.templatePath( 'hero/hero-vanilla/inc/_c.hero-vanilla-tpl.php' ), 
+          this.destinationPath( 'components/hero/hero-vanilla/inc/_c.hero-vanilla-tpl.php' )
+        );
+
+        // Dependencies
+        this.fs.copy(
+          this.templatePath( 'hero/hero-vanilla/inc/_c.hero-vanilla-dependencies.scss' ), 
+          this.destinationPath( 'components/hero/hero-vanilla/inc/_c.hero-vanilla-dependencies.scss' )
+        );
+
+        // Vars
+        this.fs.copy(
+          this.templatePath( 'hero/hero-vanilla/inc/_c.hero-vanilla-vars.scss' ), 
+          this.destinationPath( 'components/hero/hero-vanilla/inc/_c.hero-vanilla-vars.scss' )
+        );
+
+        // Features
+        this.fs.copy(
+          this.templatePath( 'hero/hero-vanilla/inc/_c.hero-vanilla-features.scss' ), 
+          this.destinationPath( 'components/hero/hero-vanilla/inc/_c.hero-vanilla-features.scss' )
         );
 
       }

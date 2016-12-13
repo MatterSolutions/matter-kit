@@ -23,6 +23,9 @@
   },
   "devDependencies": {
     "bourbon": "~4.2.0",
-    "slick.js": "~1.4.1"
+    "slick.js": "~1.4.1",
+    "matchHeight": "matchheight#~0.7.0",
+    "svg-injector": "~1.1.3",
+    "magnific-popup": "~1.1.0"
   }
 }

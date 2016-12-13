@@ -74,9 +74,23 @@ class Mttr_Component_Hero_Text {
 		$content = false;
 
 		// No posts, center the text to match the content
-		if ( ! have_posts() || is_404() ) {
+		if ( !have_posts() || is_404() ) {
 
 			$modifiers = 'u-text--center';
+
+		} else {
+
+			$modifiers = 'o-band  o-band--large';
+
+			if ( is_archive() || is_home() || is_search() ) {
+
+				$modifiers .= '  u-hard--bottom';
+
+			} else {
+
+				$modifiers .= '  c-hero-text--overhang  u-hard--bottom';
+
+			}
 
 		}
 

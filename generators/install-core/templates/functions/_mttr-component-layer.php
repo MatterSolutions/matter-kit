@@ -489,24 +489,25 @@ add_filter( 'mce_buttons_2', 'mttr_text_editor_add_style_dropdown' );
 function mttr_get_grid_feature_data_standard( $id ) {
 
 	global $post;
-	setup_postdata( $id );
+	$post = $id;
+	setup_postdata( $post );
 
 	// Heading
-	$heading = get_field( 'mttr_meta_heading', $id );
+	$heading = get_field( 'mttr_meta_heading' );
 
 	if ( empty( $heading ) ) {
 
-		$heading = get_the_title( $id );
+		$heading = get_the_title();
 
 	}
 
 
 	// Subheading
-	$subheading = get_field( 'mttr_meta_subheading', $id );
+	$subheading = get_field( 'mttr_meta_subheading' );
 
 
 	// Content
-	$content = get_field( 'mttr_meta_content', $id );
+	$content = get_field( 'mttr_meta_content' );
 
 	if ( empty( $content ) ) {
 
@@ -516,11 +517,11 @@ function mttr_get_grid_feature_data_standard( $id ) {
 
 
 	// Icon
-	$icon = get_field( 'mttr_meta_icon_image', $id );
+	$icon = get_field( 'mttr_meta_icon_image' );
 
 	if ( empty( $icon ) ) {
 
-		$icon = get_field( 'mttr_meta_icon', $id );
+		$icon = get_field( 'mttr_meta_icon' );
 
 		if ( $icon ) {
 
@@ -532,34 +533,33 @@ function mttr_get_grid_feature_data_standard( $id ) {
 
 
 	// Image
-	$image = get_field( 'mttr_meta_image', $id );
+	$image = get_field( 'mttr_meta_image' );
 
-	if ( empty( $image ) && has_post_thumbnail( $id ) ) {
+	if ( empty( $image ) && has_post_thumbnail() ) {
 
-		$image = get_post_thumbnail_id( $id );
+		$image = get_post_thumbnail_id();
 
 	}
 
 
 	// CTA Text
-	$cta_text = get_field( 'mttr_meta_cta_text', $id );
+	$cta_text = get_field( 'mttr_meta_cta_text' );
 
 	if ( empty( $cta_text ) ) {
 
-		$cta_text = get_the_title( $id );
+		$cta_text = get_the_title();
 
 	}
 
 
 	// CTA link
-	$link = get_field( 'mttr_meta_cta_link', $id );
+	$link = get_field( 'mttr_meta_cta_link' );
 
 	if ( empty( $link ) ) {
 
-		$link = get_the_permalink( $id );
+		$link = get_the_permalink();
 
 	}
-
 
 
 	// Data

@@ -1,0 +1,51 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Lede - Vars
+//
+// 	Setup the Lede component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+// ------------------------------------------------
+//	Setup vars and mixins
+// ------------------------------------------------
+$mk-component-lede-name:          lede !default;
+$mk-component-lede-selector:      mk-get-selector( $mk-component-lede-name, true, $mk-components-prefix );
+$mk-component-lede-config: ();
+$mk-component-lede-features: ();
+
+
+
+// Setup config mixin
+@mixin mk-add-lede-config( $name, $key, $value ) {
+
+	$mk-component-lede-config: mk-add-data( $mk-component-lede-config, $name, $key, $value ) !global;
+
+}
+
+// Setup feature mixin
+@mixin mk-add-lede-feature( $name, $key, $value ) {
+
+	$mk-component-lede-features: mk-add-data( $mk-component-lede-features, $name, $key, $value ) !global;
+
+}
+
+
+
+
+// ------------------------------------------------
+//	Setup defaults
+// ------------------------------------------------
+
+// Base
+@include mk-add-lede-config( featurename, key, value );

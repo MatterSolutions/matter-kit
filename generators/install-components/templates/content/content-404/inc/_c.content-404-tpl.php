@@ -19,6 +19,7 @@
 
 // Component vars
 $heading = mttr_get_template_var( 'heading' );
+$subheading = mttr_get_template_var( 'subheading' );
 $content = mttr_get_template_var( 'content' );
 $search = mttr_get_template_var( 'search' );
 $id = mttr_get_template_var( 'id' );
@@ -54,11 +55,21 @@ echo '<section class="' . esc_html( $namespace ) . esc_html( $modifiers ) . '">'
 
 	if ( $heading ) {
 
-		echo '<h2 class="' . esc_html( $namespace ) . '__heading  t-subheading">';
+		echo '<h1 class="' . esc_html( $namespace ) . '__heading  t-title">';
 
 			echo esc_html( $heading );
 
-		echo '</h2><!-- /.' . esc_html( $namespace ) . '__heading -->';
+		echo '</h1><!-- /.' . esc_html( $namespace ) . '__heading -->';
+
+	}
+
+	if ( $subheading ) {
+
+		echo '<h2 class="' . esc_html( $namespace ) . '__subheading  t-subheading">';
+
+			echo esc_html( $subheading );
+
+		echo '</h2><!-- /.' . esc_html( $namespace ) . '__subheading -->';
 
 	}
 

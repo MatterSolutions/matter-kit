@@ -42,7 +42,7 @@ module.exports = yeoman.Base.extend({
         {
           name: 'projectVersion',
           message: 'Project Version',
-          default: '0.9.0',
+          default: '1.0.0',
         },
         {
           type: 'list',
@@ -71,12 +71,13 @@ module.exports = yeoman.Base.extend({
         {
           name: 'projectAuthorEmail',
           message: 'Author Email Address?',
+          default: 'helpdesk@mattersolutions.com.au',
           store: true
         },
         {
           name: 'projectAuthorURL',
           message: 'Author URL?',
-          default: 'http://www.mattersolutions.com.au',
+          default: 'https://www.mattersolutions.com.au',
           store: true
         }
 
@@ -285,6 +286,14 @@ module.exports = yeoman.Base.extend({
       this.fs.copyTpl(
         this.templatePath( 'assets/js/inc/_partials.js' ), 
         this.destinationPath( 'assets/js/inc/_partials.js' ), 
+        { projectInfo }
+      );
+
+
+      // Plugins JS
+      this.fs.copyTpl(
+        this.templatePath( 'assets/js/inc/_plugins.js' ), 
+        this.destinationPath( 'assets/js/inc/_plugins.js' ), 
         { projectInfo }
       );
 

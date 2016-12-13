@@ -1,0 +1,49 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Component - Subheading
+//
+// 	A basic subheading
+//
+// ---------------------------------------------------------------------------- */
+
+
+// Import the component vars
+@import 'inc/c.subheading-vars';
+
+
+// ------------------------------------------------
+//	Enable config and features
+// ------------------------------------------------
+// Config
+// @include mk-add-subheading-config( configname, key, value );
+
+// Features
+// @include mk-add-subheading-feature( featurename, key, value );
+
+
+
+// Output the component 'features' we've enabled
+@import 'inc/c.subheading-features';
+
+
+// Project specific styles
+#{ $mk-component-subheading-selector } {
+
+	font-size: calc-rem( calc-type-scale( 7 ) );
+
+	@include mk-media-query( desk ) {
+
+		font-size: calc-rem( calc-type-scale( 11 ) );
+
+	}
+
+}

@@ -54,6 +54,13 @@ module.exports = yeoman.Base.extend({
       );
 
 
+      // Contact
+      this.fs.copy(
+        this.templatePath( 'customiser/_mttr-contact.php' ), 
+        this.destinationPath( '_core/customiser/mttr-contact.php' )
+      );
+
+
 
       // ----------------------------------------------------
       //  Functions

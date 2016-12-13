@@ -1,0 +1,51 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Attribution Vanilla - Vars
+//
+// 	Setup the Attribution Vanilla component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+// ------------------------------------------------
+//	Setup vars and mixins
+// ------------------------------------------------
+$mk-component-attribution-vanilla-name:          attribution-vanilla !default;
+$mk-component-attribution-vanilla-selector:      mk-get-selector( $mk-component-attribution-vanilla-name, true, $mk-components-prefix );
+$mk-component-attribution-vanilla-config: ();
+$mk-component-attribution-vanilla-features: ();
+
+
+
+// Setup config mixin
+@mixin mk-add-attribution-vanilla-config( $name, $key, $value ) {
+
+	$mk-component-attribution-vanilla-config: mk-add-data( $mk-component-attribution-vanilla-config, $name, $key, $value ) !global;
+
+}
+
+// Setup feature mixin
+@mixin mk-add-attribution-vanilla-feature( $name, $key, $value ) {
+
+	$mk-component-attribution-vanilla-features: mk-add-data( $mk-component-attribution-vanilla-features, $name, $key, $value ) !global;
+
+}
+
+
+
+
+// ------------------------------------------------
+//	Setup defaults
+// ------------------------------------------------
+
+// Base
+@include mk-add-attribution-vanilla-config( featurename, key, value );

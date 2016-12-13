@@ -63,3 +63,27 @@ function mttr_theme_customiser_brand_secondary( $wp_customize ) {
 
 }
 add_action( 'customize_register', 'mttr_theme_customiser_brand_secondary', 12 );
+
+
+
+
+
+/* ---------------------------------------------------------
+*	Add a field for the site-wide default image
+ --------------------------------------------------------- */
+function mttr_theme_customiser_default_image( $wp_customize ) {
+
+	// Add the default image
+	$wp_customize->add_setting( 'mttr_brand_default_image' );
+
+	// Add a control to upload the image
+	$wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'mttr_brand_default_image',
+		array(
+		'label' => 'Default Image',
+		'section' => 'title_tagline',
+		'settings' => 'mttr_brand_default_image',
+		) ) 
+	);
+
+}
+add_action( 'customize_register', 'mttr_theme_customiser_default_image', 18 );

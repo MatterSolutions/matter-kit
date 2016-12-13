@@ -33,6 +33,7 @@ require get_template_directory() . '/_core/structure/mttr-core-flexible.php';
 require get_template_directory() . '/_core/customiser/mttr-customiser-setup.php';
 require get_template_directory() . '/_core/customiser/mttr-brand.php';
 require get_template_directory() . '/_core/customiser/mttr-social.php';
+require get_template_directory() . '/_core/customiser/mttr-contact.php';
 
 
 // Misc

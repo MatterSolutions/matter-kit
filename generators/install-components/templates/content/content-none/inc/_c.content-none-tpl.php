@@ -18,6 +18,7 @@
 // ---------------------------------------------------------------------------- *
 
 // Component vars
+$heading = mttr_get_template_var( 'heading' );
 $content = mttr_get_template_var( 'content' );
 $search = mttr_get_template_var( 'search' );
 $id = mttr_get_template_var( 'id' );
@@ -54,6 +55,16 @@ echo '<div class="' . esc_html( $namespace ) . esc_html( $modifiers ) . '">';
 	echo '<div class="' . esc_html( $namespace ) . '__body">';
 
 		echo '<div class="o-wrap">';
+
+			if ( $heading ) {
+
+				echo '<h1 class="' . esc_html( $namespace ) . '__heading">';
+
+					echo esc_html( $heading );
+
+				echo '</h1><!-- /.' . esc_html( $namespace ) . '__heading -->';
+
+			}
 
 			if ( $content ) {
 

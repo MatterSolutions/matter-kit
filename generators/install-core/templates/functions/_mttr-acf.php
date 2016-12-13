@@ -17,30 +17,40 @@
 //
 // ---------------------------------------------------------------------------- *
 
-//* Add ACF options page...
-if ( function_exists( 'acf_add_options_page' ) ) {
 
-	acf_add_options_page( array(
-		'page_title' 	=> 'Theme Settings',
-		'menu_title'	=> 'Theme Settings',
-		'menu_slug' 	=> 'theme-general-settings',
-		'capability'	=> 'edit_posts',
-		'redirect'		=> 'General Theme Settings'
-	) );
 
-	acf_add_options_sub_page( array(
-		'page_title' 	=> 'General Theme Settings',
-		'menu_title'	=> 'General Theme Settings',
-		'parent_slug'	=> 'theme-general-settings',
-	) );
+/* ---------------------------------------------------------
+*	Add the ACF theme settings pages
+ ---------------------------------------------------------*/
+function mttr_add_acf_theme_settings_pages() {
 
-	acf_add_options_sub_page( array(
-		'page_title' 	=> 'Contact Theme Settings',
-		'menu_title'	=> 'Contact Theme Settings',
-		'parent_slug'	=> 'theme-general-settings',
-	) );
+	//* Add ACF options page...
+	if ( function_exists( 'acf_add_options_page' ) ) {
+
+		acf_add_options_page( array(
+			'page_title' 	=> 'Theme Settings',
+			'menu_title'	=> 'Theme Settings',
+			'menu_slug' 	=> 'theme-general-settings',
+			'capability'	=> 'edit_posts',
+			'redirect'		=> 'General Theme Settings'
+		) );
+
+		acf_add_options_sub_page( array(
+			'page_title' 	=> 'General Theme Settings',
+			'menu_title'	=> 'General Theme Settings',
+			'parent_slug'	=> 'theme-general-settings',
+		) );
+
+		acf_add_options_sub_page( array(
+			'page_title' 	=> 'Contact Theme Settings',
+			'menu_title'	=> 'Contact Theme Settings',
+			'parent_slug'	=> 'theme-general-settings',
+		) );
+
+	}
 
 }
+add_action( 'init', 'mttr_add_acf_theme_settings_pages', 10 );
 
 
 
@@ -309,8 +319,8 @@ if ( !function_exists( 'mttr_output_flexible_content_fields' ) ) {
 				),
 			),
 			'location' => mttr_flex_layouts_setup_location_array( mttr_flex_layouts_locations_post_types() ),
-			'menu_order' => 0,
-			'position' => 'normal',
+			'menu_order' => 10,
+			'position' => 'acf_after_title',
 			'style' => 'default',
 			'label_placement' => 'top',
 			'instruction_placement' => 'label',

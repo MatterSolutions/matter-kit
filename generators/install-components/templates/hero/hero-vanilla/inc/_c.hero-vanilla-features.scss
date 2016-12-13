@@ -1,0 +1,54 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Hero Vanilla
+//
+// 	Setup the Hero Vanilla component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+
+// ------------------------------------------------
+//	Output component
+// ------------------------------------------------
+#{ $mk-component-hero-vanilla-selector } {
+
+	@extend .o-band;
+	color: mk-get-data( $mk-component-hero-vanilla-config, text, color );
+	padding-bottom: mk-get-data( $mk-component-hero-vanilla-config, padding, bottom );
+	padding-top: mk-get-data( $mk-component-hero-vanilla-config, padding, top );
+	text-align: center;
+
+	@include mk-media-query( "#{ mk-get-data( $mk-component-hero-vanilla-config, breakpoint, base ) }" ) {
+
+		padding-bottom: mk-get-data( $mk-component-hero-vanilla-config, padding--bp, bottom );
+		padding-top: mk-get-data( $mk-component-hero-vanilla-config, padding--bp, top );
+
+	}
+
+
+	// ------------------------------------------------
+	//	Component modifiers
+	// ------------------------------------------------
+
+	// Modifier
+	@if ( map-has-key( $mk-component-hero-vanilla-features, left ) ) {
+
+		&--left {
+
+			text-align: left;
+
+		}
+
+	}
+
+}

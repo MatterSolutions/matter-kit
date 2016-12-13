@@ -1,0 +1,44 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Component - Meta
+//
+// 	Basic meta data
+//
+// ---------------------------------------------------------------------------- */
+
+
+// Import the component vars
+@import 'inc/c.meta-vars';
+
+
+// ------------------------------------------------
+//	Enable config and features
+// ------------------------------------------------
+// Config
+// @include mk-add-meta-config( configname, key, value );
+
+// Features
+// @include mk-add-meta-feature( featurename, key, value );
+
+
+
+// Output the component 'features' we've enabled
+@import 'inc/c.meta-features';
+
+
+
+// Project specific styles
+#{ $mk-component-meta-selector } {
+
+	// Styles here
+
+}

@@ -192,7 +192,7 @@ if ( ! function_exists( 'mttr_add_acf_contact_fields' ) ) {
 
 }
 
-add_action( 'init', 'mttr_add_acf_contact_fields' );
+// add_action( 'init', 'mttr_add_acf_contact_fields' );
 
 
 

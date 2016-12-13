@@ -65,81 +65,81 @@ echo '<div id="' . esc_html( $namespace ) . '--' . esc_attr( $id ) . '" class="'
 
 		echo '<div class="o-wrap">';
 
-			echo '<div class="o-lyt  o-lyt--middle  o-ltg">';
+			echo '<div class="o-lyt  o-ltg">';
 
-				echo '<div class="o-lyt__item  o-ltg__item  ' . esc_html( $namespace ) . '__primary">';
+					echo '<div class="o-lyt__item  o-ltg__item  ' . esc_html( $namespace ) . '__primary">';
 
-					// Loop through our left content
-					if ( $primary_content && is_array( $primary_content ) ) {
+						// Loop through our left content
+						if ( $primary_content && is_array( $primary_content ) ) {
 
-						echo '<ul class="o-lyt  o-ltg">';
+							echo '<ul class="o-lyt  o-ltg">';
 
-							foreach ( $primary_content as $primary => $item ) {
+								foreach ( $primary_content as $primary => $item ) {
 
-								echo '<li class="o-lyt__item  o-ltg__item  ' . esc_html( $namespace ) . '__' . esc_attr( $primary ) . '">';
+									echo '<li class="o-lyt__item  o-ltg__item  ' . esc_html( $namespace ) . '__' . esc_attr( $primary ) . '">';
 
-									if ( !empty( $item[ 'template' ] ) && is_array( $item ) ) {
+										if ( !empty( $item[ 'template' ] ) && is_array( $item ) ) {
 
-										mttr_get_template( $item[ 'template' ], $item[ 'data' ] );
+											mttr_get_template( $item[ 'template' ], $item[ 'data' ] );
 
-									} else {
+										} else {
 
-										mttr_template_offset_margin( $item );
+											mttr_template_offset_margin( $item );
 
-									}
+										}
 
-								echo '</li>';
+									echo '</li>';
 
-							}
+								}
 
-						echo '</ul>';
+							echo '</ul>';
 
-					} elseif ( $primary_content ) {
+						} elseif ( $primary_content ) {
 
-						mttr_template_offset_margin( $primary_content );
+							mttr_template_offset_margin( $primary_content );
 
-					}
+						}
 
-				echo '</div><!-- /.' . esc_html( $namespace ) . '__primary -->';
+					echo '</div><!-- /.' . esc_html( $namespace ) . '__primary -->';
 
-				echo '<div class="o-lyt__item  o-ltg__item  ' . esc_html( $namespace ) . '__secondary">';
+					echo '<div class="o-lyt__item  o-ltg__item  ' . esc_html( $namespace ) . '__secondary">';
 
-					// Loop through our left content
-					if ( $secondary_content && is_array( $secondary_content ) ) {
+						// Loop through our left content
+						if ( $secondary_content && is_array( $secondary_content ) ) {
 
-						echo '<ul class="o-lyt  o-ltg  o-lyt--flush">';
+							echo '<ul class="o-lyt  o-ltg  o-lyt--flush">';
 
-							foreach ( $secondary_content as $secondary => $item ) {
+								foreach ( $secondary_content as $secondary => $item ) {
 
-								echo '<li class="o-lyt__item  o-ltg__item  ' . esc_html( $namespace ) . '__' . esc_attr( $secondary ) . '">';
+									echo '<li class="o-lyt__item  o-ltg__item  ' . esc_html( $namespace ) . '__' . esc_attr( $secondary ) . '">';
 
-									if ( !empty( $item[ 'template' ] ) && is_array( $item ) ) {
+										if ( !empty( $item[ 'template' ] ) && is_array( $item ) ) {
 
-										mttr_get_template( $item[ 'template' ], $item[ 'data' ] );
+											mttr_get_template( $item[ 'template' ], $item[ 'data' ] );
 
-									} else {
+										} else {
 
-										mttr_template_offset_margin( $item );
+											mttr_template_offset_margin( $item );
 
-									}
+										}
 
-								echo '</li>';
+									echo '</li>';
 
-							}
+								}
 
-						echo '</ul>';
+							echo '</ul>';
 
-					} elseif ( $secondary_content ) {
+						} elseif ( $secondary_content ) {
 
-						mttr_template_offset_margin( $secondary_content );
+							mttr_template_offset_margin( $secondary_content );
 
-					}
+						}
 
-				echo '</div><!-- /.' . esc_html( $namespace ) . '__secondary -->';
+					echo '</div><!-- /.' . esc_html( $namespace ) . '__secondary -->';
 
-			echo '</div><!-- /.o-lyt -->';
+				echo '</div><!-- /.o-lyt -->';
 
-		echo '</div><!-- /.o-wrap -->';
+			echo '</div><!-- /.o-wrap -->';
 
 	echo '</div><!-- /.' . esc_html( $namespace ) . '__body -->';
 

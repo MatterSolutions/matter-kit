@@ -104,7 +104,8 @@ if ( !function_exists( 'mttr_get_default_image' ) ) {
 
 	function mttr_get_default_image( $size = 'mttr_hero' ) {
 
-		$hero = get_field( 'mttr_options_hero_default_image', 'option' );
+		$hero = get_theme_mod( 'mttr_brand_default_image' );
+		$hero_deprecated = get_field( 'mttr_options_hero_default_image', 'option' );
 
 		if ( $hero ) {
 			
@@ -117,6 +118,18 @@ if ( !function_exists( 'mttr_get_default_image' ) ) {
 			}
 			
 			return false;		
+
+		} elseif ( $hero_deprecated ) {
+
+			$img_arr = wp_get_attachment_image_src( $hero_deprecated, $size );
+
+			if ( isset( $img_arr[0] ) ) {
+
+				return $img_arr[0];
+
+			}
+			
+			return false;	
 
 		} else {
 

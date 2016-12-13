@@ -1,0 +1,51 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - content-404 - Vars
+//
+// 	Setup the content-404 component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+// ------------------------------------------------
+//	Setup vars and mixins
+// ------------------------------------------------
+$mk-component-content-404-name:          content-404 !default;
+$mk-component-content-404-selector:      mk-get-selector( $mk-component-content-404-name, true, $mk-components-prefix );
+$mk-component-content-404-config: ();
+$mk-component-content-404-features: ();
+
+
+
+// Setup config mixin
+@mixin mk-add-content-404-config( $name, $key, $value ) {
+
+	$mk-component-content-404-config: mk-add-data( $mk-component-content-404-config, $name, $key, $value ) !global;
+
+}
+
+// Setup feature mixin
+@mixin mk-add-content-404-feature( $name, $key, $value ) {
+
+	$mk-component-content-404-features: mk-add-data( $mk-component-content-404-features, $name, $key, $value ) !global;
+
+}
+
+
+
+
+// ------------------------------------------------
+//	Setup defaults
+// ------------------------------------------------
+
+// Base
+// @include mk-add-content-404-config( featurename, key, value );

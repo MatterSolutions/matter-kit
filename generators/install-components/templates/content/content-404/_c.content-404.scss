@@ -1,0 +1,49 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Component - content-404
+//
+// 	A basic content-404
+//
+// ---------------------------------------------------------------------------- */
+
+
+// Import the component vars
+@import 'inc/c.content-404-vars';
+
+
+// ------------------------------------------------
+//	Enable config and features
+// ------------------------------------------------
+// Config
+// @include mk-add-content-404-config( configname, key, value );
+
+// Features
+// @include mk-add-content-404-feature( featurename, key, value );
+
+
+
+// Project specific styles
+#{ $mk-component-content-404-selector } {
+
+	&__heading {
+
+		font-size: calc-rem( calc-type-scale( 9 ) ) !important;
+
+		@include mk-media-query( desk ) {
+
+			font-size: calc-rem( calc-type-scale( 11 ) ) !important;			
+
+		}
+
+	}
+
+}

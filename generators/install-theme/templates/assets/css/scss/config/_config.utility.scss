@@ -43,6 +43,12 @@
 
 
 
+	// Hard
+	@include mk-add-utility( 'hard' );
+	@include mk-add-utility( 'hard', 'bottom' );
+
+
+
 	// Text Alignment
 	@include mk-add-utility( 'text' );
 	@include mk-add-utility( 'text', 'center' );

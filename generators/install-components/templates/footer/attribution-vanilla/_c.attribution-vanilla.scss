@@ -1,0 +1,81 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Component - Attribution Vanilla
+//
+// 	Basic attribution logo
+//
+// ---------------------------------------------------------------------------- */
+
+
+// Import the component vars
+@import 'inc/c.attribution-vanilla-vars';
+
+
+// ------------------------------------------------
+//	Enable config and features
+// ------------------------------------------------
+
+// Config
+@include mk-add-attribution-vanilla-config( text, color, mk-color( primary ) );
+@include mk-add-attribution-vanilla-config( text, color--hover, mk-color( primary, dark ) );
+
+@include mk-add-attribution-vanilla-config( size, height, 31px );
+@include mk-add-attribution-vanilla-config( size, width, 78px );
+
+// Features
+// @include mk-add-attribution-vanilla-feature( featurename, key, value );
+
+
+
+// Output the component 'features' we've enabled
+@import 'inc/c.attribution-vanilla-features';
+
+
+
+// Project specific styles
+#{ $mk-component-attribution-vanilla-selector } {
+
+	display: inline-block;
+	transform: scale( 1 );
+	transition: transform .3s ease;
+
+	// Scale the element on hover
+	&:hover {
+
+		transform: scale( 1.1 );
+
+		// Change SVG colour if these are not the same
+		@if ( mk-get-data( $mk-component-attribution-vanilla-config, text, color ) != mk-get-data( $mk-component-attribution-vanilla-config, text, color--hover ) ) {
+
+			svg {
+
+				fill: mk-get-data( $mk-component-attribution-vanilla-config, text, color--hover );
+
+			}
+
+		}
+
+	}
+
+	// Set the SVG height and width, offset vertical positioning based on the rotation
+	svg {
+
+		fill: mk-get-data( $mk-component-attribution-vanilla-config, text, color );
+		height: calc-rem( mk-get-data( $mk-component-attribution-vanilla-config, size, height ) );
+		position: relative;
+		transform: rotate( -6deg );
+		transition: fill .2s ease;
+		width: calc-rem( mk-get-data( $mk-component-attribution-vanilla-config, size, width ) );
+
+	}
+
+}

@@ -1,0 +1,168 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - colophon Vanilla
+//
+// 	Has an off canvas menu, with optional search
+//	Search on mobile is specific to this block, desktop would use a different block
+//
+// ---------------------------------------------------------------------------- */
+
+
+// Import the btn component
+@import 'inc/c.colophon-vanilla-vars';
+
+
+// ------------------------------------------------
+//	Setup our config
+// ------------------------------------------------
+
+@include mk-add-colophon-vanilla-config( breakpoint, base, lap );
+
+
+// Output the component 'features' we've enabled
+@import 'inc/c.colophon-vanilla-features';
+
+
+
+
+// ------------------------------------------------
+//	Output the colophon styles
+// ------------------------------------------------
+#{ $mk-component-colophon-vanilla-selector } {
+
+	font-size: mk-typography( size, small );
+	overflow: hidden;
+	text-align: center;
+
+
+	@include mk-media-query( desk ) {
+
+		text-align: left;
+
+	}
+
+
+
+	&__primary {
+
+		position: relative;
+
+	}
+
+
+	&__content,
+	&__menu,
+	&__social {
+
+		display: inline-block;
+		
+		@include mk-media-query( desk ) {
+
+			width: auto;
+
+		}
+
+
+		p,
+		.u-negate-btm-margin {
+
+			display: inline;
+
+		}
+
+
+		a {
+
+			display: inline-block;
+
+		}
+
+	}
+
+
+	&__menu {
+
+		@include mk-media-query( desk ) {
+
+			&:before {
+
+				content: '|';
+				display: inline-block;
+				margin-right: 1em;
+
+			}
+
+		}
+
+
+		.o-list {
+
+			display: inline;
+
+			a {
+
+				text-decoration: underline;
+
+				&:hover {
+
+					text-decoration: none;
+
+				}
+
+			}
+
+		}
+
+	}
+
+
+
+	&__social {
+
+		a:hover {
+
+			color: mk-color( primary, light );
+
+		}
+
+		@include mk-media-query( wide ) {
+
+			padding-left: mk-base-spacing-unit( 1.5 ) !important;
+
+		}
+
+	}
+
+
+
+	&__attribution {
+
+		@include mk-media-query( desk ) {
+
+			position: absolute;
+			right: 0;
+			width: auto;
+
+		}
+
+	}
+
+
+	&__body {
+
+		border-top: 1px solid rgba( $mk-color--white, .1 );
+		padding-bottom: mk-base-spacing-unit( base );
+		padding-top: mk-base-spacing-unit( base );
+
+	}
+
+}
