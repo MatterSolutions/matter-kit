@@ -81,7 +81,7 @@ class Mttr_Component_Title {
 	// ------------------------------------------------
 	function get_component_template_location() {
 
-		return 'components/typography/title/inc/_c.title-tpl';
+		return 'components/_typography/title/inc/_c.title-tpl';
 
 	}
 
