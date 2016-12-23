@@ -20,3 +20,12 @@ paths:
 
     # Content directory. Relative to the base directory.
     content: wp-content
+
+
+# Database configuration
+# (When overriding, include all values)
+database:
+    name: wordpress
+    user: wordpress
+    password: vagrantpassword
+    prefix: <%= projectInfo.projectTablePrefix %>

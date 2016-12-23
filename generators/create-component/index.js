@@ -72,7 +72,7 @@ module.exports = yeoman.Base.extend({
             },{
 
               name: 'Typography',
-              value: 'typography',
+              value: '_typography',
               checked: false
 
             }]

@@ -51,7 +51,7 @@ echo '<form role="search" method="get" class="' . esc_attr( $namespace ) . $modi
 
 	echo '<div class="' . esc_attr( $namespace ) . '__submit">';
 	
-		echo '<button class="c-btn  c-btn--transparent" type="submit"><i class="o-icon  u-center">' . mttr_get_icon( 'magnifying-glass.svg' ) . '</i></button>';
+		echo '<button class="c-btn  c-btn--transparent" type="submit"><i class="o-icon  o-icon--middle  u-center">' . mttr_get_icon( 'magnifying-glass.svg' ) . '</i></button>';
 
 	echo '</div><!-- /.' . esc_attr( $namespace ) . '__submit -->';
 

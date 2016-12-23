@@ -263,18 +263,8 @@ if ( ! function_exists( 'mttr_theme_main_js' ) ) {
 
 	function mttr_theme_main_js() {
 
-		// Serve uncompressed JS on local, but compressed on production
-		if ( defined( 'MTTR_LOCAL_ENV' ) ) {
-	    
-	    	// Base Scripts
-			wp_enqueue_script( 'mttr-scripts', get_template_directory_uri() . '/assets/js/scripts.js', array('jquery'), '201607', true );
-
-	    } else {
-
-			// Base Scripts
-			wp_enqueue_script( 'mttr-scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', array('jquery'), '201607', true );
-
-		}
+		// Base Scripts
+		wp_enqueue_script( 'mttr-scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', array('jquery'), '201607', true );
 
 	}
 

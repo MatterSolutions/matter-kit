@@ -84,7 +84,7 @@ class Mttr_Component_Heading {
 	// ------------------------------------------------
 	function get_component_template_location() {
 
-		return 'components/typography/heading/inc/_c.heading-tpl';
+		return 'components/_typography/heading/inc/_c.heading-tpl';
 
 	}
 

@@ -7,8 +7,6 @@
 # define( 'DB_HOST', 'localhost' ); // Probably 'localhost'
 
 // Custom table prefix
-$table_prefix  = '<%= projectInfo.projectTablePrefix %>';
-
 define( 'MTTR_WIRES', false );
 define( 'MTTR_LOCAL_ENV', false );
 

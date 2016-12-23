@@ -13,7 +13,8 @@
  ---------------------------------------------------------- */
 
 // Objects - Dependencies
-// @include mk-add-object( '', '' );
+@include mk-add-object( 'tint', 'base' );
+@include mk-add-object( 'tint', 'light' );
 
 
 // Utility

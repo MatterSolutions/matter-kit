@@ -62,7 +62,7 @@ class Mttr_Component_Subheading {
 	// ------------------------------------------------
 	function get_component_template_location() {
 
-		return 'components/typography/subheading/inc/_c.subheading-tpl';
+		return 'components/_typography/subheading/inc/_c.subheading-tpl';
 
 	}
 

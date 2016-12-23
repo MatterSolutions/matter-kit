@@ -60,7 +60,7 @@ if ( $modifiers ) {
 
 echo '<div id="' . esc_html( $namespace ) . '--' . esc_attr( $id ) . '" class="' . esc_html( $namespace ) . esc_html( $modifiers ) . '">';
 
-	echo '<div class="' . esc_html( $namespace ) . '__body">';
+	echo '<div class="' . esc_html( $namespace ) . '__body  o-tint__body">';
 
 		echo '<div class="o-wrap">';
 

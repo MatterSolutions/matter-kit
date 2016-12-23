@@ -655,3 +655,21 @@ function mttr_add_inline_styles( $name, $style ) {
 	$_mttr_global_styles[ esc_attr( $name ) ] = $style;
 
 }
+
+
+
+
+
+/* ---------------------------------------------------------
+* 	Setup the component array
+ ----------------------------------------------------------*/
+function mttr_setup_component_array( $template, $data ) {
+
+	return array(
+
+		'template' => $template,
+		'data' => $data
+
+	);
+
+}

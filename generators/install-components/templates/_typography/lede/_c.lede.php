@@ -83,7 +83,7 @@ class Mttr_Component_Lede {
 	// ------------------------------------------------
 	function get_component_template_location() {
 
-		return 'components/typography/lede/inc/_c.lede-tpl';
+		return 'components/_typography/lede/inc/_c.lede-tpl';
 
 	}
 

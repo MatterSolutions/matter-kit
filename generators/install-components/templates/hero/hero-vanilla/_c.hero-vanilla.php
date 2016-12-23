@@ -111,7 +111,7 @@ class Mttr_Component_Hero_Vanilla {
 			'image' => mttr_get_image_url( $item, 'mttr_hero' ),
 			'image_mobile' => mttr_get_image_url( $item, 'thumbnail' ),
 			'meta' => $meta_data,
-			'modifiers' => ''
+			'modifiers' => 'c-hero-vanilla--left  o-tint  o-tint--light'
 
 		);
 
