@@ -381,6 +381,14 @@ class Mttr_Component_Standard_Content {
 
 		}
 
+		$reverse = get_sub_field( 'reverse', false, false );
+
+		if ( $reverse ) {
+
+			$modifiers .= '  o-lyt--reverse';
+
+		}
+
 		$data = array(
 
 			'content' => $content,
