@@ -170,7 +170,15 @@ class Mttr_Component_Flexible_Content {
 						$component_data = $component->get_data();
 
 						// Grab the component styles
-						$this->styles = $this->styles . $component->styles;
+						if ( method_exists( $component, 'get_styles' ) ) {
+
+							$this->styles = $this->styles . $component->get_styles( $component_data );
+
+						} else {
+
+							$this->styles = $this->styles . $component->styles;
+
+						}
 
 						// Add the component data and template to an array
 						$data[] = array( 
