@@ -21,7 +21,8 @@
   "dependencies": {
     "yeoman-generator": "^0.23.0",
     "chalk": "^1.0.0",
-    "yosay": "^1.0.0"
+    "yosay": "^1.0.0",
+    "mkdirp": "^0.5.1"
   },
   "devDependencies": {
     "eslint": "^2.1.0",
@@ -34,7 +35,6 @@
     "gulp-mocha": "^2.0.0",
     "gulp-nsp": "^2.1.0",
     "gulp-plumber": "^1.0.0",
-    "mkdirp": "^0.5.1",
     "yeoman-assert": "^2.0.0",
     "yeoman-test": "^1.0.0"
   },
