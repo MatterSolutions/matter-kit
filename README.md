@@ -26,8 +26,8 @@ Firstly, cd to where your projects will be set up. We'll create a new directory 
 PROJECT="MyProject"
 CODE="proj"
 THEME="theme-name"
-AUTHOREMAIL="helpdesk@mattersolutions.com.au"
-AUTHORURL="https://www.mattersolutions.com.au"
+AUTHOREMAIL="helpdesk@mttr.io"
+AUTHORURL="https://www.mttr.io"
 mkdir "$PROJECT"
 cd "$PROJECT"
 git clone --recursive https://github.com/Chassis/Chassis
@@ -62,7 +62,7 @@ wp site empty --yes
 Empty the WP installation of it's dummy data.
 ```bash
 wp theme activate theme-name
-wp user create mttr-test helpdesk@mattersolutions.com.au --role=administrator
+wp user create mttr-test helpdesk@mttr.io --role=administrator
 wp user delete 1 --reassign=2
 ```
 Note the password for the user so you can log in. 
@@ -75,7 +75,7 @@ wp option update show_on_front page
 wp option update page_for_posts 2
 wp rewrite structure '/blog/%postname%/' --hard
 wp option set blog_public 0
-wp option update admin_email helpdesk@mattersolutions.com.au
+wp option update admin_email helpdesk@mttr.io
 wp option update blogname "My Project"
 wp option update blogdescription ""
 wp option update timezone_string "Australia/Brisbane"
@@ -121,4 +121,4 @@ Run the install to download the frontend dependencies and get the build process 
 
 Dual licensed under MIT & GPLv2 
 
-© 2016 Matter Solutions
+© 2016 - 2017 Matter Solutions
