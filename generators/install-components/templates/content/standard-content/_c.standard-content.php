@@ -333,12 +333,12 @@ class Mttr_Component_Standard_Content {
 
 			$content = array(
 
-				'content' => $content_two,
-				'sidebar' => $content_one,
+				'content' => $content_one,
+				'sidebar' => $content_two,
 
 			);
 
-			$modifiers = 'o-lyt--content-sidebar';
+			$modifiers = 'o-lyt--sidebar-content';
 
 		}
 
