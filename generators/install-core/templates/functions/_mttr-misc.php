@@ -901,3 +901,51 @@ function mttr_add_gravity_forms_editor(){
 
 }
 add_action( 'admin_init','mttr_add_gravity_forms_editor' );
+
+
+
+
+/* ---------------------------------------------------------
+*	Generator for CPT lables
+ ---------------------------------------------------------*/
+
+function mttr_generate_cpt_labels( $single, $plural = null ) {
+
+	if( empty( $plural ) ) {
+
+		if( substr( $single, -1) == 'y' ) {
+
+			$plural = substr( $single, 0, -1) . 'ies';
+
+		} else {
+
+			$plural = $single . 's';
+
+		}
+
+	}
+
+	$labels = array(
+
+		'name' => $plural,
+		'singular_name' => $single,
+		'add_new_item' => 'Add New ' . $single,
+		'edit_item' => 'Edit ' . $single,
+		'new_item' => 'New ' . $single,
+		'view_item' => 'View ' . $single,
+		'view_items' => 'View ' . $plural,
+		'search_items' => 'Search ' . $plural,
+		'not_found' => 'No ' . $plural . ' found',
+		'not_found_in_trash' => 'No ' . $plural . ' found in Trash',
+		'parent_item_colon' => 'Parent ' . $single . ':',
+		'all_items' => 'All ' . $plural,
+		'archives' => $single . ' Archives',
+		'attributes' => $single . ' Attributes',
+		'insert_into_item' => 'Insert into ' . $single,
+		'uploaded_to_this_item' => 'Uploaded to this ' . $single,
+
+	);
+
+	return $labels;
+
+}
