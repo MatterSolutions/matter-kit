@@ -206,7 +206,13 @@ if ( ! function_exists( 'mttr_get_global_contact_phone_number' ) ) {
 
 	function mttr_get_global_contact_phone_number( ) {
 
-		$detail = get_field( 'mttr_options_contact_phone_number', 'options' );
+		$detail = get_theme_mod( 'mttr_contact_phone_number' );
+
+		if ( empty( $detail ) ) {
+
+			$detail = get_field( 'mttr_options_contact_phone_number', 'options' );
+
+		}
 
 		if ( $detail ) return $detail;
 
@@ -246,7 +252,13 @@ if ( ! function_exists( 'mttr_get_contact_fax_number' ) ) {
 
 	function mttr_get_contact_fax_number( ) {
 
-		$detail = get_field( 'mttr_options_contact_fax_number', 'options' );
+		$detail = get_theme_mod( 'mttr_contact_fax_number' );
+
+		if ( empty( $detail ) ) {
+
+			$detail = get_field( 'mttr_options_contact_fax_number', 'options' );
+
+		}
 
 		if ( $detail ) {
 
@@ -272,7 +284,13 @@ if ( ! function_exists( 'mttr_get_contact_email_address' ) ) {
 
 	function mttr_get_contact_email_address( ) {
 
-		$detail = get_field( 'mttr_options_contact_email_address', 'options' );
+		$detail = get_theme_mod( 'mttr_contact_email_address' );
+
+		if ( empty( $detail ) ) {
+
+			$detail = get_field( 'mttr_options_contact_email_address', 'options' );
+
+		}
 
 		if ( $detail ) {
 
@@ -298,7 +316,13 @@ if ( ! function_exists( 'mttr_get_contact_physical_address' ) ) {
 
 	function mttr_get_contact_physical_address( $address = null ) {
 
-		$detail = get_field( 'mttr_options_contact_physical_address', 'options' );
+		$detail = get_theme_mod( 'mttr_contact_physical_address' );
+
+		if ( empty( $detail ) ) {
+
+			$detail = get_field( 'mttr_options_contact_physical_address', 'options' );
+
+		}
 
 		if ( $detail ) {
 
