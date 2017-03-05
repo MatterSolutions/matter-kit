@@ -1,0 +1,51 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Card - Vars
+//
+// 	Setup the Card component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+// ------------------------------------------------
+//	Setup vars and mixins
+// ------------------------------------------------
+$mk-component-blog-card-name:          blog-card !default;
+$mk-component-blog-card-selector:      mk-get-selector( $mk-component-blog-card-name, true, $mk-components-prefix );
+$mk-component-blog-card-config: ();
+$mk-component-blog-card-features: ();
+
+
+
+// Setup config mixin
+@mixin mk-add-blog-card-config( $name, $key, $value ) {
+
+	$mk-component-blog-card-config: mk-add-data( $mk-component-blog-card-config, $name, $key, $value ) !global;
+
+}
+
+// Setup feature mixin
+@mixin mk-add-blog-card-feature( $name, $key, $value ) {
+
+	$mk-component-blog-card-features: mk-add-data( $mk-component-blog-card-features, $name, $key, $value ) !global;
+
+}
+
+
+
+
+// ------------------------------------------------
+//	Setup defaults
+// ------------------------------------------------
+
+// Base
+@include mk-add-blog-card-config( featurename, key, value );

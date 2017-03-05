@@ -1,0 +1,102 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Component - Blog Card
+//
+// 	A basic blog-card grid style
+//
+// ---------------------------------------------------------------------------- */
+
+
+// Import the component vars
+@import 'inc/c.blog-card-vars';
+
+
+// ------------------------------------------------
+//	Enable config and features
+// ------------------------------------------------
+// Config
+// @include mk-add-blog-card-config( configname, key, value );
+
+// Features
+// @include mk-add-blog-card-feature( featurename, key, value );
+
+
+
+// Output the component 'features' we've enabled
+@import 'inc/c.blog-card-features';
+
+
+
+// Project specific styles
+#{ $mk-component-blog-card-selector } {
+
+	position: relative;
+
+	// Image
+	&__media {
+
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		padding-bottom: 50%;
+
+		@include mk-media-query( lap ) {
+
+			padding-bottom: 80%;
+
+		}
+
+
+		img {
+
+			display: none;
+
+		}
+
+	}
+
+
+
+	// Main content
+	&__body {
+
+		padding: mk-base-spacing-unit( .5 )  mk-base-spacing-unit();
+
+		// Invert the background colour if placed on a grey-ui band
+		.o-band--grey-ui & {
+
+			background-color: $mk-color--white;
+
+		}
+
+	}
+
+
+		&__categories {
+
+			position: absolute;
+			top: 0;
+			left: 0;
+			padding: mk-base-spacing-unit();
+
+		}
+
+
+		// Smaller text
+		&__date,
+		&__content {
+
+			font-size: calc-rem( mk-typography( size, small ) );
+
+		}
+
+}
