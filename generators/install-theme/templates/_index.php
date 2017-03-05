@@ -55,10 +55,13 @@
 		// ------------------------------------------------
 		//	Post 'grid'
 		// ------------------------------------------------
-		$grid = new Mttr_Component_Grid();
-		$data = $grid->get_data( 'slat-text', $items );
 
-		new Mttr_Component_Grid( 'mttr_content', 15, $data );
+		// Output grid items
+		$grid = new Mttr_Component_Grid();
+		$data = $grid->get_data( 'blog-card', $items );
+		$styles = $grid->styles;
+
+		new Mttr_Component_Grid( 'mttr_content', 15, $data, $styles );
 
 
 	// ------------------------------------------------

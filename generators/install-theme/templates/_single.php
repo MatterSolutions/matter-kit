@@ -35,10 +35,12 @@
 	//	Related posts
 	// ------------------------------------------------
 
+	// Output grid items
 	$grid = new Mttr_Component_Grid();
-	$data = $grid->get_data( 'slat-text', mttr_get_related_posts( get_the_ID(), 2 ) );
+	$data = $grid->get_data( 'card', mttr_get_related_posts( get_the_ID(), 2 ) );
+	$styles = $grid->styles;
 
-	new Mttr_Component_Grid( 'mttr_content', 15, $data );
+	new Mttr_Component_Grid( 'mttr_content', 15, $data, $styles );
 
 
 	// Output the elements
