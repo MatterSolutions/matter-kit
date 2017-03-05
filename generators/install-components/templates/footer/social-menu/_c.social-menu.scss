@@ -1,0 +1,96 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Component - Social Menu
+//
+// 	A basic circular social menu
+//
+// ---------------------------------------------------------------------------- */
+
+
+// Import the component vars
+@import 'inc/c.social-menu-vars';
+
+
+// ------------------------------------------------
+//	Enable config and features
+// ------------------------------------------------
+// Config
+// @include mk-add-social-menu-config( configname, key, value );
+
+// Features
+// @include mk-add-social-menu-feature( featurename, key, value );
+
+
+
+// Output the component 'features' we've enabled
+@import 'inc/c.social-menu-features';
+
+
+
+// Project specific styles
+#{ $mk-component-social-menu-selector } {
+
+	position: relative;
+
+
+	&__body {
+
+		left: 0;
+		position: absolute;
+		top: 0;
+		transform: translateY( -50% );
+		width: 100%;
+
+	}
+
+
+	.c-social-menu__item > a {
+
+		background-color: mk-color( primary );
+		border-radius: 50%;
+		border: 2px solid mk-color( primary );
+		box-shadow: 0 0 0 2px rgba( $mk-color--white, .75 ) inset;
+		display: inline-block;
+		height: mk-base-spacing-unit( 2 );
+		width: mk-base-spacing-unit( 2 );
+
+		&:hover {
+
+			background-color: mk-color( primary, dark );
+			border-color: mk-color( primary, dark );
+
+			.o-icon svg {
+
+				transform: scale( 1.1 );
+
+			}
+
+		}
+
+		.o-icon {
+
+			color: $mk-color--white !important;
+			position: relative;
+			top: mk-base-spacing-unit( tiny );
+			
+			svg {
+
+				transition: transform .2s ease;
+				transform: scale( 1 );
+
+			}
+
+		}
+
+	}
+
+}
