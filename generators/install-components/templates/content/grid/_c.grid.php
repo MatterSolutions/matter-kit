@@ -28,11 +28,17 @@ class Mttr_Component_Grid {
 	// ------------------------------------------------
 	//	Initial setup
 	// ------------------------------------------------
-	function __construct( $hook = false, $priority = 10, $data = array() ) {
+	function __construct( $hook = false, $priority = 10, $data = array(), $styles = null ) {
 
 		if ( empty( $data ) ) {
 		
 			$data = $this->get_data( get_the_ID() );
+
+		}
+
+		if ( !empty( $styles ) ) {
+
+			$this->styles = $styles;
 
 		}
 
@@ -146,7 +152,7 @@ class Mttr_Component_Grid {
 					'required' => 0,
 					'conditional_logic' => 0,
 					'wrapper' => array (
-						'width' => 50,
+						'width' => 25,
 						'class' => '',
 						'id' => '',
 					),
@@ -180,6 +186,41 @@ class Mttr_Component_Grid {
 					),
 					'allow_null' => 0,
 					'multiple' => 0,
+					'ui' => 0,
+					'ajax' => 0,
+					'placeholder' => '',
+					'disabled' => 0,
+					'readonly' => 0,
+				),
+				array (
+					'key' => 'mttr_flex_layouts_grid_style_post_category',
+					'taxonomy' => 'category',
+					'field_type' => 'multi_select',
+					'multiple' => 0,
+					'allow_null' => 0,
+					'return_format' => 'id',
+					'add_term' => 0,
+					'load_terms' => 0,
+					'save_terms' => 0,
+					'label' => 'Post Category',
+					'name' => 'post_category',
+					'type' => 'taxonomy',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => array (
+						array (
+							array (
+								'field' => 'mttr_flex_layouts_grid_style_latest',
+								'operator' => '==',
+								'value' => '1',
+							),
+						),
+					),
+					'wrapper' => array (
+						'width' => 25,
+						'class' => '',
+						'id' => '',
+					),
 					'ui' => 0,
 					'ajax' => 0,
 					'placeholder' => '',
@@ -287,6 +328,7 @@ class Mttr_Component_Grid {
 
 				$post_type = get_sub_field( 'post_type' );
 				$per_page = get_sub_field( 'per_page' );
+				$categories = get_sub_field( 'post_category' );
 
 				// If no per page set, use the default posts per page
 				if ( empty( $per_page ) ) {
@@ -295,18 +337,25 @@ class Mttr_Component_Grid {
 
 				}
 
-				// Setup the query
-				$q = new WP_Query( 
+				// Setup args
+				$args = array( 
 
-					array( 
-
-						'post_type' => $post_type,
-						'post_status' => 'publish',
-						'posts_per_page' => intval( $per_page ),
-
-					) 
+					'post_type' => $post_type,
+					'post_status' => 'publish',
+					'posts_per_page' => intval( $per_page ),
 
 				);
+
+				// Add categories to args
+				if ( $categories && 'post' == $post_type ) {
+
+					$args['cat'] = implode( ',', $categories );
+
+				}
+
+				
+				// Setup the query
+				$q = new WP_Query( $args );
 
 				// Check that the class we're looking for exists and we have posts
 				if ( $q->have_posts() ) {
@@ -402,7 +451,11 @@ class Mttr_Component_Grid {
 	// ------------------------------------------------
 	function add_styles( $styles ) {
 
-		$this->styles = $this->styles . $styles;
+		if ( !empty( $styles ) ) {
+
+			$this->styles = $this->styles . $styles;
+
+		}
 
 	}
 
