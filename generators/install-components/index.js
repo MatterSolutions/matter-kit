@@ -85,6 +85,20 @@ module.exports = yeoman.Base.extend({
 
               name: 'Slat Text',
               value: 'includeGridSlatText',
+              checked: false
+
+            },
+            {
+
+              name: 'Card',
+              value: 'includeGridCard',
+              checked: true
+
+            },
+            {
+
+              name: 'Blog Card',
+              value: 'includeGridBlogCard',
               checked: true
 
             }]
@@ -139,7 +153,14 @@ module.exports = yeoman.Base.extend({
               value: 'includeFooterAttributionVanilla',
               checked: true
 
-            }]
+            },
+            {
+
+              name: 'Social Share Menu',
+              value: 'includeFooterSocialShareMenu',
+              checked: false
+
+            },]
         },
         {
           type: 'checkbox',
@@ -314,10 +335,16 @@ module.exports = yeoman.Base.extend({
         this.includeHeaderMenuIcon = hasHeaderComponent( 'includeHeaderMenuIcon' );
 
 
+        // Grid Components
+        this.includeGridCard = hasGridComponent( 'includeGridCard' );
+        this.includeGridBlogCard = hasGridComponent( 'includeGridBlogCard' );
+
+
         // Footer
         this.includeFooterFooterVanilla = hasFooterComponent( 'includeFooterFooterVanilla' );
         this.includeFooterColophonVanilla = hasFooterComponent( 'includeFooterColophonVanilla' );
         this.includeFooterAttributionVanilla = hasFooterComponent( 'includeFooterAttributionVanilla' );
+        this.includeFooterSocialShareMenu = hasFooterComponent( 'includeFooterSocialShareMenu' );
 
 
         // Hero
@@ -808,6 +835,53 @@ module.exports = yeoman.Base.extend({
 
 
       // ----------------------------------------------------
+      //  Attribution Vanilla
+      // ----------------------------------------------------
+
+      if ( this.includeFooterSocialShareMenu == true ) {
+
+        // Main PHP file
+        this.fs.copy(
+          this.templatePath( 'footer/social-menu/_c.social-menu.php' ), 
+          this.destinationPath( 'components/footer/social-menu/_c.social-menu.php' )
+        );
+
+        // Dependencies file
+        this.fs.copy(
+          this.templatePath( 'footer/social-menu/inc/_c.social-menu-dependencies.scss' ), 
+          this.destinationPath( 'components/footer/social-menu/inc/_c.social-menu-dependencies.scss' )
+        );
+
+        // Features file
+        this.fs.copy(
+          this.templatePath( 'footer/social-menu/inc/_c.social-menu-features.scss' ), 
+          this.destinationPath( 'components/footer/social-menu/inc/_c.social-menu-features.scss' )
+        );
+
+        // Vars file
+        this.fs.copy(
+          this.templatePath( 'footer/social-menu/inc/_c.social-menu-vars.scss' ), 
+          this.destinationPath( 'components/footer/social-menu/inc/_c.social-menu-vars.scss' )
+        );
+
+        // SCSS file
+        this.fs.copy(
+          this.templatePath( 'footer/social-menu/_c.social-menu.scss' ), 
+          this.destinationPath( 'components/footer/social-menu/_c.social-menu.scss' )
+        );
+
+        // Template file
+        this.fs.copy(
+          this.templatePath( 'footer/social-menu/inc/_c.social-menu-tpl.php' ), 
+          this.destinationPath( 'components/footer/social-menu/inc/_c.social-menu-tpl.php' )
+        );
+
+      }
+
+
+
+
+      // ----------------------------------------------------
       //  Map component files
       // ----------------------------------------------------
       if ( this.includeMiscMap == true ) {
@@ -1035,6 +1109,98 @@ module.exports = yeoman.Base.extend({
         this.fs.copy(
           this.templatePath( 'grid/slat-text/_c.slat-text-tpl.php' ), 
           this.destinationPath( 'components/grid/slat-text/_c.slat-text-tpl.php' )
+        );
+
+      }
+
+
+
+
+      // ----------------------------------------------------
+      //  Blog Card component files
+      // ----------------------------------------------------
+      if ( this.includeGridBlogCard == true ) {
+
+        // Blog Card
+        this.fs.copy(
+          this.templatePath( 'grid/blog-card/_c.blog-card.php' ), 
+          this.destinationPath( 'components/grid/blog-card/_c.blog-card.php' )
+        );
+
+        // Blog Card
+        this.fs.copy(
+          this.templatePath( 'grid/blog-card/_c.blog-card.scss' ), 
+          this.destinationPath( 'components/grid/blog-card/_c.blog-card.scss' )
+        );
+
+        // Blog Card Template
+        this.fs.copy(
+          this.templatePath( 'grid/blog-card/inc/_c.blog-card-tpl.php' ), 
+          this.destinationPath( 'components/grid/blog-card/inc/_c.blog-card-tpl.php' )
+        );
+
+        // Blog Card Dependencies (SCSS)
+        this.fs.copy(
+          this.templatePath( 'grid/blog-card/inc/_c.blog-card-dependencies.scss' ), 
+          this.destinationPath( 'components/grid/blog-card/inc/_c.blog-card-dependencies.scss' )
+        );
+
+        // Blog Card Features (SCSS)
+        this.fs.copy(
+          this.templatePath( 'grid/blog-card/inc/_c.blog-card-features.scss' ), 
+          this.destinationPath( 'components/grid/blog-card/inc/_c.blog-card-features.scss' )
+        );
+
+        // Blog Card Vars (SCSS)
+        this.fs.copy(
+          this.templatePath( 'grid/blog-card/inc/_c.blog-card-vars.scss' ), 
+          this.destinationPath( 'components/grid/blog-card/inc/_c.blog-card-vars.scss' )
+        );
+
+      }
+
+
+
+
+      // ----------------------------------------------------
+      //  Card component files
+      // ----------------------------------------------------
+      if ( this.includeGridCard == true ) {
+
+        // Card
+        this.fs.copy(
+          this.templatePath( 'grid/card/_c.card.php' ), 
+          this.destinationPath( 'components/grid/card/_c.card.php' )
+        );
+
+        // Card
+        this.fs.copy(
+          this.templatePath( 'grid/card/_c.card.scss' ), 
+          this.destinationPath( 'components/grid/card/_c.card.scss' )
+        );
+
+        // Card Template
+        this.fs.copy(
+          this.templatePath( 'grid/card/inc/_c.card-tpl.php' ), 
+          this.destinationPath( 'components/grid/card/inc/_c.card-tpl.php' )
+        );
+
+        // Card Dependencies (SCSS)
+        this.fs.copy(
+          this.templatePath( 'grid/card/inc/_c.card-dependencies.scss' ), 
+          this.destinationPath( 'components/grid/card/inc/_c.card-dependencies.scss' )
+        );
+
+        // Card Features (SCSS)
+        this.fs.copy(
+          this.templatePath( 'grid/card/inc/_c.card-features.scss' ), 
+          this.destinationPath( 'components/grid/card/inc/_c.card-features.scss' )
+        );
+
+        // Card Vars (SCSS)
+        this.fs.copy(
+          this.templatePath( 'grid/card/inc/_c.card-vars.scss' ), 
+          this.destinationPath( 'components/grid/card/inc/_c.card-vars.scss' )
         );
 
       }
