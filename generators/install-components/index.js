@@ -1506,6 +1506,54 @@ module.exports = yeoman.Base.extend({
 
       }
 
+
+
+      // ----------------------------------------------------
+      //  Icon
+      // ----------------------------------------------------
+
+      if ( this.includeMiscIcon == true ) {
+
+        // Main PHP file
+        this.fs.copy(
+          this.templatePath( 'misc/icon/_c.icon.php' ), 
+          this.destinationPath( 'components/misc/icon/_c.icon.php' )
+        );
+
+
+        // Main SCSS file
+        this.fs.copy(
+          this.templatePath( 'misc/icon/_c.icon.scss' ), 
+          this.destinationPath( 'components/misc/icon/_c.icon.scss' )
+        );
+
+        // Template file
+        this.fs.copy(
+          this.templatePath( 'misc/icon/inc/_c.icon-tpl.php' ), 
+          this.destinationPath( 'components/misc/icon/inc/_c.icon-tpl.php' )
+        );
+
+
+        // Dependencies SCSS file
+        this.fs.copy(
+          this.templatePath( 'misc/icon/inc/_c.icon-dependencies.scss' ), 
+          this.destinationPath( 'components/misc/icon/inc/_c.icon-dependencies.scss' )
+        );
+
+        // Features SCSS file
+        this.fs.copy(
+          this.templatePath( 'misc/icon/inc/_c.icon-features.scss' ), 
+          this.destinationPath( 'components/misc/icon/inc/_c.icon-features.scss' )
+        );
+
+        // Vars SCSS file
+        this.fs.copy(
+          this.templatePath( 'misc/icon/inc/_c.icon-vars.scss' ), 
+          this.destinationPath( 'components/misc/icon/inc/_c.icon-vars.scss' )
+        );
+
+      }
+
     }
 
 });
