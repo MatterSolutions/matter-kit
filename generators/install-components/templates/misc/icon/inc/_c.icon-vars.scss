@@ -1,0 +1,51 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Icon - Vars
+//
+// 	Setup the Icon component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+// ------------------------------------------------
+//	Setup vars and mixins
+// ------------------------------------------------
+$mk-component-icon-name:          icon !default;
+$mk-component-icon-selector:      mk-get-selector( $mk-component-icon-name, true, $mk-components-prefix );
+$mk-component-icon-config: ();
+$mk-component-icon-features: ();
+
+
+
+// Setup config mixin
+@mixin mk-add-icon-config( $name, $key, $value ) {
+
+	$mk-component-icon-config: mk-add-data( $mk-component-icon-config, $name, $key, $value ) !global;
+
+}
+
+// Setup feature mixin
+@mixin mk-add-icon-feature( $name, $key, $value ) {
+
+	$mk-component-icon-features: mk-add-data( $mk-component-icon-features, $name, $key, $value ) !global;
+
+}
+
+
+
+
+// ------------------------------------------------
+//	Setup defaults
+// ------------------------------------------------
+
+// Base
+@include mk-add-icon-config( featurename, key, value );
