@@ -243,19 +243,27 @@ if ( !function_exists( 'mttr_wp_gallery' ) ) {
 
 			
 			// Allow a minimum of 4 columns
-			if ( $atts[ 'columns' ] == '4' ) {
+			if ( $atts[ 'columns' ] == '1' ) {
+
+				$data[ 'item_modifiers' ] = '';
+
+			} elseif ( $atts[ 'columns' ] == '2' ) {
+
+				$data[ 'item_modifiers' ] = 'g-one-half';
+
+			} elseif ( $atts[ 'columns' ] == '3' ) {
+
+				$data[ 'item_modifiers' ] = 'g-one-third';
+
+			} elseif ( $atts[ 'columns' ] == '4' ) {
 
 				$data[ 'item_modifiers' ] = 'g-one-half  g-one-quarter@palm-h  g-one-quarter@lap';
 
-			}
-
-			elseif ( $atts[ 'columns' ] == '5' ) {
+			} elseif ( $atts[ 'columns' ] == '5' ) {
 
 				$data[ 'item_modifiers' ] = 'g-one-half  g-one-third@palm-h  g-one-fifth@lap';
 
-			}
-
-			else {
+			} else {
 
 				$data[ 'item_modifiers' ] = 'g-one-half  g-one-third@palm-h  g-one-sixth@lap';
 
