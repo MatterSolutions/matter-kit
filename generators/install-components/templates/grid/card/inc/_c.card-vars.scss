@@ -1,0 +1,51 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Card - Vars
+//
+// 	Setup the Card component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+// ------------------------------------------------
+//	Setup vars and mixins
+// ------------------------------------------------
+$mk-component-card-name:          card !default;
+$mk-component-card-selector:      mk-get-selector( $mk-component-card-name, true, $mk-components-prefix );
+$mk-component-card-config: ();
+$mk-component-card-features: ();
+
+
+
+// Setup config mixin
+@mixin mk-add-card-config( $name, $key, $value ) {
+
+	$mk-component-card-config: mk-add-data( $mk-component-card-config, $name, $key, $value ) !global;
+
+}
+
+// Setup feature mixin
+@mixin mk-add-card-feature( $name, $key, $value ) {
+
+	$mk-component-card-features: mk-add-data( $mk-component-card-features, $name, $key, $value ) !global;
+
+}
+
+
+
+
+// ------------------------------------------------
+//	Setup defaults
+// ------------------------------------------------
+
+// Base
+@include mk-add-card-config( featurename, key, value );

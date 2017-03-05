@@ -1,0 +1,102 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Component - Card
+//
+// 	A basic card grid style
+//
+// ---------------------------------------------------------------------------- */
+
+
+// Import the component vars
+@import 'inc/c.card-vars';
+
+
+// ------------------------------------------------
+//	Enable config and features
+// ------------------------------------------------
+// Config
+// @include mk-add-card-config( configname, key, value );
+
+// Features
+// @include mk-add-card-feature( featurename, key, value );
+
+
+
+// Output the component 'features' we've enabled
+@import 'inc/c.card-features';
+
+
+
+// Project specific styles
+#{ $mk-component-card-selector } {
+
+	// Image
+	&__media {
+
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		padding-bottom: 50%;
+
+
+		img {
+
+			display: none;
+
+		}
+
+	}
+
+
+
+	// Main content
+	&__body {
+
+		background-color: mk-color( grey-ui );
+		padding: mk-base-spacing-unit( 1.5 )  mk-base-spacing-unit();
+		position: relative;
+
+		// Invert the background colour if placed on a grey-ui band
+		.o-band--grey-ui & {
+
+			background-color: $mk-color--white;
+
+		}
+
+	}
+
+		
+		// List of categories
+		&__categories {
+
+			bottom: 100%;
+			margin-bottom: -( mk-base-spacing-unit( small ) );
+			position: absolute;
+
+			a {
+
+				margin-top: mk-base-spacing-unit( nano );
+
+			}
+
+		}
+
+
+		// Smaller text
+		&__date,
+		&__content {
+
+			font-size: calc-rem( mk-typography( size, small ) );
+
+		}
+
+}
