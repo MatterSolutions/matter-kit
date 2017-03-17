@@ -25,21 +25,51 @@ module.exports = yeoman.Base.extend({
         // Basic project scaffolding
         {
           name: 'componentName',
-          message: 'Component Name?',
+          message: 'Component Name: ',
         },
         {
           name: 'componentSlug',
-          message: 'Component Slug? (Lowercase letters and dashes only)',
+          message: 'Component Slug (Lowercase letters and dashes only): ',
         },
         {
           name: 'componentDescription',
-          message: 'Component Description?',
+          message: 'Component Description: ',
         },
         {
           type: 'list',
-          name: 'componentType',
-          message: 'Component Type?',
+          name: 'componentFolder',
+          message: 'Choose a component Folder: ',
             choices: [{
+
+              name: 'Typography',
+              value: '_typography',
+              checked: false
+
+            },{
+
+              name: 'Grid',
+              value: 'grid',
+              checked: false
+
+            },{
+
+              name: 'Content',
+              value: 'content',
+              checked: false
+
+            },{
+
+              name: 'Misc',
+              value: 'misc',
+              checked: true
+
+            },{
+
+              name: 'Hero',
+              value: 'hero',
+              checked: false
+
+            },{
 
               name: 'Header',
               value: 'header',
@@ -51,37 +81,19 @@ module.exports = yeoman.Base.extend({
               value: 'footer',
               checked: false
 
-            },{
-
-              name: 'Hero',
-              value: 'hero',
-              checked: false
-
-            },{
-
-              name: 'Grid',
-              value: 'grid',
-              checked: true
-
-            },{
-
-              name: 'Misc',
-              value: 'misc',
-              checked: false
-
-            },{
-
-              name: 'Typography',
-              value: '_typography',
-              checked: false
-
             }]
         },
         {
           type: 'list',
-          name: 'componentFlexible',
-          message: 'Add this as a flexible component?',
+          name: 'componentFields',
+          message: 'What kind of ACF fields does this component need? ',
             choices: [{
+
+              name: 'Grid',
+              value: 'grid',
+              checked: false
+
+            },{
 
               name: 'Layout',
               value: 'layout',
@@ -89,8 +101,8 @@ module.exports = yeoman.Base.extend({
 
             },{
 
-              name: 'Grid Item',
-              value: 'grid',
+              name: 'Global',
+              value: 'global',
               checked: false
 
             },{
@@ -100,8 +112,25 @@ module.exports = yeoman.Base.extend({
               checked: false
 
             }]
-        }
+        },
+        {
+          type: 'list',
+          name: 'componentStyles',
+          message: 'Does this component need dynamic styles? ',
+            choices: [{
 
+              name: 'Yes',
+              value: 'yes',
+              checked: false
+
+            },{
+
+              name: 'No',
+              value: 'no',
+              checked: true
+
+            }]
+        }
         // Components
       ];
 
@@ -113,8 +142,9 @@ module.exports = yeoman.Base.extend({
         this.componentName = props.componentName;
         this.componentDescription = props.componentDescription;
         this.componentSlug = props.componentSlug;
-        this.componentType = props.componentType;
-        this.componentFlexible = props.componentFlexible;
+        this.componentFolder = props.componentFolder;
+        this.componentFields = props.componentFields;
+        this.componentStyles = props.componentStyles;
 
       }.bind(this));
 
@@ -127,10 +157,11 @@ module.exports = yeoman.Base.extend({
           componentName: this.props.componentName,
           componentDescription: this.props.componentDescription,
           componentSlug: this.props.componentSlug,
+          componentFolder: this.props.componentFolder,
           componentSlugClass: this.props.componentName.replace( / /g, '_' ),
           componentSlugUnderscore: this.props.componentSlug.replace( /-/g, '_' ),
-          componentType: this.props.componentType,
-          componentFlexible: this.props.componentFlexible
+          componentFields: this.props.componentFields,
+          componentStyles: this.props.componentStyles
       };
 
       // ----------------------------------------------------
@@ -140,7 +171,7 @@ module.exports = yeoman.Base.extend({
       // Main PHP File
       this.fs.copyTpl(
         this.templatePath( '_c.component-name.php' ), 
-        this.destinationPath( 'components/' + componentInfo.componentType + '/' + componentInfo.componentSlug + '/_c.' + componentInfo.componentSlug + '.php' ), 
+        this.destinationPath( 'components/' + componentInfo.componentFolder + '/' + componentInfo.componentSlug + '/_c.' + componentInfo.componentSlug + '.php' ), 
         { componentInfo }
       );
 
@@ -149,7 +180,7 @@ module.exports = yeoman.Base.extend({
       // Main SCSS File
       this.fs.copyTpl(
         this.templatePath( '_c.component-name.scss' ), 
-        this.destinationPath( 'components/' + componentInfo.componentType + '/' + componentInfo.componentSlug + '/_c.' + componentInfo.componentSlug + '.scss' ), 
+        this.destinationPath( 'components/' + componentInfo.componentFolder + '/' + componentInfo.componentSlug + '/_c.' + componentInfo.componentSlug + '.scss' ), 
         { componentInfo }
       );
 
@@ -158,7 +189,7 @@ module.exports = yeoman.Base.extend({
       // SCSS Dependencies
       this.fs.copyTpl(
         this.templatePath( 'inc/_c.component-name-dependencies.scss' ), 
-        this.destinationPath( 'components/' + componentInfo.componentType + '/' + componentInfo.componentSlug + '/inc/_c.' + componentInfo.componentSlug + '-dependencies.scss' ), 
+        this.destinationPath( 'components/' + componentInfo.componentFolder + '/' + componentInfo.componentSlug + '/inc/_c.' + componentInfo.componentSlug + '-dependencies.scss' ), 
         { componentInfo }
       );
 
@@ -167,7 +198,7 @@ module.exports = yeoman.Base.extend({
       // SCSS Features
       this.fs.copyTpl(
         this.templatePath( 'inc/_c.component-name-features.scss' ), 
-        this.destinationPath( 'components/' + componentInfo.componentType + '/' + componentInfo.componentSlug + '/inc/_c.' + componentInfo.componentSlug + '-features.scss' ), 
+        this.destinationPath( 'components/' + componentInfo.componentFolder + '/' + componentInfo.componentSlug + '/inc/_c.' + componentInfo.componentSlug + '-features.scss' ), 
         { componentInfo }
       );
 
@@ -175,7 +206,7 @@ module.exports = yeoman.Base.extend({
       // PHP Template
       this.fs.copyTpl(
         this.templatePath( 'inc/_c.component-name-tpl.php' ), 
-        this.destinationPath( 'components/' + componentInfo.componentType + '/' + componentInfo.componentSlug + '/inc/_c.' + componentInfo.componentSlug + '-tpl.php' ), 
+        this.destinationPath( 'components/' + componentInfo.componentFolder + '/' + componentInfo.componentSlug + '/inc/_c.' + componentInfo.componentSlug + '-tpl.php' ), 
         { componentInfo }
       );
 
@@ -184,11 +215,9 @@ module.exports = yeoman.Base.extend({
       // SCSS Vars
       this.fs.copyTpl(
         this.templatePath( 'inc/_c.component-name-vars.scss' ), 
-        this.destinationPath( 'components/' + componentInfo.componentType + '/' + componentInfo.componentSlug + '/inc/_c.' + componentInfo.componentSlug + '-vars.scss' ), 
+        this.destinationPath( 'components/' + componentInfo.componentFolder + '/' + componentInfo.componentSlug + '/inc/_c.' + componentInfo.componentSlug + '-vars.scss' ), 
         { componentInfo }
       );
-
-      
 
     }
 

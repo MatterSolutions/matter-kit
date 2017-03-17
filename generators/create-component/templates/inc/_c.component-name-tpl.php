@@ -18,37 +18,22 @@
 // ---------------------------------------------------------------------------- *
 
 // Component vars
-$content = mttr_get_template_var( 'content' );
+<% if ( componentInfo.componentFields !== "grid" ) { %>$content = mttr_get_template_var( 'content' );<% } %>
 $id = mttr_get_template_var( 'id' );
+<% if ( componentInfo.componentFields === "grid" ) { %>$heading = mttr_get_template_var( 'heading' );
+$content = mttr_get_template_var( 'excerpt' );<% } %>
 
 
 // Component namespace, in case we've changed it
 $namespace = mttr_get_template_var( 'namespace' );
-
-if ( !$namespace ) {
-
-	$namespace = 'c-<%= componentInfo.componentSlug %>';
-
-}
-
+if ( !$namespace ) { $namespace = 'c-<%= componentInfo.componentSlug %>'; }
 
 // Setup a unique identifier
-if ( !$id ) {
-
-	$id = rand( 0000, 9999 ) . date( 'His' );
-
-}
-
+if ( !$id ) { $id = rand( 0000, 9999 ) . date( 'His' ); }
 
 // Modifiers
 $modifiers = mttr_get_template_var( 'modifiers' );
-
-// Add spaces before modifiers
-if ( $modifiers ) {
-
-	$modifiers = '  ' . $modifiers;
-
-}
+if ( $modifiers ) { $modifiers = '  ' . $modifiers; }
 
 
 
@@ -59,6 +44,16 @@ if ( $modifiers ) {
 echo '<div id="' . esc_html( $namespace ) . '--' . esc_attr( $id ) . '" class="' . esc_html( $namespace ) . esc_html( $modifiers ) . '">';
 
 	echo '<div class="' . esc_html( $namespace ) . '__body">';
+
+		<% if ( componentInfo.componentFields === "grid" ) { %>if ( $heading ) {
+
+			echo '<h3 class="' . esc_html( $namespace ) . '__heading">';
+
+				echo esc_html( $heading );
+
+			echo '</h3><!-- /.' . esc_html( $namespace ) . '__heading -->';
+
+		}<% } %>
 
 		if ( $content ) {
 

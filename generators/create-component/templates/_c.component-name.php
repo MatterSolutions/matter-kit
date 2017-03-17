@@ -21,7 +21,7 @@ class Mttr_Component_<%= componentInfo.componentSlugClass %> {
 
 	var $data;
 	var $styles;
-	var $component_name = 'c-<%= componentInfo.componentSlug %>';
+	static $component_name = 'c-<%= componentInfo.componentSlug %>';
 
 
 	// ------------------------------------------------
@@ -40,12 +40,12 @@ class Mttr_Component_<%= componentInfo.componentSlugClass %> {
 
 			$this->data = $data;
 
-			// Output the styles in the head
+			<% if ( componentInfo.componentStyles == "yes" && componentInfo.componentFields !== "none" ) { %>// Output the styles in the head
 			add_action( 'wp_enqueue_scripts', function() {
 
-				$this->render_styles( $this->styles );
+				$this->render_styles( $this->get_styles( $this->data ) );
 
-			}, $priority );
+			}, $priority );<% } %>
 
 			add_action( $hook, function() {
 
@@ -56,8 +56,8 @@ class Mttr_Component_<%= componentInfo.componentSlugClass %> {
 		// Setup the component
 		} else {
 
-			// Set up the ACF fields
-			$this->add_acf_fields();
+			<% if ( componentInfo.componentFields != "none" && componentInfo.componentFields != "grid" ) { %>// Set up the ACF fields
+			$this->add_acf_fields();<% } %>
 
 		}
 
@@ -67,36 +67,39 @@ class Mttr_Component_<%= componentInfo.componentSlugClass %> {
 	// ------------------------------------------------
 	//	Get the component location
 	// ------------------------------------------------
-	function get_component_template_location() {
+	static function get_component_template_location() {
 
-		return 'components/<%= componentInfo.componentType %>/<%= componentInfo.componentSlug %>/inc/_c.<%= componentInfo.componentSlug %>-tpl';
+		return 'components/<%= componentInfo.componentFolder %>/<%= componentInfo.componentSlug %>/inc/_c.<%= componentInfo.componentSlug %>-tpl';
 
 	}
 
 
-<% if ( componentInfo.componentType == "grid" ) { %>
+<% if ( componentInfo.componentFields === "grid" ) { %>
 	// ------------------------------------------------
 	//	Get the data
 	// ------------------------------------------------
 	function get_data( $item = null ) {
 
-		if ( empty( $item ) ) {
-
-			$item = get_the_ID();
-
-		}
+		// Get the ID if item is empty
+		if ( empty( $item ) ) { $item = get_the_ID(); }
 
 		// Setup the data array
 		$data = array(
 
-			'template' => $this->get_component_template_location(),
+			'template' => self::get_component_template_location(),
 			'data' => mttr_get_grid_feature_data_standard( $item ),
 			'modifiers' => '',
 
 		);
 
 		// Set the component name
-		$data['data']['name'] = $this->component_name;
+		$data['data']['name'] = self::$component_name;
+		<% if ( componentInfo.componentStyles == "yes" ) { %>
+		// Unique identifier & images
+		$data['data']['id'] = $item;
+		$data['data']['image'] = mttr_get_image_url( $item, 'thumbnail' );
+		$data['data']['image_mobile'] = mttr_get_image_url( $item, 'thumbnail' );
+		<% } %>
 
 		return apply_filters( 'mttr_get_component_data_grid_<%= componentInfo.componentSlugUnderscore %>_data', $data );
 
@@ -120,23 +123,23 @@ class Mttr_Component_<%= componentInfo.componentSlugClass %> {
 
 	}
 <% } %>
-<% if ( componentInfo.componentType == "layout" ) { %>
+<% if ( componentInfo.componentFields === "layout" ) { %>
 	// ------------------------------------------------
 	//	Get the data
 	// ------------------------------------------------
 	function get_data( $item = null ) {
 
-		if ( empty( $item ) ) {
+		// Gather data from sub fields
+		$content = get_sub_field( 'content' );
+		<% if ( componentInfo.componentStyles == "yes" ) { %>$image = get_sub_field( 'image' );<% } %>
 
-			$item = get_the_ID();
-
-		}
-
-		$field = get_sub_field( 'field', $item );
-
+		// Set the data in an array
 		$data = array(
 
-			'field' => $field,
+			'content' => $content,
+			<% if ( componentInfo.componentStyles == "yes" ) { %>'id' => rand( 0000, 9999 ) . date( 'His' ),
+			'image' => mttr_get_image_url_by_attachment_id( $image, 'mttr_hero' ),
+			'image_mobile' => mttr_get_image_url_by_attachment_id( $image, 'thumbnail' ),<% } %>	
 
 		);
 
@@ -174,28 +177,56 @@ class Mttr_Component_<%= componentInfo.componentSlugClass %> {
 					'tabs' => 'all',
 					'toolbar' => 'full',
 					'media_upload' => 1,
-				),
+				),<% if ( componentInfo.componentStyles == "yes" ) { %>
+				array (
+					'key' => 'mttr_flex_<%= componentInfo.componentSlugUnderscore %>_image',
+					'label' => 'Image',
+					'name' => 'image',
+					'type' => 'image',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array (
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'return_format' => 'id',
+					'preview_size' => 'thumbnail',
+					'library' => 'all',
+					'min_width' => '',
+					'min_height' => '',
+					'min_size' => '',
+					'max_width' => '',
+					'max_height' => '',
+					'max_size' => '',
+					'mime_types' => '',
+				),<% } %>
 			),
 			'min' => '',
 			'max' => '',
 
 		);
 
-		mttr_add_acf_flexible_content_option( '<%= componentInfo.componentSlug %>', apply_filters( 'mttr_setup_flex_<%= componentInfo.componentSlugUnderscore %>_acf_fields_array', $fields ) );
+		mttr_add_acf_flexible_content_option( '<%= componentInfo.componentSlugUnderscore %>', apply_filters( 'mttr_setup_flex_<%= componentInfo.componentSlugUnderscore %>_acf_fields_array', $fields ) );
 
 	}
 <% } %>
-<% if ( componentInfo.componentType != "layout" && componentInfo.componentType != "grid" ) { %>
+<% if ( componentInfo.componentFields === "global" ) { %>
 	// ------------------------------------------------
 	//	Get the data
 	// ------------------------------------------------
-	function get_data( $item = null ) {
+	static function get_data( $item = null ) {
 
 		$field = get_field( 'mttr_options_<%= componentInfo.componentSlugUnderscore %>_field', 'options' );
+		<% if ( componentInfo.componentStyles == "yes" ) { %>$image = get_field( 'mttr_options_<%= componentInfo.componentSlugUnderscore %>_image', 'options' );<% } %>
 
 		$data = array(
 
 			'field' => $field,
+			<% if ( componentInfo.componentStyles == "yes" ) { %>'id' => rand( 0000, 9999 ) . date( 'His' ),
+			'image' => mttr_get_image_url_by_attachment_id( $image, 'mttr_hero' ),
+			'image_mobile' => mttr_get_image_url_by_attachment_id( $image, 'thumbnail' ),<% } %>
 
 		);
 
@@ -210,14 +241,14 @@ class Mttr_Component_<%= componentInfo.componentSlugClass %> {
 	function add_acf_fields() {
 
 		$fields = array (
-			'key' => 'mttr_flex_layouts_<%= componentInfo.componentSlugUnderscore %>',
-			'title' => '<%= componentInfo.componentName %>',
+			'key' => 'mttr_options_<%= componentInfo.componentSlugUnderscore %>',
+			'title' => 'Options: <%= componentInfo.componentName %>',
 			'fields' => array (
 				array (
-					'key' => 'mttr_options_<%= componentInfo.componentSlugUnderscore %>',
+					'key' => 'mttr_options_<%= componentInfo.componentSlugUnderscore %>_field',
 					'label' => 'Field',
 					'name' => 'mttr_options_<%= componentInfo.componentSlugUnderscore %>_field',
-					'type' => 'wysiwyg',
+					'type' => 'text',
 					'instructions' => '',
 					'required' => 0,
 					'conditional_logic' => 0,
@@ -227,10 +258,35 @@ class Mttr_Component_<%= componentInfo.componentSlugClass %> {
 						'id' => '',
 					),
 					'default_value' => '',
-					'tabs' => 'all',
-					'toolbar' => 'full',
-					'media_upload' => 1,
-				),
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'maxlength' => '',
+				),<% if ( componentInfo.componentStyles == "yes" ) { %>
+				array (
+					'key' => 'mttr_options_<%= componentInfo.componentSlugUnderscore %>_image',
+					'label' => 'Image',
+					'name' => 'mttr_options_<%= componentInfo.componentSlugUnderscore %>_image',
+					'type' => 'image',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array (
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'return_format' => 'id',
+					'preview_size' => 'thumbnail',
+					'library' => 'all',
+					'min_width' => '',
+					'min_height' => '',
+					'min_size' => '',
+					'max_width' => '',
+					'max_height' => '',
+					'max_size' => '',
+					'mime_types' => '',
+				),<% } %>
 			),
 			'location' => array (
 				array (
@@ -259,14 +315,30 @@ class Mttr_Component_<%= componentInfo.componentSlugClass %> {
 
 	}
 <% } %>
-
-
+<% if ( componentInfo.componentFields === "none" ) { %>
 	// ------------------------------------------------
+	//	Get the data
+	// ------------------------------------------------
+	function get_data( $item = null ) {
+
+		// Get the ID if item is empty
+		if ( empty( $item ) ) { $item = get_the_ID(); }
+
+		// Initialise an empty data array
+		$data = array();
+
+		return apply_filters( 'mttr_get_component_data_<%= componentInfo.componentSlugUnderscore %>_data', $data );
+
+	}
+<% } %>
+
+
+	<% if ( componentInfo.componentStyles === "yes" && componentInfo.componentFields !== "none" ) { %>// ------------------------------------------------
 	//	Begin rendering the component styles
 	// ------------------------------------------------
 	function render_styles() {
 
-		wp_add_inline_style( mttr_theme_main_css_slug(), $this->styles );
+		wp_add_inline_style( mttr_theme_main_css_slug(), $this->get_styles() );
 
 	}
 
@@ -279,40 +351,49 @@ class Mttr_Component_<%= componentInfo.componentSlugClass %> {
 	// ------------------------------------------------
 	function get_styles( $data = null ) {
 
-		if ( empty( $data ) ) {
+		// Get the data if empty
+		if ( empty( $data ) ) {	$data = $this->data; }
 
-			$data = $this->data; 
+		<% if ( componentInfo.componentFields === "grid" ) { %>$selector = '#' . self::$component_name . '--' . $data['id'];<% } %>
+		<% if ( componentInfo.componentFields !== "grid" ) { %>$selector = '#' . self::$component_name . '--' . $data['id'];<% } %>
 
-		}
-
-		$custom_css = '';
 
 		if ( isset( $data['id'] ) ) {
 
-			$custom_css = "#" . $data['id'] . " {
+			$custom_css = $selector . " {
+
+				background-image: url('" . esc_url( $data['image_mobile'] ) . "');
 				
+			}
+
+			@media (min-width: 768px) {
+
+				" . $selector . " {
+
+					background-image: url('" . esc_url( $data['image'] ) . "');
+					
+				}
+
 			}";
+
+			return $custom_css;
 
 		}
 			
-		return $custom_css;
+		return '';
 
 	}
 
 
 
-	// ------------------------------------------------
+	<% } %>// ------------------------------------------------
 	//	Render the actual component
 	// ------------------------------------------------
 	function render_component( $data = null ) {
 
-		if ( empty( $data ) ) {
+		if ( empty( $data ) ) {	$data = $this->data; }
 
-			$data = $this->data;
-
-		}
-
-		mttr_get_template( $this->get_component_template_location(), $data );
+		mttr_get_template( self::get_component_template_location(), $data );
 
 	}
 
@@ -320,11 +401,11 @@ class Mttr_Component_<%= componentInfo.componentSlugClass %> {
 }
 
 
-<% if ( componentInfo.componentType == "grid" ) { %>
+<% if ( componentInfo.componentFields === "grid" ) { %>
 // Add the grid option
 mttr_add_acf_flexible_content_feature_option( '<%= componentInfo.componentSlug %>', '<%= componentInfo.componentName %>' );
 <% } %>
-<% if ( componentInfo.componentType != "grid" ) { %>
+<% if ( componentInfo.componentFields !== "grid" ) { %>
 // Initialise the component
 add_action( 'init', function() {
 
