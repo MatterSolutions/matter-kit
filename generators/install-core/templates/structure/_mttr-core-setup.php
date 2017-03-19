@@ -248,7 +248,7 @@ add_action( 'wp_enqueue_scripts', 'mttr_theme_main_css' );
 	}
 
 }
-add_action( 'wp_enqueue_scripts', 'mttr_theme_editor_css' );
+add_action( 'admin_init', 'mttr_theme_editor_css' );
  
 
 

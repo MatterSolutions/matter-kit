@@ -21,9 +21,18 @@ $mk-global-theme: editor;
 // Setup theme dependencies
 @import 'setup/setup.dependencies';
 @import 'setup/setup.objects';
+@import 'setup/setup.component-objects';
 @import 'setup/setup.elements';
 @import 'setup/setup.effects';
 
 
-// Vendor
+// Import our components
+@import 'setup/gen.component-list';
+
+
+// Import vendor stuffs
 @import 'vendor/vendor.wordpress';
+
+
+// Utilities
+@import 'setup/setup.utilities';
