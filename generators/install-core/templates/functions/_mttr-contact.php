@@ -251,21 +251,16 @@ if ( ! function_exists( 'mttr_get_contact_fax_number' ) ) {
 
 	function mttr_get_contact_fax_number( ) {
 
-		$detail = get_theme_mod( 'mttr_contact_fax_number' );
+		$detail = false;
 
-		if ( empty( $detail ) ) {
+		if( !$detail = get_theme_mod( 'mttr_contact_fax_number' ) ) {
 
+			// Hold up we're dealing with old kit over here
 			$detail = get_field( 'mttr_options_contact_fax_number', 'options' );
 
 		}
 
-		if ( $detail ) {
-
-			return $detail;
-
-		}
-
-		return false;
+		return $detail;
 
 	}
 
@@ -283,21 +278,16 @@ if ( ! function_exists( 'mttr_get_contact_email_address' ) ) {
 
 	function mttr_get_contact_email_address( ) {
 
-		$detail = get_theme_mod( 'mttr_contact_email_address' );
+		$detail = false;
 
-		if ( empty( $detail ) ) {
+		if( !$detail = get_theme_mod( 'mttr_contact_email_address' ) ) {
 
+			// Hold up we're dealing with old kit over here
 			$detail = get_field( 'mttr_options_contact_email_address', 'options' );
 
 		}
 
-		if ( $detail ) {
-
-			return $detail;
-
-		}
-
-		return false;
+		return $detail;
 
 	}
 
@@ -315,21 +305,16 @@ if ( ! function_exists( 'mttr_get_contact_physical_address' ) ) {
 
 	function mttr_get_contact_physical_address( $address = null ) {
 
-		$detail = get_theme_mod( 'mttr_contact_physical_address' );
+		$detail = false;
 
-		if ( empty( $detail ) ) {
+		if( !$detail = get_theme_mod( 'mttr_contact_physical_address' ) ) {
 
+			// Hold up we're dealing with old kit over here
 			$detail = get_field( 'mttr_options_contact_physical_address', 'options' );
 
 		}
 
-		if ( $detail ) {
-
-			return $detail;
-
-		}
-
-		return false;
+		return $detail;
 
 	}
 
