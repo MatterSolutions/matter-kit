@@ -83,7 +83,7 @@ module.exports = yeoman.Base.extend({
         {
           name: 'TypefaceBaseTypeScale',
           message: 'Base type scale factor',
-          default: '1.25'
+          default: '1.2'
         }
 
         // Components

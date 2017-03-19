@@ -67,7 +67,7 @@
 	// ----------------------------------------------------
 	//  Colours - Tertiary
 	// ----------------------------------------------------
-	@include mk-add-color( tertiary, base, $mk-config-colour--secondary );
+	@include mk-add-color( tertiary, base, $mk-config-colour--tertiary );
 	@include mk-add-color( tertiary, dark, darken( mk-color( 'tertiary' ), 5 ) );
 	@include mk-add-color( tertiary, light, lighten( mk-color( 'tertiary' ), 5 ) );
 
