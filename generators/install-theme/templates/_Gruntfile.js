@@ -94,21 +94,17 @@ module.exports = function( grunt ) {
 		},
 		postcss: {
 			options: {
-				map: false,
+				map: {
+					inline: false,
+					annotation: 'assets/css/maps/' // ...to the specified directory
+				},
 				processors: [
-					require('autoprefixer-core')({
-						browsers: ['last 2 versions', 'ie 9', 'ie 10', 'android 4.3', 'android 4.4', 'firefox 34', 'firefox 35', 'opera 27', 'opera 26']
-					})
+					require('autoprefixer')({browsers: ['last 2 versions', 'ie 9', 'ie 10', 'android 4.3', 'android 4.4', 'firefox 34', 'firefox 35', 'opera 27', 'opera 26']}), // add vendor prefixes
+					require('cssnano')() // minify the result
 				]
 			},
-			dev: {
-				options: {
-					map: false,
-				},
-				src: ['assets/css/main.css','assets/css/editor.css','assets/css/styleguide.css','assets/css/wires.css']
-			},
 			build: {
-				src: ['assets/css/main.css','assets/css/editor.css','assets/css/styleguide.css','assets/css/wires.css']
+				src: 'assets/css/*.css'
 			}
 		},
 		modernizr: {
