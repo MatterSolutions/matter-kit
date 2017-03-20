@@ -300,127 +300,131 @@ class Mttr_Component_Grid {
 	// ------------------------------------------------
 	function get_data( $style = null, $posts = array() ) {
 
-		$latest_posts = get_sub_field( 'latest_posts' );
-		$per_page = get_sub_field( 'per_page' );
+		if( function_exists( 'get_sub_field' ) ) {
 
-		if ( empty( $style ) ) {
-		
-			$style = get_sub_field( 'style' );
+			$latest_posts = get_sub_field( 'latest_posts' );
+			$per_page = get_sub_field( 'per_page' );
 
-		}
+			if ( empty( $style ) ) {
+			
+				$style = get_sub_field( 'style' );
 
-		// Base array to add items to
-		$items = array();
-		$listing_data = false;
+			}
 
-		if ( class_exists( $this->get_class_name( $style ) ) ) {
+			// Base array to add items to
+			$items = array();
+			$listing_data = false;
 
-			$classname = $this->get_class_name( $style );
-			$class = new $classname();
+			if ( class_exists( $this->get_class_name( $style ) ) ) {
 
-			// Get the listing modifiers etc
-			$listing_data = $class->get_listing_data();
-			$listing_data['id'] = 'c-grid-' . esc_attr( $style ) . '-' . rand( 0000, 9999 );
+				$classname = $this->get_class_name( $style );
+				$class = new $classname();
+
+				// Get the listing modifiers etc
+				$listing_data = $class->get_listing_data();
+				$listing_data['id'] = 'c-grid-' . esc_attr( $style ) . '-' . rand( 0000, 9999 );
 
 
-			// Get latest posts
-			if ( $latest_posts ) {
+				// Get latest posts
+				if ( $latest_posts ) {
 
-				$post_type = get_sub_field( 'post_type' );
-				$per_page = get_sub_field( 'per_page' );
-				$categories = get_sub_field( 'post_category' );
+					$post_type = get_sub_field( 'post_type' );
+					$per_page = get_sub_field( 'per_page' );
+					$categories = get_sub_field( 'post_category' );
 
-				// If no per page set, use the default posts per page
-				if ( empty( $per_page ) ) {
+					// If no per page set, use the default posts per page
+					if ( empty( $per_page ) ) {
 
-					$per_page = get_option( 'posts_per_page' );
-
-				}
-
-				// Setup args
-				$args = array( 
-
-					'post_type' => $post_type,
-					'post_status' => 'publish',
-					'posts_per_page' => intval( $per_page ),
-
-				);
-
-				// Add categories to args
-				if ( $categories && 'post' == $post_type ) {
-
-					$args['cat'] = implode( ',', $categories );
-
-				}
-
-				
-				// Setup the query
-				$q = new WP_Query( $args );
-
-				// Check that the class we're looking for exists and we have posts
-				if ( $q->have_posts() ) {
-
-					$counter = 1;
-
-					while ( $q->have_posts() ) {
-
-						$q->the_post();
-						
-						// Cache data in a var
-						$data = $class->get_data( get_the_ID() );
-
-						// Add a unique identifier for the components
-						$data['data']['id'] = $listing_data['id'] . '-' . $counter;
-						$items[] = $data;
-
-						// Add the styles
-						if ( method_exists( $class, 'get_styles' ) ) {
-
-							$this->add_styles( $class->get_styles( $data['data'] ) );
-
-						}
-
-						$counter++;
+						$per_page = get_option( 'posts_per_page' );
 
 					}
 
-				}
+					// Setup args
+					$args = array( 
 
-				// Reset the postdata
-				wp_reset_postdata();
+						'post_type' => $post_type,
+						'post_status' => 'publish',
+						'posts_per_page' => intval( $per_page ),
 
+					);
 
-			// We have specified posts, look for those!
-			} else {
+					// Add categories to args
+					if ( $categories && 'post' == $post_type ) {
 
-				if ( empty( $posts ) ) {
+						$args['cat'] = implode( ',', $categories );
 
-					$posts = get_sub_field( 'posts' );
+					}
 
-				}
+					
+					// Setup the query
+					$q = new WP_Query( $args );
 
-				if ( $posts ) {
+					// Check that the class we're looking for exists and we have posts
+					if ( $q->have_posts() ) {
 
-					$counter = 1;
+						$counter = 1;
 
-					// Loop through each post
-					foreach( $posts as $post ) {
+						while ( $q->have_posts() ) {
 
-						// Cache data in a var
-						$data = $class->get_data( $post );
+							$q->the_post();
+							
+							// Cache data in a var
+							$data = $class->get_data( get_the_ID() );
 
-						// Add a unique identifier for the components
-						$data['data']['id'] = $listing_data['id'] . '-' . $counter;
-						$items[] = $data;
+							// Add a unique identifier for the components
+							$data['data']['id'] = $listing_data['id'] . '-' . $counter;
+							$items[] = $data;
 
-						// Add the styles
-						if ( method_exists( $class, 'get_styles' ) ) {
+							// Add the styles
+							if ( method_exists( $class, 'get_styles' ) ) {
 
-							$this->add_styles( $class->get_styles( $data['data'] ) );
+								$this->add_styles( $class->get_styles( $data['data'] ) );
+
+							}
+
+							$counter++;
 
 						}
 
-						$counter++;
+					}
+
+					// Reset the postdata
+					wp_reset_postdata();
+
+
+				// We have specified posts, look for those!
+				} else {
+
+					if ( empty( $posts ) ) {
+
+						$posts = get_sub_field( 'posts' );
+
+					}
+
+					if ( $posts ) {
+
+						$counter = 1;
+
+						// Loop through each post
+						foreach( $posts as $post ) {
+
+							// Cache data in a var
+							$data = $class->get_data( $post );
+
+							// Add a unique identifier for the components
+							$data['data']['id'] = $listing_data['id'] . '-' . $counter;
+							$items[] = $data;
+
+							// Add the styles
+							if ( method_exists( $class, 'get_styles' ) ) {
+
+								$this->add_styles( $class->get_styles( $data['data'] ) );
+
+							}
+
+							$counter++;
+
+						}
 
 					}
 
@@ -428,19 +432,23 @@ class Mttr_Component_Grid {
 
 			}
 
+			// Return the listing data and the items
+			return array(
+
+				'listing' => $listing_data,
+				'items' => array(
+
+					'data' => $items
+
+				)
+
+			);
+
+		} else {
+
+			return false;
+
 		}
-
-		// Return the listing data and the items
-		return array(
-
-			'listing' => $listing_data,
-			'items' => array(
-
-				'data' => $items
-
-			)
-
-		);
 
 	}
 
