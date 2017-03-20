@@ -86,30 +86,34 @@ class Mttr_Component_Flexible_Content {
 	// ------------------------------------------------
 	function get_data( $obj ) {
 
-		if ( have_rows( 'mttr_flexible_bands', $obj ) ) {
+		if( function_exists( 'have_rows' ) ) {
 
-			$counter = 1;
-			$band_data = get_field( 'mttr_flexible_bands', $obj );
+			if ( have_rows( 'mttr_flexible_bands', $obj ) ) {
 
-			$data['bands'] = array();
+				$counter = 1;
+				$band_data = get_field( 'mttr_flexible_bands', $obj );
 
-			while ( have_rows( 'mttr_flexible_bands', $obj ) ) {
+				$data['bands'] = array();
 
-				the_row();
+				while ( have_rows( 'mttr_flexible_bands', $obj ) ) {
 
-				$data['bands'][] = array(
+					the_row();
 
-					'id' => 'band--content-' . $counter,
-					'modifiers' => $this->get_band_modifiers( $counter, $band_data ),
-					'data' => $this->get_flexible_content_data( $counter ) // This may hold a LOT of data
+					$data['bands'][] = array(
 
-				);
+						'id' => 'band--content-' . $counter,
+						'modifiers' => $this->get_band_modifiers( $counter, $band_data ),
+						'data' => $this->get_flexible_content_data( $counter ) // This may hold a LOT of data
 
-				$counter++;
+					);
+
+					$counter++;
+
+				}
+
+				return $data;
 
 			}
-
-			return $data;
 
 		}
 
