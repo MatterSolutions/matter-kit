@@ -99,7 +99,7 @@ echo '<div id="' . esc_html( $namespace ) . '--' . esc_attr( $id ) . '" class="'
 
 			foreach ( $loop as $item ) {
 
-				echo '<li class="o-lyt__item  o-ltg__item' . $item_modifiers . '">';
+				echo '<li class="o-lyt__item  o-ltg__item  ' . esc_html( $namespace ) . '__item' . $item_modifiers . '">';
 
 					echo '<a data-gallery-title="' . esc_html( $item[ 'title' ] ) . '" data-gallery-caption="' . esc_html( $item[ 'caption' ] ) . '" class="' . esc_html( $namespace ) . '__item" href="' . esc_url( $item[ 'image' ] ) . '">';
 						

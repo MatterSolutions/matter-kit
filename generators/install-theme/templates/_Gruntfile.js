@@ -105,6 +105,9 @@ module.exports = function( grunt ) {
 			},
 			build: {
 				src: 'assets/css/*.css'
+			},
+			dev: {
+				src: 'assets/css/*.css'
 			}
 		},
 		modernizr: {

@@ -234,42 +234,16 @@ if ( !function_exists( 'mttr_wp_gallery' ) ) {
 
 			$data = array();
 			$gallery_images = explode( ',', $atts[ 'ids' ] );
+			$cols = !empty( $atts['columns'] ) ? $atts['columns'] : 6;
 			
 			foreach( $gallery_images as $gallery_item ) {
 
 				$data[ 'loop' ][] = mttr_wp_gallery_item_data( $gallery_item );
 
 			}
-
 			
-			// Allow a minimum of 4 columns
-			if ( $atts[ 'columns' ] == '1' ) {
-
-				$data[ 'item_modifiers' ] = '';
-
-			} elseif ( $atts[ 'columns' ] == '2' ) {
-
-				$data[ 'item_modifiers' ] = 'g-one-half';
-
-			} elseif ( $atts[ 'columns' ] == '3' ) {
-
-				$data[ 'item_modifiers' ] = 'g-one-third';
-
-			} elseif ( $atts[ 'columns' ] == '4' ) {
-
-				$data[ 'item_modifiers' ] = 'g-one-half  g-one-quarter@palm-h  g-one-quarter@lap';
-
-			} elseif ( $atts[ 'columns' ] == '5' ) {
-
-				$data[ 'item_modifiers' ] = 'g-one-half  g-one-third@palm-h  g-one-fifth@lap';
-
-			} else {
-
-				$data[ 'item_modifiers' ] = 'g-one-half  g-one-third@palm-h  g-one-sixth@lap';
-
-			}
-
-			$data[ 'modifiers' ] = 'js-image-popup';
+			$data[ 'modifiers' ] = 'c-gallery--cols-' . $cols . '  ';
+			$data[ 'modifiers' ] .= 'js-popup-gallery';
 
 			// Begin buffering output
 			ob_start();

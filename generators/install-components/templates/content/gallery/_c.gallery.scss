@@ -1,0 +1,46 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Component - Gallery
+//
+// 	A filtered WordPress gallery
+//
+// ---------------------------------------------------------------------------- */
+
+
+// Vars
+$wp-gallery-columns: 12;
+
+
+// Output component
+.c-gallery {
+
+	&__item {
+
+		width: 50%;
+
+	}
+
+	@for $i from 1 through $wp-gallery-columns {
+
+		@include mk-media-query( lap ) {
+
+			&--cols-#{$i} &__item {
+
+				width: percentage( 1 / $i );
+
+			}
+
+		}
+
+	}
+
+}

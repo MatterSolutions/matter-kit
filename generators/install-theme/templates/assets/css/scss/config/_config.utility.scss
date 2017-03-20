@@ -34,6 +34,7 @@
 
 	// Line length
 	@include mk-add-utility( 'line-length' );
+	@include mk-add-utility( 'line-length', 'center' );
 
 
 
@@ -46,6 +47,7 @@
 	// Hard
 	@include mk-add-utility( 'hard' );
 	@include mk-add-utility( 'hard', 'bottom' );
+	@include mk-add-utility( 'hard', 'top' );
 
 
 
