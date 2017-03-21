@@ -1,0 +1,207 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Component - Slider Vanilla
+//
+// 	A basic slider
+//
+// ---------------------------------------------------------------------------- */
+
+
+// Import the component vars
+@import 'inc/c.slider-vanilla-vars';
+
+
+// ------------------------------------------------
+//	Enable config and features
+// ------------------------------------------------
+// Config
+// @include mk-add-slider-vanilla-config( configname, key, value );
+
+// Features
+// @include mk-add-slider-vanilla-feature( featurename, key, value );
+
+
+
+// Output the component 'features' we've enabled
+@import 'inc/c.slider-vanilla-features';
+
+
+
+// Project specific styles
+#{ $mk-component-slider-vanilla-selector } {
+
+	color: $mk-color--white;
+	position: relative;
+
+
+	// Hide additional slides on page load
+	&__item + &__item {
+
+		display: none;
+
+		// Display the slides once slick is initialised
+		.slick-initialized & {
+
+			display: inline-block;
+
+		}
+
+	}
+
+
+		// Add padding for small guards so the arrows don't overlay the content
+		&__content-wrap {
+
+			@include mk-media-query( false, desk ) {
+
+				padding-left: mk-base-spacing-unit( 1.5 );
+				padding-right: mk-base-spacing-unit( 1.5 );
+
+			}
+
+		}
+
+
+		&__content--line-length {
+
+			@extend .u-line-length;
+
+		}
+
+
+		&__content--narrow {
+
+			max-width: 768px;
+
+		}
+
+
+		&__content--center {
+
+			margin-left: auto;
+			margin-right: auto;
+
+		}
+
+
+		&__content--right {
+
+			margin-left: auto;
+
+		}
+
+
+		&__content--left {
+
+			margin-right: auto;
+
+		}
+
+
+
+	&__arrows {
+
+	}
+
+
+		&__arrow {
+
+			border-right: mk-misc-config( border, size )  mk-misc-config( border, style )  $mk-color--white;
+			border-top: mk-misc-config( border, size )  mk-misc-config( border, style )  $mk-color--white;
+			cursor: pointer;
+			display: inline-block !important;
+			height: mk-base-spacing-unit();
+			margin-top: -( mk-base-spacing-unit( small ) );
+			position: absolute;
+			top: 50%;
+			transform-origin: center center;
+			width: mk-base-spacing-unit();
+			z-index: 6;
+
+		}
+
+
+		&__arrow--next {
+
+			transform: rotate( -135deg );
+			left: mk-base-spacing-unit( .75 );
+
+		}
+
+
+		&__arrow--prev {
+
+			transform: rotate( 45deg );
+			right: mk-base-spacing-unit( .75 );
+
+		}
+
+
+
+
+	&__dots {
+
+		bottom: mk-base-spacing-unit();
+		left: 0;
+		position: absolute;
+		text-align: center;
+		width: 100%;
+		z-index: 6;
+
+		ul {
+
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
+		}
+
+		li {
+
+			display: inline-block;
+			margin: mk-base-spacing-unit( tiny );
+			padding: 0;
+			vertical-align: middle;
+
+		}
+
+		button {
+
+			background-color: $mk-color--white;
+			border-radius: 50%;
+			border: none;
+			cursor: pointer;
+			height: mk-base-spacing-unit( small );
+			opacity: .5;
+			overflow: hidden;
+			padding: 0;
+			text-indent: -999px;
+			vertical-align: middle;
+			width: mk-base-spacing-unit( small );
+
+			&:focus {
+
+				outline: none;
+
+			}
+
+		}
+
+		.slick-active button {
+
+			opacity: 1;
+
+		}
+
+	}
+
+}

@@ -1,0 +1,20 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	=Components - Slider Vanilla - Dependencies
+*	Enable the css objects used within the Slider Vanilla
+*
+ ---------------------------------------------------------- */
+
+// Objects - Dependencies
+// @include mk-add-object( '', '' );
+
+
+// Utility
+@include mk-add-utility( 'line-length', 'base' );

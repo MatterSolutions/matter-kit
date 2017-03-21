@@ -71,6 +71,12 @@ module.exports = yeoman.Base.extend({
 
             },{
 
+              name: 'Slider Vanilla',
+              value: 'includeContentSliderVanilla',
+              checked: false
+
+            },{
+
               name: 'Map',
               value: 'includeContentMap',
               checked: true
@@ -354,6 +360,7 @@ module.exports = yeoman.Base.extend({
 
         // Content
         this.includeContentMap = hasContentComponent( 'includeContentMap' );
+        this.includeContentSliderVanilla = hasContentComponent( 'includeContentSliderVanilla' );
         this.includeContentStandardContent = hasContentComponent( 'includeContentStandardContent' );
         this.includeContentFlexibleContent = hasContentComponent( 'includeContentFlexibleContent' );
         this.includeContentGallery = hasContentComponent( 'includeContentGallery' );
@@ -976,6 +983,63 @@ module.exports = yeoman.Base.extend({
         this.fs.copy(
           this.templatePath( 'content/gallery/_c.gallery-tpl.php' ), 
           this.destinationPath( 'components/content/gallery/_c.gallery-tpl.php' )
+        );
+
+      }
+
+
+
+
+      // ----------------------------------------------------
+      //  Slider Vanilla component files
+      // ----------------------------------------------------
+      if ( this.includeContentSliderVanilla == true ) {
+
+        // Main Component
+        this.fs.copy(
+          this.templatePath( 'content/slider-vanilla/_c.slider-vanilla.php' ), 
+          this.destinationPath( 'components/content/slider-vanilla/_c.slider-vanilla.php' )
+        );
+
+        // SCSS File
+        this.fs.copy(
+          this.templatePath( 'content/slider-vanilla/_c.slider-vanilla.scss' ), 
+          this.destinationPath( 'components/content/slider-vanilla/_c.slider-vanilla.scss' )
+        );
+
+
+        // Template File
+        this.fs.copy(
+          this.templatePath( 'content/slider-vanilla/inc/_c.slider-vanilla-tpl.php' ), 
+          this.destinationPath( 'components/content/slider-vanilla/inc/_c.slider-vanilla-tpl.php' )
+        );
+
+
+        // JS File
+        this.fs.copy(
+          this.templatePath( 'content/slider-vanilla/inc/_c.slider-vanilla.js' ), 
+          this.destinationPath( 'components/content/slider-vanilla/inc/_c.slider-vanilla.js' )
+        );
+
+
+        // SCSS Dependencies File
+        this.fs.copy(
+          this.templatePath( 'content/slider-vanilla/inc/_c.slider-vanilla-dependencies.scss' ), 
+          this.destinationPath( 'components/content/slider-vanilla/inc/_c.slider-vanilla-dependencies.scss' )
+        );
+
+
+        // SCSS Features File
+        this.fs.copy(
+          this.templatePath( 'content/slider-vanilla/inc/_c.slider-vanilla-features.scss' ), 
+          this.destinationPath( 'components/content/slider-vanilla/inc/_c.slider-vanilla-features.scss' )
+        );
+
+
+        // SCSS Vars File
+        this.fs.copy(
+          this.templatePath( 'content/slider-vanilla/inc/_c.slider-vanilla-vars.scss' ), 
+          this.destinationPath( 'components/content/slider-vanilla/inc/_c.slider-vanilla-vars.scss' )
         );
 
       }

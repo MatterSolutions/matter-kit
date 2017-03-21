@@ -1,0 +1,51 @@
+// * ---------------------------------------------------------------------------    
+// 
+//       __ __  __
+//     /  /   /   /     __/__/__
+//     \ /   /   /  __   /  /  __  (/__
+//      /   /   / /  /  /  /  /__) /  /
+//     /   /   / (__/__/_ /__/____/  /_/
+//             \
+//               SOLUTIONS
+// 
+// 
+//	=Components - Slider Vanilla - Vars
+//
+// 	Setup the Slider Vanilla component for use within a project
+//
+// ---------------------------------------------------------------------------- */
+
+
+// ------------------------------------------------
+//	Setup vars and mixins
+// ------------------------------------------------
+$mk-component-slider-vanilla-name:          slider-vanilla !default;
+$mk-component-slider-vanilla-selector:      mk-get-selector( $mk-component-slider-vanilla-name, true, $mk-components-prefix );
+$mk-component-slider-vanilla-config: ();
+$mk-component-slider-vanilla-features: ();
+
+
+
+// Setup config mixin
+@mixin mk-add-slider-vanilla-config( $name, $key, $value ) {
+
+	$mk-component-slider-vanilla-config: mk-add-data( $mk-component-slider-vanilla-config, $name, $key, $value ) !global;
+
+}
+
+// Setup feature mixin
+@mixin mk-add-slider-vanilla-feature( $name, $key, $value ) {
+
+	$mk-component-slider-vanilla-features: mk-add-data( $mk-component-slider-vanilla-features, $name, $key, $value ) !global;
+
+}
+
+
+
+
+// ------------------------------------------------
+//	Setup defaults
+// ------------------------------------------------
+
+// Base
+@include mk-add-slider-vanilla-config( featurename, key, value );
