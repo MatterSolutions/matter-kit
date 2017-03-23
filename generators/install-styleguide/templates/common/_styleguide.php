@@ -26,8 +26,8 @@ if ( ! function_exists( 'mttr_theme_typefaces' ) ) {
 
 	function mttr_theme_typefaces() {
 
-		<% if ( styleguideInfo.TypefaceHost == "GoogleFonts" ) { %>
 		wp_enqueue_script( 'webfont-loader', 'https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js', null, null, true );
+		<% if ( styleguideInfo.TypefaceHost == "GoogleFonts" ) { %>
 		wp_add_inline_script( 'webfont-loader', "WebFont.load({ google: { families: ['<%= styleguideInfo.TypefaceData %>'] } });" );
 		<% } %><% if ( styleguideInfo.TypefaceHost == "Typekit" ) { %>
 		$typekit = '(function(d) { var config = { kitId: \'<%= styleguideInfo.TypefaceData %>\', scriptTimeout: 3000, async: true }, h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src=\'https://use.typekit.net/\'+config.kitId+\'.js\';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s) })(document);';
