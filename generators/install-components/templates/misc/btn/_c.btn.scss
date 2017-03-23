@@ -69,4 +69,28 @@
 
 	}
 
+
+	&--transparent {
+
+		background-color: transparent !important;
+		border-color: transparent !important;
+
+	}
+
+
+
+	&--icon {
+
+		color: mk-color( primary ) !important;
+		
+		&:hover,
+		&:visited,
+		&:active {
+
+			color: mk-color( primary, dark ) !important;
+
+		}
+
+	}
+
 }

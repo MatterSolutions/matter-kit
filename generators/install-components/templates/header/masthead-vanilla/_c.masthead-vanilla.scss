@@ -189,9 +189,6 @@ $mk-c-masthead-vanilla-secondary-bg-color--mobile:       mk-color( grey-ui, ligh
 
 		&__toggle {
 
-			background-color: mk-color( primary ) !important;
-			border-color: mk-color( primary ) !important;
-			color: $mk-color--white !important;
 			height: calc-rem( $mk-c-masthead-vanilla-header-height--mobile );
 			padding: 0;
 			width: calc-rem( $mk-c-masthead-vanilla-header-height--mobile );
