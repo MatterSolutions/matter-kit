@@ -196,8 +196,8 @@ module.exports = function( grunt ) {
 		'simple_include',
 		'jshint',
 		'concat',
-		'browserSync',
-		'watch',
+		// 'browserSync',
+		// 'watch',
 	]);
 	grunt.registerTask('build', [
 		'sass_globbing',

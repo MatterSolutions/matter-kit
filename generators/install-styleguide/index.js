@@ -102,6 +102,7 @@ module.exports = yeoman.Base.extend({
         this.TypefacePrimaryName = props.TypefacePrimaryName;
         this.TypefacePrimarySlug = props.TypefacePrimarySlug;
         this.TypefaceBaseFontSize = props.TypefaceBaseFontSize;
+        this.TypefacePrimaryStack = props.TypefacePrimaryStack;
         this.TypefaceBaseLineHeight = props.TypefaceBaseLineHeight;
         this.TypefaceBaseTypeScale = props.TypefaceBaseTypeScale;
 
@@ -122,6 +123,7 @@ module.exports = yeoman.Base.extend({
           TypefacePrimarySlug: this.props.TypefacePrimarySlug,
           TypefaceBaseFontSize: this.props.TypefaceBaseFontSize,
           TypefaceBaseLineHeight: this.props.TypefaceBaseLineHeight,
+          TypefacePrimaryStack: this.props.TypefacePrimaryStack,
           TypefaceBaseTypeScale: this.props.TypefaceBaseTypeScale
       };
 
