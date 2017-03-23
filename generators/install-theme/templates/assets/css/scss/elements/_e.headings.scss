@@ -32,7 +32,9 @@ $mk-heading-breakpoint: desk;
 
 
 // Begin outputting component
-h1 {
+h1,
+.h1,
+%h1 {
 
 	@extend %mk-heading;
 	font-size: calc-rem( calc-type-scale( 7 ) );
@@ -46,7 +48,9 @@ h1 {
 }
 
 
-h2 {
+h2,
+.h2,
+%h2 {
 
 	@extend %mk-heading;
 	font-size: calc-rem( calc-type-scale( 6 ) );
@@ -60,7 +64,9 @@ h2 {
 }
 
 
-h3 {
+h3,
+.h3,
+%h3 {
 
 	@extend %mk-heading;
 	font-size: calc-rem( calc-type-scale( 5 ) );
@@ -68,7 +74,9 @@ h3 {
 }
 
 
-h4 {
+h4,
+.h4,
+%h4 {
 
 	@extend %mk-heading;
 	font-size: calc-rem( calc-type-scale( 3 ) );
@@ -76,7 +84,9 @@ h4 {
 }
 
 
-h5 {
+h5,
+.h5,
+%h5 {
 
 	@extend %mk-heading;
 	font-size: calc-rem( calc-type-scale( 2 ) );
@@ -84,7 +94,9 @@ h5 {
 }
 
 
-h6 {
+h6,
+.h6,
+%h6 {
 
 	@extend %mk-heading;
 	font-size: calc-rem( calc-type-scale( 1 ) );
